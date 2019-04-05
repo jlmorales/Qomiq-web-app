@@ -1,0 +1,52 @@
+body,html{
+	height: 100%;
+	background-color: #f0e7e3;
+	position: relative;
+
+}
+
+
+#displaylist{
+	padding-top: 1%;
+}
+
+
+
+#display-row{
+
+	height:90%;
+	padding-top: 5%;
+	
+}
+
+
+#hxh{
+
+	height:100%;
+	width:70%;
+}
+
+#subs-btn{
+
+	background-color: #699d78;
+	border-color: #699d78;
+	border-radius: 10%;
+	color: #eceded;
+	
+}
+
+figtitle{
+	font-weight: bolder;
+	font-size: 150%;
+}
+
+figure{
+	border: ridge;
+}
+
+figure:hover{
+
+	border: ridge;
+	background-color: white;
+
+}
