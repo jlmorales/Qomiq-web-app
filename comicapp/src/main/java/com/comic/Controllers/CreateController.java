@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class AboutController {
+public class CreateController {
 
-    @RequestMapping(value = {"/about"}, method = RequestMethod.GET)
-    public ModelAndView about() {
+    @RequestMapping(value = {"/create"}, method = RequestMethod.GET)
+    public ModelAndView create() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("about");
+        modelAndView.setViewName("editor");
         return modelAndView;
     }
 }

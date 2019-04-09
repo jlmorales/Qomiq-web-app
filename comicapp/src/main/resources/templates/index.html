@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="/css/home.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,13 +17,13 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#create">Create</a></li>
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/explore">Explore</a></li>
+            <li><a href="/about">About</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
         </ul>
     </div>
 </nav>
@@ -34,8 +34,8 @@
 <div class="hero-image">
     <div class="hero-text">
         <h1>Make It Your Comic Universe!</h1>
-        <button>Create</button>
-        <button>Login</button>
+        <button th:action="@{/create}">Create</button>
+        <button th:action="@{/login}">Login</button>
     </div>
 
 </div>
@@ -43,9 +43,6 @@
 <section id="projects" >
     <h1>Featured</h1>
     <div class="row" >
-        <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-        <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-        <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
         <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
     </div>
 
