@@ -25,6 +25,14 @@ function select() {
 
 }
 
-function shapes() {
+function circle() {
+
+}
+
+function rectangle() {
+
+}
+
+function triangle() {
 
 }
