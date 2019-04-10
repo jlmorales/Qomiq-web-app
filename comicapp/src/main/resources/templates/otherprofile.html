@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -35,6 +35,7 @@
 	<div class="hero-text">
 		<img src="avatar.jpg" id="avatar">
     <br>
+        <h1 class="display-4"><span th:utext="${name}"></span></h1>
     <p>Avatar Aong</p>
     <button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>		
 	</div>

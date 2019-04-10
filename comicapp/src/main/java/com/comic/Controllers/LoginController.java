@@ -71,5 +71,10 @@ public class LoginController {
         return modelAndView;
     }
 
-
+    @RequestMapping()
+    public ModelAndView woops(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("error");
+        return modelAndView;
+    }
 }
