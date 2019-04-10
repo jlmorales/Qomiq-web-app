@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -28,7 +28,7 @@
   </div>
 </nav>
 
-
+    <h1 class="display-4"><span th:utext="${name}"></span></h1>
 
 <!-- The hero  -->
 <div class="hero-image">
