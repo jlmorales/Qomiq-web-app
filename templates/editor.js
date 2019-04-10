@@ -53,3 +53,15 @@ function pencilmode() {
     canvas.freeDrawingBrush.color = "green";
     
 }
+
+var holder;
+
+function exportEdit(){
+    holder = canvas.toJSON();
+    //console.log(canvas.toJSON());
+    canvas.clear();
+}
+
+function importEdit(){
+    canvas.loadFromJSON(holder);
+}
