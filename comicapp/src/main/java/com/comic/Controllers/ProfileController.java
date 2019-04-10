@@ -17,7 +17,7 @@ public class ProfileController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"/profile/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/profile/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView profile(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("otherprofile");
