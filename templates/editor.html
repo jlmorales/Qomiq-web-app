@@ -4,12 +4,15 @@
     <title>Home</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="fabric.min.js"></script>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 
+
+
+    <script src="/js/lib/fabric.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -32,25 +35,62 @@
 
 
 
+<!-- The hero  -->
+<!-- <div class="hero-image">
+	<div class="hero-text">
+		<h1>Make It Your Comic Universe!</h1>
+		<button>Create</button>
+		<button>Login</button>
+	</div>
 
+</div> -->
+
+<!-- <section id="projects" >
+  <h1>Featured</h1>
+<div class="row" >
+  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
+  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
+  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
+  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
+</div>
+
+</section> -->
 
 <section style="border:solid;">
     <div class= "row">
         <div class="col-xs-2" style="color:green;">
-            <div class="col-xs-6"><button class="btn btn-lg" onclick="window.pencil()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-            <div class="col-xs-6"><button class= "btn btn-lg" onclick="window.exportEdit()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-            <div class="col-xs-6"><button onclick="window.importEdit()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-            <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+            <div id="pencil" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.pencil()"><span class="fa fa-paint-brush" alt="pencil"></span></button></div>
+            <div id="eraser" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.eraser()"><span class="fa fa-eraser" alt="eraser"></span></button></div>
+            <div id="bucket" class="col-xs-6"><button class= "btn btn-info btn-lg" onclick="window.bucket()"><span class="fa fa-fill-drip" alt="bucket"></span></button></div>
+            <div id="select" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.select()"><span class="fa fa-mouse-pointer" alt="select"></span></button></div>
+            <div id="circle" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button></div>
+            <div id="rectangle" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button></div>
+            <div id="triangle" class="col-xs-6"><button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class = "btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-file-image" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-copy" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-paste" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-cut" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-copy" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><input type="color"></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-trash" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-italic" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-bold" alt="pencil"></span></button></div>
 
 
 
         </div>
-        <div class="col-xs-9" style="border:solid;"><canvas id="c" width="500" height="500" style="border: solid;"></canvas></div>
+        <div class="col-xs-9" style="border:solid;background-color: red;"><canvas id="myCanvas" width="500" height="500" style="border: solid"></canvas></div>
         <div class="col-xs-1" style="color:green;">
-            <div class="col-xs-12"><button class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-            <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-            <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>s
 
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-share" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-save" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-file-import" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-file-export" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-undo" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-redo" alt="pencil"></span></button></div>
+            
         </div>
     </div>
 
@@ -60,9 +100,6 @@
 
 
 
-
-<!--loading the scripts here for better performance-->
-<script src="editor.js"></script>
-
+<script src="/js/src/editor.js"></script>
 </body>
 </html>

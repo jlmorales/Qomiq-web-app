@@ -27,7 +27,7 @@ function select() {
 
 function circle() {
     var circle = new fabric.Circle({
-      radius: 20, fill: color, left: 100, top: 100
+        radius: 20, fill: color, left: 100, top: 100
     });
     canvas.add(circle);
     canvas.renderAll();
@@ -39,14 +39,14 @@ function rectangle() {
         left: 100, top: 100,
         fill: color,
         angle: 0
-      });
+    });
     canvas.add(rect); // add Object
     canvas.renderAll();
 }
 
 function triangle() {
     var triangle = new fabric.Triangle({
-      width: 20, height: 30, fill: color, left: 50, top: 50
+        width: 20, height: 30, fill: color, left: 50, top: 50
     });
     canvas.add(triangle);
 }
