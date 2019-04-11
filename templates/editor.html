@@ -4,7 +4,7 @@
     <title>Home</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="home.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -12,7 +12,7 @@
 
 
 
-    <script src="/js/lib/fabric.min.js"></script>
+    <script src="fabric.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -35,26 +35,7 @@
 
 
 
-<!-- The hero  -->
-<!-- <div class="hero-image">
-	<div class="hero-text">
-		<h1>Make It Your Comic Universe!</h1>
-		<button>Create</button>
-		<button>Login</button>
-	</div>
 
-</div> -->
-
-<!-- <section id="projects" >
-  <h1>Featured</h1>
-<div class="row" >
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-</div>
-
-</section> -->
 
 <section style="border:solid;">
     <div class= "row">
@@ -81,15 +62,15 @@
 
 
         </div>
-        <div class="col-xs-9" style="border:solid;background-color: red;"><canvas id="myCanvas" width="500" height="500" style="border: solid"></canvas></div>
+        <div class="col-xs-9" style="border:solid;"><canvas style="border:solid;" id="myCanvas" width="500" height="500" style="border: solid"></canvas></div>
         <div class="col-xs-1" style="color:green;">
 
-            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-share" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-share" alt="pencil"></span></button></div>
             <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-save" alt="pencil"></span></button></div>
             <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-file-import" alt="pencil"></span></button></div>
             <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-file-export" alt="pencil"></span></button></div>
             <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-undo" alt="pencil"></span></button></div>
-            <div id="brushSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-redo" alt="pencil"></span></button></div>
+            <div id="brushSize" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-redo" alt="pencil"></span></button></div>
 
         </div>
     </div>
@@ -100,6 +81,6 @@
 
 
 
-<script src="/js/src/editor.js"></script>
+<script src="editor.js"></script>
 </body>
 </html>

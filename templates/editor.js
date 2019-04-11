@@ -8,9 +8,11 @@ var color = "black";
 var brushWidth = 2;
 
 function pencil() {
-    fabric.isDrawingMode = true;
+
+    canvas.isDrawingMode= true;
     canvas.freeDrawingBrush.width = 2;
-    canvas.freeDrawingBrush.color = "black";
+    canvas.freeDrawingBrush.color = "white";
+
 }
 
 function eraser() {
