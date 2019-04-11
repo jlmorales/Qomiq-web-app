@@ -1,16 +1,16 @@
 
 var canvas = new fabric.Canvas('myCanvas');
-
-canvas.item(0);
-canvas.getObjects();
+canvas.backgroundColor = "white";
+canvas.renderTop();
+canvas.renderAll();
 
 var color = "black";
 var brushWidth = 2;
 
 function pencil() {
     fabric.isDrawingMode = true;
-    canvas.freeDrawingBrush.width = brushWidth;
-    canvas.freeDrawingBrush.color = color;
+    canvas.freeDrawingBrush.width = 2;
+    canvas.freeDrawingBrush.color = "black";
 }
 
 function eraser() {
@@ -30,6 +30,7 @@ function circle() {
       radius: 20, fill: color, left: 100, top: 100
     });
     canvas.add(circle);
+    canvas.renderAll();
 }
 
 function rectangle() {
@@ -40,6 +41,7 @@ function rectangle() {
         angle: 0
       });
     canvas.add(rect); // add Object
+    canvas.renderAll();
 }
 
 function triangle() {
@@ -57,11 +59,13 @@ function setColor(newColor) {
     color = newColor;
 }
 
-function export() {
+var holder;
+
+function exportEdit() {
     holder = canvas.toJSON();
     canvas.clear();
 }
 
-function import() {
+function importEdit() {
     canvas.loadFromJSON(holder);
 }

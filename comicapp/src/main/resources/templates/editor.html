@@ -4,12 +4,11 @@
 	<title>Home</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="/js/lib/fabric.min.js"></script>
-    <script src="/js/src/editor.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -56,17 +55,17 @@
 <section style="border:solid;">
   <div class= "row">
     <div class="col-xs-2" style="color:green;">
-       <div id="pencil" class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" onclick="pencil()" alt="pencil"></span></button></div>
-        <div id="eraser" class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" onclick="eraser()" alt="pencil"></span></button></div>
-        <div id="bucket" class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" onclick="bucket()" alt="pencil"></span></button></div>
-        <div id="select" class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" onclick="select()" alt="pencil"></span></button></div>
-        <div id="circle" class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" onclick="circle()" alt="pencil"></span></button></div>
-        <div id="rectangle" class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" onclick="rectangle()" alt="pencil"></span></button></div>
-        <div id="triangle" class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" onclick="triangle()" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+       <div id="pencil" class="col-xs-6"><button onclick="window.pencil()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="eraser" class="col-xs-6"><button onclick="window.eraser()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="bucket" class="col-xs-6"><button onclick="window.bucket()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="select" class="col-xs-6"><button onclick="window.select()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="circle" class="col-xs-6"><button onclick="window.circle()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="rectangle" class="col-xs-6"><button onclick="window.rectangle()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="triangle" class="col-xs-6"><button onclick="window.triangle()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="brushSize" class="col-xs-6"><button onclick="window.setWidth()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="export" class="col-xs-6"><button onclick="window.exportEdit()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="import" class="col-xs-6"><button onclick="window.importEdit()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <form id="colorForm"><div id="color" class="col-xs-6"><input type="color"></div><input type="submit"></form>
         <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
         <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
         <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
@@ -98,7 +97,7 @@
 
 
     </div>
-    <div class="col-xs-9" style="border:solid;background-color: white;"><canvas id="myCanvas" width="500" height="500"></canvas></div>
+    <div class="col-xs-9" style="border:solid;background-color: red;"><canvas id="myCanvas" width="500" height="500" style="border: solid"></canvas></div>
     <div class="col-xs-1" style="color:green;">
        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
         <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
@@ -133,6 +132,6 @@
 
 
 
-
+<script src="/js/src/editor.js"></script>
 </body>
 </html>
