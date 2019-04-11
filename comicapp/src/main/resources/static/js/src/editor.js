@@ -7,6 +7,44 @@ canvas.renderAll();
 var color = "black";
 var brushWidth = 2;
 
+
+
+var fileInput = document.getElementById('img-inp');
+
+// fileInput.addEventListener('change', (e) => {console.log(e.target.filename)});
+// fileInput.onchange((e)=>{
+//     console.log(e.target.filename);
+// });
+fileInput.addEventListener('change', function(e){
+    console.log("file input is real!");
+    console.log(e);
+    console.log(e.target.files[0].name);
+    var fileReader = new FileReader();
+    fileReader.onload = function(o) {
+        var imgObject = new Image();
+        imgObject.src = o.target.result;
+        imgObject.onload = function() {
+            var img = new fabric.Image(imgObject);
+            img.set({
+                angle: 0,
+                padding: 15,
+                cornersize: 15,
+                height: 200,
+                width: 200
+            });
+            canvas.centerObject(img);
+            canvas.add(img);
+            canvas.renderAll();
+        }
+    }
+    fileReader.readAsDataURL(e.target.files[0]);
+
+
+
+});
+
+
+
 function pencil() {
     canvas.isDrawingMode = true;
     console.log('yo');
@@ -70,25 +108,25 @@ function exportEdit() {
 function importEdit() {
     canvas.loadFromJSON(holder);
 }
-
-function image(e) {
-    var fileReader = new FileReader();
-    fileReader.onload = function(o) {
-        var imgObject = new Image();
-        imgObject.src = o.target.result;
-        imgObject.onload = function() {
-            var img = new fabric.Image(imgObject);
-            img.set({
-                angle: 0,
-                padding: 15,
-                cornersize: 15,
-                height: 200,
-                width: 200
-            });
-            canvas.centerObject(img);
-            canvas.add(img);
-            canvas.renderAll();
-        }
-    }
-    reader.readAsDataURL(e.target.files[0]);
-}
+//
+// function image(e) {
+//     var fileReader = new FileReader();
+//     fileReader.onload = function(o) {
+//         var imgObject = new Image();
+//         imgObject.src = o.target.result;
+//         imgObject.onload = function() {
+//             var img = new fabric.Image(imgObject);
+//             img.set({
+//                 angle: 0,
+//                 padding: 15,
+//                 cornersize: 15,
+//                 height: 200,
+//                 width: 200
+//             });
+//             canvas.centerObject(img);
+//             canvas.add(img);
+//             canvas.renderAll();
+//         }
+//     }
+//     reader.readAsDataURL(e.target.files[0]);
+// }
