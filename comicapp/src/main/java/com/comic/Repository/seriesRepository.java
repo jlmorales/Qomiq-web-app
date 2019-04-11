@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface seriesRepository extends JpaRepository<series, Integer> {
         public List<series> findAll();
+        public List<series> findAllByCategory(String category);
 }
