@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Explore</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <title>Explore</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-	<link rel="stylesheet" type="text/css" href="explore.css">
+  <link rel="stylesheet" type="text/css" href="explore.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -29,32 +29,32 @@
 </nav>
 
 <div class="container">
-    <div class="row">
-    <div class="col-xs-4"> Explore Comics</div>    
-        <div class="col-xs-6">
-        <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                      <span id="search_concept">Category</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#action">Action</a></li>
-                      <li><a href="#comedy">Comedy</a></li>
-                      <li><a href="#political">Political</a></li>
-                      <li><a href="#sci-fi">Science Fiction</a></li>
-                      <li><a href="#anime">Anime</a></li>
-                      <li><a href="#anime">Adventure</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#all">Anything</a></li>
-                    </ul>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">
-                <span class="input-group-btn">
+  <div class="row">
+    <div class="col-xs-4"> Explore Comics</div>
+    <div class="col-xs-6">
+      <div class="input-group">
+        <div class="input-group-btn search-panel">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span id="search_concept">Category</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#action">Action</a></li>
+            <li><a href="#comedy">Comedy</a></li>
+            <li><a href="#political">Political</a></li>
+            <li><a href="#sci-fi">Science Fiction</a></li>
+            <li><a href="#anime">Anime</a></li>
+            <li><a href="#anime">Adventure</a></li>
+            <li class="divider"></li>
+            <li><a href="#all">Anything</a></li>
+          </ul>
+        </div>
+        <input type="hidden" name="search_param" value="all" id="search_param">
+        <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">
+        <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
-            </div>
-        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -67,133 +67,24 @@
 
   <div class="row" id="display-row">
 
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
 
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
 
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
 
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="col-xs-3">
-      <figure>
-        <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-          <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-        </figcaption>
-      </figure>
+    <div th:each="series:${serieses}">
+      <div class="col-xs-3">
+        <figure>
+          <figtitle th:text="${series.title}"></figtitle>
+          <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:100%"/>
+          <figcaption>by <a href="#" th:text="${series.authorUsername}"></a><div th:text="${series.category}"></div>
+            <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
+          </figcaption>
+        </figure>
+      </div>
     </div>
 
 
-  </div></div>
 
-
-
-
-
+    <div>
 
 
 </body>
