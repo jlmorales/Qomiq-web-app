@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/editor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/editor.js" afterDir="false" />
-    </list>
+    <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/comicapp/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +23,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/editor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="136">
               <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -107,7 +102,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="789" />
@@ -483,7 +478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/editor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="136">
           <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
