@@ -13,8 +13,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "comic")
-public class comic {
+@Table(name = "Comic")
+public class Comic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "comic_id")

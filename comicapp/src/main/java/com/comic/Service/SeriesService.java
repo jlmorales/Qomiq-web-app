@@ -1,21 +1,22 @@
 package com.comic.Service;
 
-import com.comic.model.series;
+import com.comic.Repository.SeriesRepository;
+import com.comic.model.Series;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("seriesService")
-public class seriesService {
-    private com.comic.Repository.seriesRepository seriesRepository;
+@Service("SeriesService")
+public class SeriesService {
+    private SeriesRepository seriesRepository;
 
     @Autowired
-    public seriesService(com.comic.Repository.seriesRepository seriesRepository){
+    public SeriesService(SeriesRepository seriesRepository){
         this.seriesRepository = seriesRepository;
     }
 
-    public List<series> findAllSerieses(){
+    public List<Series> findAllSeries(){
         return seriesRepository.findAll();
     }
 

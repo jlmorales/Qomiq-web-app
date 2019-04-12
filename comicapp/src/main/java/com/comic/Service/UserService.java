@@ -38,6 +38,8 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public User findUserByUsername(String username) { return userRepository.findByUsername(username);}
+
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);

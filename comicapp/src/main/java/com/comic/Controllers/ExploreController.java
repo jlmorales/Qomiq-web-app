@@ -1,6 +1,8 @@
 package com.comic.Controllers;
-import com.comic.Service.seriesService;
-import com.comic.model.series;
+import com.comic.Service.SeriesService;
+import com.comic.Service.UserService;
+import com.comic.model.Series;
+import com.comic.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +18,22 @@ public class ExploreController {
 
 
     @Autowired
-    private seriesService seriesService;
+    private SeriesService seriesService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = {"/explore"}, method = RequestMethod.GET)
     public ModelAndView explore() {
         ModelAndView modelAndView = new ModelAndView();
-        List<series> serieses = seriesService.findAllSerieses();
-        modelAndView.addObject("serieses",serieses);
+        List<Series> series = seriesService.findAllSeries();
+        List<User> users = new ArrayList<>();
+        for (Series s: series) {
+            User user = userService.findUserByUsername(s.getAuthorUsername());
+            users.add(user);
+        }
+        modelAndView.addObject("series",series);
+        modelAndView.addObject("users", users);
         modelAndView.setViewName("explore");
         return modelAndView;
     }
@@ -30,18 +41,22 @@ public class ExploreController {
     @RequestMapping(value = {"/explore/{category}"}, method = RequestMethod.GET)
     public ModelAndView category(@PathVariable("category") String category) {
         ModelAndView modelAndView = new ModelAndView();
-        List<series> serieses = seriesService.findAllSerieses();
-        List<series>  filteredList = new ArrayList<>();
-        System.out.print(serieses);
+        List<Series> series = seriesService.findAllSeries();
+        List<Series>  filteredList = new ArrayList<>();
+        System.out.print(series);
         category = category.toLowerCase();
         System.out.println(category);
-        for(series series : serieses){
-            if(series.getCategory().equals(category)){
-                filteredList.add(series);
+        List<User> users = new ArrayList<>();
+        for(Series s : series){
+            if(s.getCategory().equals(category)){
+                filteredList.add(s);
+                User user = userService.findUserByUsername(s.getAuthorUsername());
+                users.add(user);
             }
         }
         System.out.println(filteredList);
-        modelAndView.addObject("serieses",filteredList);
+        modelAndView.addObject("series",filteredList);
+        modelAndView.addObject("users",users);
         modelAndView.setViewName("explore");
         return modelAndView;
     }
