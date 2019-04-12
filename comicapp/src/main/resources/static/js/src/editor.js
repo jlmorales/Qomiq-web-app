@@ -46,8 +46,12 @@ fileInput.addEventListener('change', function(e){
 
 
 function pencil() {
-    canvas.isDrawingMode = true;
-    console.log('yo');
+    if (!canvas.isDrawingMode) {
+        canvas.isDrawingMode = true;
+    }
+    else {
+        canvas.isDrawingMode = false;
+    }
     canvas.freeDrawingBrush.width = 2;
     canvas.freeDrawingBrush.color = "black";
 }
