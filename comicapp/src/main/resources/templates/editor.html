@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Editor</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/home.css">
@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="/js/lib/fabric.min.js"></script>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -53,73 +55,58 @@
 </section> -->
 
 <section style="border:solid;">
+
+    <div class = "row">
+
+        <div class = "col-xs-3"></div>
+        <div class = "col-xs-6">
+            Title Here: <input id="edit-title" value="title here" type="text"></input>
+        </div>
+        <div class = "col-xs-3"></div>
+
+    </div>
+
   <div class= "row">
     <div class="col-xs-2" style="color:green;">
-       <div id="pencil" class="col-xs-6"><button onclick="window.pencil()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="eraser" class="col-xs-6"><button onclick="window.eraser()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="bucket" class="col-xs-6"><button onclick="window.bucket()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="select" class="col-xs-6"><button onclick="window.select()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="circle" class="col-xs-6"><button onclick="window.circle()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="rectangle" class="col-xs-6"><button onclick="window.rectangle()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="triangle" class="col-xs-6"><button onclick="window.triangle()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="brushSize" class="col-xs-6"><button onclick="window.setWidth()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="export" class="col-xs-6"><button onclick="window.exportEdit()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div id="import" class="col-xs-6"><button onclick="window.importEdit()"><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <form id="colorForm"><div id="color" class="col-xs-6"><input type="color"></div><input type="submit"></form>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-6"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
+        <div id="pencil" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.pencil()"><span class="fa fa-paint-brush" alt="pencil"></span></button></div>
+        <div id="eraser" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.eraser()"><span class="fa fa-eraser" alt="eraser"></span></button></div>
+        <div id="bucket" class="col-xs-6"><button class= "btn btn-info btn-lg" onclick="window.bucket()"><span class="fa fa-fill-drip" alt="bucket"></span></button></div>
+        <div id="select" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.select()"><span class="fa fa-mouse-pointer" alt="select"></span></button></div>
+        <div id="circle" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button></div>
+        <div id="rectangle" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button></div>
+        <div id="triangle" class="col-xs-6"><button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button></div>
+
+
+        <div id="image" class="col-xs-6"><button class = "btn btn-info btn-lg" ><span class="fas fa-file-image" alt="pencil"><input id="img-inp" type="file"/></span></button></div>
+
+
+
+
+
+        <div id="copy" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-copy" alt="pencil"></span></button></div>
+        <div id="paste" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-paste" alt="pencil"></span></button></div>
+        <div id="cut" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-cut" alt="pencil"></span></button></div>
+        <div id="color" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><input type="color"></button></div>
+        <div id="trash" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-trash" alt="pencil"></span></button></div>
+        <div id="textSize" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button></div>
+        <div id="font" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button></div>
+        <div id="italic" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-italic" alt="pencil"></span></button></div>
+        <div id="bold" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-bold" alt="pencil"></span></button></div>
 
 
 
     </div>
     <div class="col-xs-9" style="border:solid;background-color: red;"><canvas id="myCanvas" width="500" height="500" style="border: solid"></canvas></div>
     <div class="col-xs-1" style="color:green;">
-       <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-        <div class="col-xs-12"><button><span class="glyphicon glyphicon-pencil" alt="pencil"></span></button></div>
-       
-       
+        <div id="share" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-share" alt="pencil"></span></button></div>
+        <div id="save" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-save" alt="pencil"></span></button></div>
+        <div id="import" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-file-import" alt="pencil"></span></button></div>
+        <div id="export" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-file-export" alt="pencil"></span></button></div>
+        <div id="undo" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-undo" alt="pencil"></span></button></div>
+        <div id="redo" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-redo" alt="pencil"></span></button></div>
+
+
+
 
 
 
