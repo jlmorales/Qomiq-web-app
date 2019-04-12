@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="fixed AWS database">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/teamyellow_finalproject_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comicapp/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/comicapp/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -291,6 +287,7 @@
       <workItem from="1555047030066" duration="138000" />
       <workItem from="1555080523453" duration="2365000" />
       <workItem from="1555086269772" duration="203000" />
+      <workItem from="1555087444799" duration="1390000" />
     </task>
     <task id="LOCAL-00001" summary="thymelaf for explore page">
       <created>1555011036505</created>
@@ -320,16 +317,23 @@
       <option name="project" value="LOCAL" />
       <updated>1555022128249</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="final version of database connection">
+      <created>1555087479496</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555087479496</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39447000" />
+    <option name="totallyTimeSpent" value="40837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26028278" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26349613" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -352,7 +356,7 @@
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" visible="true" weight="0.2664872" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" visible="true" weight="0.4589502" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -373,7 +377,8 @@
     <MESSAGE value="loading series cover images from AWS S3" />
     <MESSAGE value="trying to marge to alex-editor" />
     <MESSAGE value="fixed AWS database" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed AWS database" />
+    <MESSAGE value="final version of database connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version of database connection" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
