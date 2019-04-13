@@ -49,9 +49,7 @@
                 <span th:utext="${successMessage}"></span>
             </form>
                 <div class="col-sm-9">
-                    <form th:action="@{/}" method="get">
-                        <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-                    </form>
+                        <form action="/login"><input type="submit" value="Login" class="btn btn-md btn-warning btn-block"/></form>
                 </div>
         </div>
     </div>

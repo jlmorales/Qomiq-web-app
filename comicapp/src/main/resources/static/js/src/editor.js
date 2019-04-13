@@ -112,6 +112,46 @@ function exportEdit() {
 function importEdit() {
     canvas.loadFromJSON(holder);
 }
+
+var clipboard = null;
+
+function copy() {
+    canvas.getActiveObject().clone(function(clonedObj) {
+        clipboard = clonedObj;
+    });
+}
+
+function cut() {
+    canvas.getActiveObject().clone(function(clonedObj) {
+        clipboard = clonedObj;
+    });
+    canvas.remove(canvas.getActiveObject());
+}
+
+function paste() {
+    clipboard.clone(function(clonedObj) {
+    	canvas.discardActiveObject();
+    	clonedObj.set({
+    	    left: clonedObj.left + 10,
+    		top: clonedObj.top + 10,
+    		event: true,
+    	});
+    	if (clonedObj.type === 'activeSelection') {
+    		clonedObj.canvas = canvas;
+    		clonedObj.forEachObject(function(o) {
+    			canvas.add(o);
+    		});
+    		clonedObj.setCoords();
+    	}
+    	else {
+    		canvas.add(clonedObj);
+    	}
+    	clipboard.top += 10;
+    	clipboard.left += 10;
+    	canvas.setActiveObject(clonedObj);
+    	canvas.requestRenderAll();
+    });
+}
 //
 // function image(e) {
 //     var fileReader = new FileReader();
