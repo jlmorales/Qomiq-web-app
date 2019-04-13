@@ -3,7 +3,12 @@ var canvas = new fabric.Canvas('myCanvas');
 canvas.backgroundColor = "white";
 canvas.renderTop();
 canvas.renderAll();
-
+canvas.on('object:added',function(){
+  if(!redoOn){
+    actionStack = [];
+  }
+  redoOn = false;
+});
 var color = "black";
 var brushWidth = 2;
 
@@ -52,8 +57,8 @@ function pencil() {
     else {
         canvas.isDrawingMode = false;
     }
-    canvas.freeDrawingBrush.width = 2;
-    canvas.freeDrawingBrush.color = "black";
+    canvas.freeDrawingBrush.width = brushWidth;
+    canvas.freeDrawingBrush.color = color;
 }
 
 function eraser() {
@@ -152,6 +157,30 @@ function paste() {
     	canvas.requestRenderAll();
     });
 }
+
+var redoOn = false;
+var actionStack = [];
+
+function undo() {
+    if (canvas._objects.length > 0) {
+        actionStack.push(canvas._objects.pop());
+        canvas.renderAll();
+    }
+}
+
+function redo() {
+    if (actionStack.length > 0) {
+        redoOn = true;
+        canvas.add(actionStack.pop());
+    }
+}
+
+function text() {
+    var text = new fabric.Text('Type here...', {fontFamily: 'times new roman', left: 100, top:1000});
+    canvas.add(text);
+    canvas.renderAll();
+}
+
 //
 // function image(e) {
 //     var fileReader = new FileReader();
