@@ -110,13 +110,14 @@ function eraser() {
 }
 
 function bucket() {
-
   var bucket = document.getElementById("col-pk").value;
+  console.log(bucket == null);
   var selection = canvas.getActiveObject();
   if(selection == null){
       canvas.backgroundColor = bucket;
   }else{
-      canvas.selectionColor = bucket;
+      selection.set({fill:bucket});
+      console.log("slection color has been changed to " + bucket);
   }
 canvas.renderAll();
 
@@ -252,6 +253,7 @@ function boldToggle(){
     }else{
         selected.set({fontWeight:'normal'});
     }
+    canvas.renderAll();
 }
 
 
@@ -264,6 +266,8 @@ function italicToggle(){
     }else{
         selected.set({fontStyle:'normal'});
     }
+
+    canvas.renderAll();
 
 
 }
