@@ -1,8 +1,17 @@
 
+//for the initial canvas setup
 var canvas = new fabric.Canvas('myCanvas');
 canvas.backgroundColor = "white";
+var redoOn = false;
+var actionStack = [];
+var holder;
+var clipboard = null;
+
 canvas.renderTop();
 canvas.renderAll();
+
+
+
 canvas.on('object:added',function(){
   if(!redoOn){
     actionStack = [];
@@ -14,12 +23,9 @@ var brushWidth = 2;
 
 
 
-var fileInput = document.getElementById('img-inp');
 
-// fileInput.addEventListener('change', (e) => {console.log(e.target.filename)});
-// fileInput.onchange((e)=>{
-//     console.log(e.target.filename);
-// });
+
+var fileInput = document.getElementById('img-inp');
 fileInput.addEventListener('change', function(e){
     console.log("file input is real!");
     console.log(e);
@@ -48,8 +54,6 @@ fileInput.addEventListener('change', function(e){
 
 });
 
-
-
 function pencil() {
     if (!canvas.isDrawingMode) {
         canvas.isDrawingMode = true;
@@ -57,9 +61,36 @@ function pencil() {
     else {
         canvas.isDrawingMode = false;
     }
-    canvas.freeDrawingBrush.width = brushWidth;
+    canvas.defaultCursor = "/images/a.jpg";
+    canvas.freeDrawingBrush.width = brushSize();
     canvas.freeDrawingBrush.color = color;
 }
+
+
+
+function addText() {
+    var input = prompt("Enter your text: ");
+    var text_obj = new fabric.Text(
+        input,{
+            fontFamily: 'Comic Sans',
+            fontSize : 16,
+            left: 100,
+            top : 100
+        }
+    );
+
+   text_obj.on('selected', function(e){
+       var x = prompt("change text: ");
+       text_obj.setText(x);
+   });
+
+
+    canvas.add(text_obj);
+
+}
+
+
+
 
 function eraser() {
 
@@ -107,7 +138,6 @@ function setColor(newColor) {
     color = newColor;
 }
 
-var holder;
 
 function exportEdit() {
     holder = canvas.toJSON();
@@ -118,7 +148,6 @@ function importEdit() {
     canvas.loadFromJSON(holder);
 }
 
-var clipboard = null;
 
 function copy() {
     canvas.getActiveObject().clone(function(clonedObj) {
@@ -158,8 +187,7 @@ function paste() {
     });
 }
 
-var redoOn = false;
-var actionStack = [];
+
 
 function undo() {
     if (canvas._objects.length > 0) {
@@ -181,25 +209,43 @@ function text() {
     canvas.renderAll();
 }
 
-//
-// function image(e) {
-//     var fileReader = new FileReader();
-//     fileReader.onload = function(o) {
-//         var imgObject = new Image();
-//         imgObject.src = o.target.result;
-//         imgObject.onload = function() {
-//             var img = new fabric.Image(imgObject);
-//             img.set({
-//                 angle: 0,
-//                 padding: 15,
-//                 cornersize: 15,
-//                 height: 200,
-//                 width: 200
-//             });
-//             canvas.centerObject(img);
-//             canvas.add(img);
-//             canvas.renderAll();
-//         }
-//     }
-//     reader.readAsDataURL(e.target.files[0]);
-// }
+
+
+function brushSize(){
+    var size = prompt("Enter the brush size: ");
+    return size;
+}
+
+
+
+
+
+
+
+function loadWorkspace(){
+
+}
+
+
+function initWorkspace(){
+
+}
+
+
+function registerHandler(){
+
+}
+
+function updateWorkspace(){
+
+}
+
+
+
+
+/**
+ * need to add setup workspace component
+ * need to register event listeners
+ *
+ */
+
