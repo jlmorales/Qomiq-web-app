@@ -10,8 +10,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "comment")
-public class comment {
+@Table(name = "Comment")
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "comment_Id")
@@ -21,5 +21,8 @@ public class comment {
     private String profileUsername;
 
     @Column(name="commentorUsername")
-    private  String commentorUsername;
+    private String commentorUsername;
+
+    @Column(name="commnent_content")
+    private String comment_content;
 }
