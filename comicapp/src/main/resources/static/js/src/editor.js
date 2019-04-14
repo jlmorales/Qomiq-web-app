@@ -10,7 +10,7 @@ var clipboard = null;
 canvas.renderTop();
 canvas.renderAll();
 
-
+canvas.defaultCursor = 'circle';
 
 canvas.on('object:added',function(){
   if(!redoOn){
