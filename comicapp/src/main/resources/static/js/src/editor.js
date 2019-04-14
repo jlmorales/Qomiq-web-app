@@ -54,6 +54,19 @@ fileInput.addEventListener('change', function(e){
 
 });
 
+
+// var bucket = document.getElementById("bkt");
+// bucket.addEventListener('change',function (ev) {
+//     // if(canvas.getActiveObject() === null){
+//     //     canvas.setColor(ev.target.value);
+//     // }
+//     console.log(ev.target.value);
+// });
+
+
+
+
+
 function pencil() {
     if (!canvas.isDrawingMode) {
         canvas.isDrawingMode = true;
@@ -79,10 +92,10 @@ function addText() {
         }
     );
 
-   text_obj.on('selected', function(e){
-       var x = prompt("change text: ");
-       text_obj.setText(x);
-   });
+   // text_obj.on('selected', function(e){
+   //     var x = prompt("change text: ");
+   //     text_obj.setText(x);
+   // });
 
 
     canvas.add(text_obj);
@@ -98,7 +111,19 @@ function eraser() {
 
 function bucket() {
 
+  var bucket = document.getElementById("col-pk").value;
+  var selection = canvas.getActiveObject();
+  if(selection == null){
+      canvas.backgroundColor = bucket;
+  }else{
+      canvas.selectionColor = bucket;
+  }
+canvas.renderAll();
+
+
 }
+
+
 
 function select() {
 
@@ -215,6 +240,34 @@ function brushSize(){
     var size = prompt("Enter the brush size: ");
     return size;
 }
+
+
+
+function boldToggle(){
+
+    var selected = canvas.getActiveObject();
+    console.log(selected);
+    if(selected.get('type')==='text' && selected.get('fontWeight')!== 'bold'){
+        selected.set({fontWeight:'bold'});
+    }else{
+        selected.set({fontWeight:'normal'});
+    }
+}
+
+
+function italicToggle(){
+
+    var selected = canvas.getActiveObject();
+    console.log(selected);
+    if(selected.get('type')==='text' && selected.get('fontStyle')!== 'italic'){
+        selected.set({fontStyle:'italic'});
+    }else{
+        selected.set({fontStyle:'normal'});
+    }
+
+
+}
+
 
 
 
