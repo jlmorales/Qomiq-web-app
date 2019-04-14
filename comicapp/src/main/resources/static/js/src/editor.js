@@ -238,7 +238,9 @@ function text() {
 
 
 function brushSize(){
-    var size = prompt("Enter the brush size: ");
+    if (canvas.isDrawingMode) {
+        var size = prompt("Enter the brush size: ");
+    }
     return size;
 }
 
