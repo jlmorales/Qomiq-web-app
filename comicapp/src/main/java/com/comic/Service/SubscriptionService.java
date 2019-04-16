@@ -22,4 +22,8 @@ public class SubscriptionService {
     public void saveSubscription(Subscription subscription) {
         subscriptionRepository.save(subscription);
     }
+
+    public void deleteSubscription(Subscription subscription){
+        this.subscriptionRepository.deleteById(subscription.getSubscriptionId());
+    }
 }

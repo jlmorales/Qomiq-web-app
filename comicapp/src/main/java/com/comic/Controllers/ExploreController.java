@@ -108,4 +108,19 @@ public class ExploreController {
         return modelAndView;
     }
 
+    @RequestMapping(value = {"/explore/unsubscribe"}, method = RequestMethod.POST)
+    public ModelAndView unsubscribe(@ModelAttribute Series s){
+        System.out.println("From inside of unsubscribe");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User author = userService.findUserByUsername(s.getAuthorUsername());
+        User currentUser = userService.findUserByEmail(auth.getName());
+        Subscription subscription = subscriptionService.findIfSubscriptionExists(author.getEmail(),currentUser.getEmail());
+        System.out.println(subscription.getSubscriptionId());
+        subscriptionService.deleteSubscription(subscription);
+        ModelAndView modelAndView;
+        modelAndView = new ModelAndView(new RedirectView("/explore"));
+        return modelAndView;
+
+    }
+
 }
