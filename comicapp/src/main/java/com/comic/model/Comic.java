@@ -37,8 +37,8 @@ public class Comic {
     @Column(name = "comic_lastModDate")
     private int lastModDate;
 
-    @Column(name = "comic_like")
-    private int like;
+    @Column(name = "comic_likes")
+    private int likes;
 
 
 }

@@ -22,4 +22,10 @@ public class comment {
 
     @Column(name="commentorUsername")
     private  String commentorUsername;
+
+    @Column(name="comicContent")
+    private  String comicContent;
+
+    @Column(name = "comic_Id")
+    private int comicId;
 }

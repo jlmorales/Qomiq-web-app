@@ -84,11 +84,13 @@
               <span th:if = "${currentUser != null}">
                   <span th:if = "${isSubscribed[iter.index] == true}"> already subscribed </span>
                   <span th:if = "${isSubscribed[iter.index] == false}">
-                        <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
+                    <span th:if = "${currentUser.username != s.authorUsername} ">
+                      <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
                           <input type="submit">
                         </form>
+                    </span>
                   </span>
 
               </span>
