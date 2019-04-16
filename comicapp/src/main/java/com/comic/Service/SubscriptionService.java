@@ -18,4 +18,8 @@ public class SubscriptionService {
     public Subscription findIfSubscriptionExists(String subscribee, String subscriber){
         return this.subscriptionRepository.findBySubscribeeUsernameAndSubscriberUsername(subscribee,subscriber);
     }
+
+    public void saveSubscription(Subscription subscription) {
+        subscriptionRepository.save(subscription);
+    }
 }

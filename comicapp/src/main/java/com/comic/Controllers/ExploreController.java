@@ -39,7 +39,7 @@ public class ExploreController {
         ModelAndView modelAndView = new ModelAndView();
         List<Series> series = seriesService.findAllSeries();
         List<User> users = new ArrayList<>();
-//        List<SubscribeForm> forms = new ArrayList<>();
+        List<Boolean> isSubscribed = new ArrayList<>();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
         for (Series s: series) {
@@ -47,9 +47,14 @@ public class ExploreController {
             users.add(user);
             if(currentUser != null){
                 Subscription subscription = subscriptionService.findIfSubscriptionExists(user.getEmail(),currentUser.getEmail());
-//                System.out.println(subscription);
+                if(subscription == null){
+                    isSubscribed.add(false);
+                }
+                else{
+                    isSubscribed.add(true);
+                }
             }
-//            forms.add(new SubscribeForm(user.getEmail()));
+
         }
 
         modelAndView.addObject("currentUser", currentUser);
@@ -59,6 +64,7 @@ public class ExploreController {
         System.out.println("SERIES BEFORE SERVING EXPLORE" + series);
         modelAndView.addObject("series",series);
         modelAndView.addObject("users", users);
+        modelAndView.addObject("isSubscribed", isSubscribed);
         modelAndView.setViewName("explore");
         return modelAndView;
     }
@@ -90,14 +96,13 @@ public class ExploreController {
         Subscription newSubscription = new Subscription();
         System.out.println("Series returned to post:");
         System.out.println(s);
-//        System.out.println(series);
-//        System.out.println(series.getAuthorUsername());
-//        System.out.println("Subscriber author is " + subscribeForm.getSeriesAuthor());
-//        newSubscription.setSubscribeeUsername(subscribeForm.getSeriesAuthor());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
         newSubscription.setSubscriberUsername(currentUser.getEmail());
-//        newSubscription.setSubscribeeUsername(s);
+        User author = userService.findUserByUsername(s.getAuthorUsername());
+        newSubscription.setSubscribeeUsername(author.getEmail());
+        System.out.println(newSubscription);
+        subscriptionService.saveSubscription(newSubscription);
         System.out.println(newSubscription);
         modelAndView = new ModelAndView(new RedirectView("/explore"));
         return modelAndView;

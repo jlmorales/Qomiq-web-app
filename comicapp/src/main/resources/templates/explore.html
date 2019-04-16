@@ -79,46 +79,22 @@
             <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>
               <!--<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>-->
               <span th:if = "${currentUser != null}">
-                  <!--<input type="text" th:value = "${subscribeForms[iter.index].seriesAuthor}">-->
-                  <!--<input type="submit" th:field="${subscribeForms[iter.index].seriesAuthor}" value="Subscribe">-->
-                <form action="#" th:action="@{/explore/subscribe}" th:object= "${s}" method = "post">
-                    <input type="submit" value="Subscribe">
-                </form>
-                  <!---->
-                  <form th:action = "@{/explore/subscribe}" method = "post" th:object = "${s}" >
-                      <input type="hidden"  name = "s" th:value = ${s}>
-                      <button type = "submit">Subscribeeeeee</button>
-                  </form>
-                  <!---->
-                  <form th:action = "@{/explore/subscribe}" method = "post" >
-                      <input type="hidden"  name = "s" th:value = ${s.authorUsername}>
-                      <input type="submit" value = "SUB">
-                      <!--<button type = "submit">Subscribeeeeee</button>-->
-                  </form>
+                  <span th:if = "${isSubscribed[iter.index] == true}"> already subscribed </span>
+                  <span th:if = "${isSubscribed[iter.index] == false}">
+                        <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
+                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">
+                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
+                          <input type="submit">
+                        </form>
+                  </span>
 
-                  <!--<input type="submit"  value="Subscribe" th:value="${subscribeForms[iter.index].seriesAuthor}">-->
               </span>
             </figcaption>
 
         </figure>
       </div>
     </div>
-      <!--<li th:each = "s : ${series}">-->
-          <!--<form action="/explore/subscribe" method="post">-->
-              <!--<input type="text" name = "s" th:value = "${s.authorUsername}">-->
-              <!--<input type="submit" value = "SUBSJDFKL:ASJKFD:">-->
-          <!--</form>-->
-      <!--</li>-->
-      <div th:each="s : ${series}">
-          <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
-              <label> TEXT <input type="text" th:value = "*{authorUsername}"></label>
-              <input type="submit">
-          </form>
-      </div>
-
-
     <div>
-
-
+        
 </body>
 </html>
