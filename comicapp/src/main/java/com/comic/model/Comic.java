@@ -18,10 +18,10 @@ public class Comic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "comic_id")
-    private int comic_id;
+    private int id;
 
     @Column(name = "comic_seriesId")
-    private int series_id;
+    private int seriesId;
 
     //time is stored in an int and 24-hour format. For example, 1742 represents 17:42 or 5:42 pm
     @Column(name = "comic_creationTime")
