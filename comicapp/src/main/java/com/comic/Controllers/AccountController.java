@@ -23,6 +23,7 @@ public class AccountController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("name", user.getUsername());
+        modelAndView.addObject("user", user);
         return modelAndView;
     }
 }

@@ -31,11 +31,11 @@
     <h1 class="display-4"><span th:utext="${name}"></span></h1>
 
 <!-- The hero  -->
-<div class="hero-image">
+<div>
 	<div class="hero-text">
-		<img src="avatar.jpg" id="avatar">
+		<!--<img src="user.profilePicture" id="avatar">-->
     <br>
-    <p>Avatar Aong</p>
+    <p th:field="${user.username}"></p>
 		<button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Profile Settings</div></button>
     <button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscriptions</div></button>		
 	</div>
