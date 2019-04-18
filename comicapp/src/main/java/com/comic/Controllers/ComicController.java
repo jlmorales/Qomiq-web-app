@@ -73,4 +73,14 @@ public class ComicController {
         return modelAndView;
     }
 
+    @RequestMapping(value = {"/comic/deleteComment"}, method = RequestMethod.POST)
+    public ModelAndView deleteComment(@ModelAttribute Comment comment){
+        ModelAndView modelAndView;
+        System.out.println(comment);
+        comment = commentService.findCommentByCommentId(comment.getCommentId());
+        System.out.println(comment);
+        commentService.deleteComment(comment);
+        modelAndView = new ModelAndView(new RedirectView("/comic/" + comment.getComicId()));
+        return modelAndView;
+    }
 }

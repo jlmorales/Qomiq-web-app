@@ -22,7 +22,13 @@ public class CommentService {
         return commentRepository.findAllByComicId(id);
     }
 
+    public Comment findCommentByCommentId(int id){
+        return commentRepository.findByCommentId(id);
+    }
+
     public void saveComment(Comment comment){
         this.commentRepository.save(comment);
     }
+
+    public void deleteComment(Comment comment) {this.commentRepository.delete(comment);    }
 }

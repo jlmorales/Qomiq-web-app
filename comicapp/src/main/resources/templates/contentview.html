@@ -155,15 +155,21 @@
     <div th:text = ${commentators[iter.index].username}></div>
     <div th:text = "${comment.commentContent}"></div>
     <div th:if ="${currentUser != null && currentUser.username == commentators[iter.index].username} ">
-      <div>DELETE</div>
-
+        <form th:object="${comment}" th:action = "@{/comic/deleteComment}" method="POST">
+            <input type="hidden" th:value = "*{commentId}" id = "commentId" name = "commentId">
+            <!--<input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">-->
+            <input type="submit" value="Delete">
+        </form>
     </div>
   </div>
-    <form th:object="${newComment}" th:action = "@{/comic/comment}" method="POST">
-        <input type="hidden" th:value = "*{comicId}" id = "comicId" name = "comicId">
-        <input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">
-        <input type="submit" value="comment">
-    </form>
+    <div th:if = "${currentUser != null}">
+        <form th:object="${newComment}" th:action = "@{/comic/comment}" method="POST">
+            <input type="hidden" th:value = "*{comicId}" id = "comicId" name = "comicId">
+            <input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">
+            <input type="submit" value="comment">
+        </form>
+    </div>
+
 
 </section>
 
