@@ -164,15 +164,41 @@ function setColor(newColor) {
     color = newColor;
 }
 
-
 function exportEdit() {
-    holder = canvas.toJSON();
-    canvas.clear();
+    holder = JSON.stringify(canvas.toJSON());
+    console.log(holder);
+    var fileName = window.prompt("Please enter filename:");
+    var file = new Blob([holder], {type: "application/json"});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename)
+    else {
+        var a = document.createElement("a"),
+        url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
 }
 
-function importEdit() {
-    canvas.loadFromJSON(holder);
-}
+
+var fileInput = document.getElementById('import');
+fileInput.addEventListener('change', function(e){
+    console.log("file input is real!");
+    console.log(e);
+    console.log(e.target.files[0].name);
+    var fileReader = new FileReader();
+    fileReader.onload = function(o) {
+        canvas.clear();
+        canvas.loadFromJSON(o.target.result);
+    }
+    fileReader.readAsDataURL(e.target.files[0]);
+
+});
 
 
 function copy() {
