@@ -70,22 +70,31 @@
 
 
 
-    <div th:each="series,iter : ${series}">
+    <div th:each="s,iter : ${series}">
       <div class="col-xs-3">
         <figure>
-          <figtitle th:text="${series.title}"></figtitle>
-          <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:100%"/>
-          <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${series.authorUsername}"></a><div th:text="${series.category}"></div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-          </figcaption>
+          <figtitle th:text="${s.title}"></figtitle>
+          <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + s.id + '.png'}}" alt="Trulli" style="width:100%"/>
+
+            <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>
+              <!--<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>-->
+              <span th:if = "${currentUser != null}">
+                  <span th:if = "${isSubscribed[iter.index] == true}"> already subscribed </span>
+                  <span th:if = "${isSubscribed[iter.index] == false}">
+                        <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
+                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">
+                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
+                          <input type="submit">
+                        </form>
+                  </span>
+
+              </span>
+            </figcaption>
+
         </figure>
       </div>
     </div>
-
-
-
     <div>
-
-
+        
 </body>
 </html>

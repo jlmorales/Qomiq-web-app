@@ -19,8 +19,8 @@ public class Subscription {
     private int subscriptionId;
 
     @Column(name="subscription_subscriber")
-    private String subscriber_username;
+    private String subscriberUsername;
 
     @Column(name="subscription_subscribee")
-    private String subscribee_username;
+    private String subscribeeUsername;
 }
