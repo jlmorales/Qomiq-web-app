@@ -151,6 +151,19 @@
     <div class="col-xs-3"></div>
 
   </div>
+  <div th:each = "comment,iter : ${comments}">
+    <div th:text = ${commentators[iter.index].username}></div>
+    <div th:text = "${comment.commentContent}"></div>
+    <div th:if ="${currentUser != null && currentUser.username == commentators[iter.index].username} ">
+      <div>DELETE</div>
+
+    </div>
+  </div>
+    <form th:object="${newComment}" th:action = "@{/comic/comment}" method="POST">
+        <input type="hidden" th:value = "*{comicId}" id = "comicId" name = "comicId">
+        <input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">
+        <input type="submit" value="comment">
+    </form>
 
 </section>
 
