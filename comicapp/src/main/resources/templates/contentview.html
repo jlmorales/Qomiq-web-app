@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Content View</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 
-	<link rel="stylesheet" type="text/css" href="../static/css/contentview.css">
-  <link rel="stylesheet" type="text/css" href="../static/css/comment.css">
+<head>
+  <title>Content View</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!--<link rel="stylesheet" type="text/css" href="../static/css/contentview.css">-->
+  <!--<link rel="stylesheet" type="text/css" href="../static/css/comment.css">-->
+  <link rel="stylesheet" type="text/css" href="/css/contentview.css">
+  <link rel="stylesheet" type="text/css" href="/css/comment.css">
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src = "../static/js/src/contentview.js"></script>
+  <script src="../static/js/src/contentview.js"></script>
 </head>
+
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -30,49 +35,39 @@
   </div>
 </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- The hero  -->
 <!-- <div class="hero-image">
-	<div class="hero-text">
-		<h1>Make It Your Comic Universe!</h1>
-		<button>Create</button>
-		<button>Login</button>		
-	</div>
-	
-</div> -->
-
-<section id="projects" >
-
-<div class="row" >
-  <div class="col-xs-3"><button>Previous Series</button></div>
-  <div class="col-xs-6"></div>
-  <div class="col-xs-3"><button>Next Series</button></div>
-  
+<div class="hero-text">
+    <h1>Make It Your Comic Universe!</h1>
+    <button>Create</button>
+    <button>Login</button>
 </div>
 
-<div class="row" >
-  <div class="col-xs-3"><!-- <img src="c.jpg" id="hxh"> --></div>
+</div> -->
 
+<section id="projects">
 
-   <div class="col-xs-6">
+  <div class="row">
+    <div class="col-xs-3">
+      <button>Previous Series</button>
+    </div>
+    <div class="col-xs-6"></div>
+    <div class="col-xs-3">
+      <button>Next Series</button>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <!-- <img src="c.jpg" id="hxh"> --></div>
+    <div class="col-xs-6">
       <figure>
         <figtitle>Hunter X Hunter</figtitle>
-        <img src="c.jpg" alt="Trulli" style="width:100%">
-        <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
+        <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.id + '.png'}}" alt="Trulli" style="width:100%"/>
+        <!--<img src="c.jpg" alt="Trulli" style="width:100%">-->
+        <figcaption>by <a href="#">realwolfie</a>
+          <div>Category: Adventures</div>
           <div><span class="glyphicon glyphicon-thumbs-up"></span>100</div>
           <div><span class="glyphicon glyphicon-thumbs-down"></span>2</div>
           <div><span class="glyphicon glyphicon-eye-open"></span>1000</div>
@@ -80,99 +75,104 @@
       </figure>
     </div>
 
+    <!-- <div class="col-xs-6" id="viewport"><img src="c.jpg" id="hxh"></div> -->
 
-  <!-- <div class="col-xs-6" id="viewport"><img src="c.jpg" id="hxh"></div> -->
+    <div class="col-xs-3">
+      <!-- <img src="c.jpg" id="hxh"> --></div>
 
-
-
-  <div class="col-xs-3"><!-- <img src="c.jpg" id="hxh"> --></div>
-  
-</div>
-
-<div class="row" >
-  <div class="col-xs-4"></div>
-  <div class="col-xs-4">
-    <button>Previous Comic</button>
-    <button>Next Comic</button>
   </div>
-  <div class="col-xs-4"></div>
-  
-</div>
 
-<div class="row" >
-  <div class="col-xs-3"></div>
-  <div class="col-xs-6">
-    <div class="detailBox">
-      <div class="titleBox">
-        <label>Comment Box</label>
-        <button type="button" class="close" aria-hidden="true">&times;</button>
+  <div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+      <button>Previous Comic</button>
+      <button>Next Comic</button>
+    </div>
+    <div class="col-xs-4"></div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+      <div class="detailBox">
+        <div class="titleBox">
+          <label>Comment Box</label>
+          <button type="button" class="close" aria-hidden="true">&times;</button>
+        </div>
+        <div class="commentBox">
+
+          <p class="taskDescription">Dummy Text.</p>
+        </div>
+        <div class="actionBox">
+          <ul class="commentList" id="comments">
+
+            <li>
+              <div class="commenterImage">
+                <img src="http://placekitten.com/50/50" />
+              </div>
+              <div class="commentText">
+                <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="commenterImage">
+                <img src="http://placekitten.com/45/45" />
+              </div>
+              <div class="commentText">
+                <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+              </div>
+            </li>
+            <li>
+              <div class="commenterImage">
+                <img src="http://placekitten.com/40/40" />
+              </div>
+              <div class="commentText">
+                <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Your comments" id="newcomment" />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" onclick="addComment()">Add</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="commentBox">
 
-        <p class="taskDescription">Dummy Text.</p>
-      </div>
-      <div class="actionBox">
-        <ul class="commentList" id="comments">
+    </div>
+    <div class="col-xs-3"></div>
 
-
-
-          <li>
-            <div class="commenterImage">
-              <img src="http://placekitten.com/50/50" />
-            </div>
-            <div class="commentText">
-              <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-
-            </div>
-          </li>
-
-
-
-
-          <li>
-            <div class="commenterImage">
-              <img src="http://placekitten.com/45/45" />
-            </div>
-            <div class="commentText">
-              <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
-
-            </div>
-          </li>
-          <li>
-            <div class="commenterImage">
-              <img src="http://placekitten.com/40/40" />
-            </div>
-            <div class="commentText">
-              <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
-
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline" role="form">
-          <div class="form-group">
-            <input class="form-control" type="text" placeholder="Your comments" id="newcomment"/>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-default" onclick="addComment()">Add</button>
-          </div>
+  </div>
+  <div th:each = "comment,iter : ${comments}">
+    <div th:text = ${commentators[iter.index].username}></div>
+    <div th:text = "${comment.commentContent}"></div>
+    <div th:if ="${currentUser != null && currentUser.username == commentators[iter.index].username} ">
+        <form th:object="${comment}" th:action = "@{/comic/deleteComment}" method="POST">
+            <input type="hidden" th:value = "*{commentId}" id = "commentId" name = "commentId">
+            <!--<input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">-->
+            <input type="submit" value="Delete">
         </form>
-      </div>
+    </div>
+  </div>
+    <div th:if = "${currentUser != null}">
+        <form th:object="${newComment}" th:action = "@{/comic/comment}" method="POST">
+            <input type="hidden" th:value = "*{comicId}" id = "comicId" name = "comicId">
+            <input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">
+            <input type="submit" value="comment">
+        </form>
     </div>
 
-  </div>
-  <div class="col-xs-3"></div>
-  
-</div>
 
-  
 </section>
 
-
-
-
-
-
-
-
 </body>
+
 </html>

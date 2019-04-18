@@ -11,15 +11,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "comment")
-public class comment {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "comment_Id")
     private int commentId;
 
-    @Column(name="profileUsername")
-    private String profileUsername;
+    @Column(name="commentor_Id")
+    private int commentorId;
 
-    @Column(name="commentorUsername")
-    private  String commentorUsername;
+    @Column(name="commentContent")
+    private  String commentContent;
+
+    @Column(name = "comic_Id")
+    private int comicId;
 }

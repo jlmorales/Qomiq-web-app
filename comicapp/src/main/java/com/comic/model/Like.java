@@ -17,14 +17,13 @@ public class Like {
     @Column(name = "comicLike_id")
     private int likeId;
 
+    @Column(name = "liker_username")
+    private String likerUsername;
 
-    @Column(name = "comicLike_liker_username")
-    private String liker_username;
+//    @Column(name = "comicLike_seriesId")
+//    private String seriesId;
 
-    @Column(name = "comicLike_seriesId")
-    private String seriesId;
-
-    @Column(name = "comicLike_comicId")
+    @Column(name = "comicId")
     private String comicId;
 
 }

@@ -21,10 +21,10 @@ public class Comic {
     private int comicEntryId;
 
     @Column(name = "comic_id")
-    private int comic_id;
+    private int id;
 
     @Column(name = "comic_seriesId")
-    private int series_id;
+    private int seriesId;
 
     //time is stored in an int and 24-hour format. For example, 1742 represents 17:42 or 5:42 pm
     @Column(name = "comic_creationTime")
@@ -40,8 +40,8 @@ public class Comic {
     @Column(name = "comic_lastModDate")
     private int lastModDate;
 
-    @Column(name = "comic_like")
-    private int like;
+    @Column(name = "comic_likes")
+    private int likes;
 
 
 }
