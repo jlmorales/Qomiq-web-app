@@ -37,15 +37,17 @@
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <span id="search_concept">Category</span> <span class="caret"></span>
           </button>
+
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/explore/Action">Action</a></li>
-            <li><a href="/explore/Comedy">Comedy</a></li>
-            <li><a href="/explore/Political">Political</a></li>
-            <li><a href="/explore/Science">Science Fiction</a></li>
-            <li><a href="/explore/Anime">Anime</a></li>
-            <li><a href="/explore/Adventure">Adventure</a></li>
+            <!--<li><a href="/explore/Action">Action</a></li>-->
+            <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>
+            <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>
             <li class="divider"></li>
-            <li><a href="#all">Anything</a></li>
+            <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>
           </ul>
         </div>
         <input type="hidden" name="search_param" value="all" id="search_param">
@@ -66,6 +68,9 @@
   <h1>Result</h1>
 
   <div class="row" id="display-row">
+
+    <a th:href="@{/explore/searchBy(sortBy=Views )}"><span>Sort by Views</span></a>
+    <a th:href="@{/explore/searchBy(sortBy=Date )}"><span>Sort by Date</span></a>
 
 
 

@@ -20,4 +20,6 @@ public class SeriesService {
         return seriesRepository.findAll();
     }
 
+    public List<Series> findAllSeriesByViews(){return seriesRepository.findAllByOrderBySeriesViewsDesc();}
+
 }

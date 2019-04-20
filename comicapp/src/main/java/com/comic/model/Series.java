@@ -43,5 +43,7 @@ public class Series {
     @Column(name = "series_lastModDate")
     private int lastModDate;
 
+    @Column(name = "series_views")
+    private int seriesViews;
 
 }
