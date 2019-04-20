@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Editor</title>
 
@@ -24,7 +24,11 @@
             <li><a href="/explore">Explore</a></li>
             <li><a href="/about">About</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul sec:authorize = "isAuthenticated()" class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+        </ul>
+
+        <ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">
             <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
         </ul>
