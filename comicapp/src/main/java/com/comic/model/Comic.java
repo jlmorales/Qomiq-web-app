@@ -15,11 +15,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Comic")
 public class Comic {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name ="Comic_entry_id")
-    private int comicEntryId;
-
     @Column(name = "comic_id")
     private int id;
 

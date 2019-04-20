@@ -39,6 +39,7 @@ public class ComicController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
+
         Comic comic = comicService.findComicById(id);
         List<Comment> comments = commentService.findCommentsByComicId(comic.getId());
         List<User> commentators= new ArrayList<>();
