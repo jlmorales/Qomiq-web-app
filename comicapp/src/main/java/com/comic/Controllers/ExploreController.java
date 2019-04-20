@@ -1,5 +1,7 @@
 package com.comic.Controllers;
 import ch.qos.logback.core.net.SyslogOutputStream;
+import com.comic.Comparators.SeriesDateComparator;
+import com.comic.Forms.ExploreForm;
 import com.comic.Forms.SubscribeForm;
 import com.comic.Service.SeriesService;
 import com.comic.Service.SubscriptionService;
@@ -11,14 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -62,6 +63,8 @@ public class ExploreController {
 //        modelAndView.addObject("subscribeForm", form);
 //        modelAndView.addObject("subscribeForms", forms);
         System.out.println("SERIES BEFORE SERVING EXPLORE" + series);
+        ExploreForm exploreForm = new ExploreForm();
+        modelAndView.addObject("exploreForm", exploreForm);
         modelAndView.addObject("series",series);
         modelAndView.addObject("users", users);
         modelAndView.addObject("isSubscribed", isSubscribed);
@@ -74,6 +77,7 @@ public class ExploreController {
         ModelAndView modelAndView = new ModelAndView();
         List<Series> series = seriesService.findAllSeries();
         List<Series>  filteredList = new ArrayList<>();
+
         category = category.toLowerCase();
         List<User> users = new ArrayList<>();
         for(Series s : series){
@@ -85,6 +89,87 @@ public class ExploreController {
         }
         modelAndView.addObject("series",filteredList);
         modelAndView.addObject("users",users);
+        modelAndView.setViewName("explore");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/explore/searchBy", method = RequestMethod.GET)
+    public ModelAndView searchBy(@RequestParam(value = "category", required = false) String category,
+                              @RequestParam(value = "sortBy", required = false) String sortOrder){
+        System.out.println(category);
+        System.out.println((sortOrder));
+        ExploreForm exploreForm = new ExploreForm();
+        ModelAndView modelAndView = new ModelAndView();
+        List<Series> series;
+        List<User> users = new ArrayList<>();
+        List<Boolean> isSubscribed = new ArrayList<>();
+        List<Series>  filteredList = new ArrayList<>();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findUserByEmail(auth.getName());
+        //if params are null then set to default values
+        if(sortOrder == null){
+            sortOrder = "none";
+        }
+        if(category == null){
+            category = "All";
+        }
+
+        //if sortOrder is views then find all series by views
+        //else return all series
+        if(sortOrder.equalsIgnoreCase("views")){
+            series = seriesService.findAllSeriesByViews();
+        }
+        else if (sortOrder.equalsIgnoreCase("date")){
+            series = seriesService.findAllSeries();
+            Collections.sort(series ,new SeriesDateComparator());
+            Collections.reverse(series);
+
+        }
+        else{
+            series = seriesService.findAllSeries();
+        }
+        //if category is not All set exploreForm to "Category"
+        if(!category.equalsIgnoreCase("all")){
+            exploreForm.setCategory(category);
+        }
+        //if category is not all then find series by category
+        //else find all series
+        //also add authors to list of users
+        if(!category.equalsIgnoreCase("All")){
+            for(Series s : series){
+                if(s.getCategory().equalsIgnoreCase(category)){
+                    filteredList.add(s);
+                    User user = userService.findUserByUsername(s.getAuthorUsername());
+                    users.add(user);
+                }
+            }
+        }
+        else{
+            for(Series s : series){
+                    filteredList.add(s);
+                    User user = userService.findUserByUsername(s.getAuthorUsername());
+                    users.add(user);
+            }
+        }
+        //find all subscriptions if they exist for current user and corresponding author of series in filtered list
+        //add subscriptions to isSubscribed list
+        for (Series s: filteredList) {
+            User user = userService.findUserByUsername(s.getAuthorUsername());
+            if(currentUser != null){
+                Subscription subscription = subscriptionService.findIfSubscriptionExists(user.getEmail(),currentUser.getEmail());
+                if(subscription == null){
+                    isSubscribed.add(false);
+                }
+                else{
+                    isSubscribed.add(true);
+                }
+            }
+        }
+        modelAndView.addObject("currentUser", currentUser);
+        modelAndView.addObject("exploreForm", exploreForm);
+        modelAndView.addObject("series",filteredList);
+        modelAndView.addObject("users", users);
+        modelAndView.addObject("isSubscribed", isSubscribed);
         modelAndView.setViewName("explore");
         return modelAndView;
     }

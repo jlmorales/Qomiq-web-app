@@ -8,5 +8,9 @@ import java.util.List;
 public interface SeriesRepository extends JpaRepository<Series, Integer> {
         public List<Series> findAll();
 
+
+        public List<Series> findAllByOrderBySeriesViewsDesc();
+
+
         public List<Series> findAllByAuthorUsername(String authorUserName);
 }

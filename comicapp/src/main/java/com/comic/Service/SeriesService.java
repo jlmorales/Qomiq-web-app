@@ -22,4 +22,6 @@ public class SeriesService {
 
     public List<Series> findAllSeriesByAuthorUsername(String authorUsername) { return seriesRepository.findAllByAuthorUsername(authorUsername);}
 
+    public List<Series> findAllSeriesByViews(){return seriesRepository.findAllByOrderBySeriesViewsDesc();}
+
 }

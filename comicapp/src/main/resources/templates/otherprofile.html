@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -22,7 +22,10 @@
             <li><a href="/about">About</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li th:switch="${currentUser}">
+                <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+            </li>
             <li th:switch="${currentUser}">
                 <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
                 <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>

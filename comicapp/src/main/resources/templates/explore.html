@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <title>Explore</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -22,12 +22,23 @@
       <li><a href="/about">About</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li th:switch="${currentUser}">
+        <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+      </li>
       <li th:switch="${currentUser}">
         <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
         <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
       </li>
     </ul>
+
+    <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->
+      <!--<li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+      <!--<li th:switch="${currentUser}">-->
+        <!--<a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>-->
+        <!--<a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>-->
+      <!--</li>-->
+    <!--</ul>-->
   </div>
 </nav>
 
@@ -40,15 +51,17 @@
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <span id="search_concept">Category</span> <span class="caret"></span>
           </button>
+
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/explore/Action">Action</a></li>
-            <li><a href="/explore/Comedy">Comedy</a></li>
-            <li><a href="/explore/Political">Political</a></li>
-            <li><a href="/explore/Science">Science Fiction</a></li>
-            <li><a href="/explore/Anime">Anime</a></li>
-            <li><a href="/explore/Adventure">Adventure</a></li>
+            <!--<li><a href="/explore/Action">Action</a></li>-->
+            <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>
+            <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>
+            <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>
             <li class="divider"></li>
-            <li><a href="#all">Anything</a></li>
+            <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>
           </ul>
         </div>
         <input type="hidden" name="search_param" value="all" id="search_param">
@@ -70,6 +83,9 @@
 
   <div class="row" id="display-row">
 
+    <a th:href="@{/explore/searchBy(sortBy=Views )}"><span>Sort by Views</span></a>
+    <a th:href="@{/explore/searchBy(sortBy=Date )}"><span>Sort by Date</span></a>
+
 
 
 
@@ -83,6 +99,8 @@
           </a>
 
             <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>
+              <div th:text = "${s.seriesViews}"></div>
+              <div th:text = "${s.creationDate}"></div>
               <!--<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>-->
               <span th:if = "${currentUser != null}">
                   <span th:if = "${isSubscribed[iter.index] == true}">
