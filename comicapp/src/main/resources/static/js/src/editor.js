@@ -189,38 +189,17 @@ function exportEdit() {
 
 var fileInput = document.getElementById('import-inp');
 fileInput.addEventListener('change', function(e){
-    console.log("file input is real!");
-        console.log(e);
-        console.log(e.target.files[0].name);
-        var dataBlob;
-        var fileReader = new FileReader();
-        fileReader.onload = function(o) {
-        console.log("yo");
-        //canvas.clear();
-        dataText = o.target.result;
-        console.log(dataText);
-        dataBlob = new Blob([dataText], {type: "application/json"});
-        console.log(dataBlob);
-        };
-        //console.log(dataBlob);
-        //var jsonText = fileReader.readAsText(dataBlob);
-        //console.log(jsonText);
-        //canvas.loadFromJSON(jsonText);
-        console.log(fileReader.readAsText(e.target.files[0]));
-        //canvas.loadFromJSON(fileReader.readAsText(e.target.files[0]),
-        //canvas.renderAll.bind(canvas), function(o, object) {console.log(o, object)});
-
-    //console.log("file input is real!");
-    //console.log(e);
-    //console.log(e.target.files[0].name);
-    //var fileReader = new FileReader();
-    //fileReader.onload = function(o) {
-        //canvas.clear();
-        //console.log("yo");
-        //console.log(fileReader.readAsText(new Blob([o.target.result], {type: "application/json"})));
-        //canvas.loadFromJSON(fileReader.readAsText(new Blob([o.target.result], {type: "application/json"})));
+    var file = e.target.files[0];
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(f) {
+      var data = f.target.result;
+      canvas.loadFromJSON(
+      JSON.parse(data),
+      canvas.renderAll.bind(canvas));
+    };
+    reader.readAsText(file);
     });
-
 
 function copy() {
     canvas.getActiveObject().clone(function(clonedObj) {
