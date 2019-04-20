@@ -122,6 +122,8 @@ public class ExploreController {
         else if (sortOrder.equalsIgnoreCase("date")){
             series = seriesService.findAllSeries();
             Collections.sort(series ,new SeriesDateComparator());
+            Collections.reverse(series);
+
         }
         else{
             series = seriesService.findAllSeries();

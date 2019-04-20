@@ -89,6 +89,8 @@
           </a>
 
             <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>
+              <div th:text = "${s.seriesViews}"></div>
+              <div th:text = "${s.creationDate}"></div>
               <!--<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>-->
               <span th:if = "${currentUser != null}">
                   <span th:if = "${isSubscribed[iter.index] == true}">
