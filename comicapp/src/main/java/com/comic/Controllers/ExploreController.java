@@ -1,5 +1,6 @@
 package com.comic.Controllers;
 import ch.qos.logback.core.net.SyslogOutputStream;
+import com.comic.Comparators.SeriesDateComparator;
 import com.comic.Forms.ExploreForm;
 import com.comic.Forms.SubscribeForm;
 import com.comic.Service.SeriesService;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -116,6 +118,10 @@ public class ExploreController {
         //else return all series
         if(sortOrder.equalsIgnoreCase("views")){
             series = seriesService.findAllSeriesByViews();
+        }
+        else if (sortOrder.equalsIgnoreCase("date")){
+            series = seriesService.findAllSeries();
+            Collections.sort(series ,new SeriesDateComparator());
         }
         else{
             series = seriesService.findAllSeries();
