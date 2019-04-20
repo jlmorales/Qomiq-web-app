@@ -144,7 +144,27 @@
     </div>
     <div id="menu2" class="tab-pane fade">
         <h3>Config</h3>
-        <p>User can config settings such as publish, make public, and disable/enable comment</p>
+        <form id="comicInfo">
+            <div>
+                <label for="comicTitle">Comic Title: </label>
+                <input type="text" id="comicTitle" />
+            </div>
+            <div>
+                <label for="comicSeries">Pick Series for this Comic: </label>
+                <select id="comicSeries" th:each="series : ${series}">
+                    <option th:text="${series.title}"></option>
+                </select>
+            </div>
+            <div>
+                <label for="commentsBoolean">Enable Comments: </label>
+                <input id="commentsBoolean" type="checkbox" />
+            </div>
+            <div>
+                <label for="makePublic" type="checkbox">Make Public: </label>
+                <input id="makePublic" type="checkbox" />
+            </div>
+            <input id="submitComic" type="submit">
+        </form>
     </div>
 </div>
 

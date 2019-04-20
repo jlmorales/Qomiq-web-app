@@ -9,7 +9,7 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Inte
 
     Subscription findBySubscribeeUsernameAndSubscriberUsername(String subscribee_username, String subscriber_username);
 
-    List<Subscription> findBySubscriberUsername(String subsriber_usermame);
+    List<Subscription> findAllBySubscriberUsername(String subscriber_username);
 
-    List<Subscription> findBySubscribeeUsername(String subscribee_username);
+    List<Subscription> findAllBySubscribeeUsername(String subscribee_username);
 }

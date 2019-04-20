@@ -30,10 +30,10 @@ public class SubscriptionService {
     }
 
     public List<Subscription> findBySubscriberUsername(String subscriber) {
-        return this.subscriptionRepository.findBySubscriberUsername(subscriber);
+        return this.subscriptionRepository.findAllBySubscriberUsername(subscriber);
     }
 
     public List<Subscription> findBySubscribeeUsername(String subscribee) {
-        return this.subscriptionRepository.findBySubscribeeUsername(subscribee);
+        return this.subscriptionRepository.findAllBySubscribeeUsername(subscribee);
     }
 }
