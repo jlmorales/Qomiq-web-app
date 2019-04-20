@@ -23,7 +23,10 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            <li th:switch="${currentUser}">
+                <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -33,7 +36,6 @@
 <!-- The hero  -->
 <div class="hero-image">
 	<div class="hero-text">
-		<img src="avatar.jpg" id="avatar">
     <br>
 		<button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Profile Settings</div></button>
     <button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscriptions</div></button>		
@@ -55,7 +57,7 @@
        <figure>
 
            </figtitle><figtitle th:text="${series.title}"></figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
+          <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:100%">
            <figcaption><div>Category: </div><div th:text="${series.category}"></div>
             <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
             <button id="subs-btn"><div><span class="glyphicon glyphicon-trash"></span> Delete</div></button>
@@ -78,56 +80,21 @@
 
 
 <section>
-  <h1>Manage subscriptions</h1>
+  <h1>Manage Subscriptions</h1>
   <div id ="displaylist">
 
     <div class="row" id="display-row">
 
 
-      <div class="col-xs-3">
+      <div th:each="subscriptions : ${subscriptions}" class="col-xs-3">
        <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-minus"></span> Unsubscribe</div></button>
+          <figtitle th:text="${subscriptions.username}"></figtitle>
+          <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + subscriptions.id + '.png'}}" alt="Trulli" style="width:100%">-->
+          <figcaption>Category: </a><div th:text="${subscriptions.category}"></div>
+            <button id="subs-btn"><div><span class="glyphicon glyphicon-minus"></span>Unsubscribe</div></button>
           </figcaption>
         </figure>
       </div>
-
-
-      <div class="col-xs-3">
-       <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-minus"></span> Unsubscribe</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
-
-
-      <div class="col-xs-3">
-       <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-minus"></span> Unsubscribe</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
-
-      <div class="col-xs-3">
-       <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-minus"></span> Unsubscribe</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
 
 
 

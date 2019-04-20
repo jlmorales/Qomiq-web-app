@@ -5,6 +5,8 @@ import com.comic.model.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("SubscriptionService")
 public class SubscriptionService {
 
@@ -25,5 +27,13 @@ public class SubscriptionService {
 
     public void deleteSubscription(Subscription subscription){
         this.subscriptionRepository.deleteById(subscription.getSubscriptionId());
+    }
+
+    public List<Subscription> findBySubscriberUsername(String subscriber) {
+        return this.subscriptionRepository.findBySubscriberUsername(subscriber);
+    }
+
+    public List<Subscription> findBySubscribeeUsername(String subscribee) {
+        return this.subscriptionRepository.findBySubscribeeUsername(subscribee);
     }
 }

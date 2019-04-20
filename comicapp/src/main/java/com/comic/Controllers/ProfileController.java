@@ -33,6 +33,7 @@ public class ProfileController {
             return modelAndView;
         }
         modelAndView.addObject("name", profileUser.getUsername());
+        modelAndView.addObject("currentUser", currentUser);
         return modelAndView;
     }
 }
