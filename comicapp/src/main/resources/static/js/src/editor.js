@@ -1,8 +1,17 @@
 
+//for the initial canvas setup
 var canvas = new fabric.Canvas('myCanvas');
 canvas.backgroundColor = "white";
+var redoOn = false;
+var actionStack = [];
+var holder;
+var clipboard = null;
+
 canvas.renderTop();
 canvas.renderAll();
+
+canvas.defaultCursor = 'circle';
+
 canvas.on('object:added',function(){
   if(!redoOn){
     actionStack = [];
@@ -14,18 +23,16 @@ var brushWidth = 2;
 
 
 
-var fileInput = document.getElementById('img-inp');
 
-// fileInput.addEventListener('change', (e) => {console.log(e.target.filename)});
-// fileInput.onchange((e)=>{
-//     console.log(e.target.filename);
-// });
+
+var fileInput = document.getElementById('img-inp');
 fileInput.addEventListener('change', function(e){
     console.log("file input is real!");
     console.log(e);
     console.log(e.target.files[0].name);
     var fileReader = new FileReader();
     fileReader.onload = function(o) {
+    console.log("yo");
         var imgObject = new Image();
         imgObject.src = o.target.result;
         imgObject.onload = function() {
@@ -49,6 +56,17 @@ fileInput.addEventListener('change', function(e){
 });
 
 
+// var bucket = document.getElementById("bkt");
+// bucket.addEventListener('change',function (ev) {
+//     // if(canvas.getActiveObject() === null){
+//     //     canvas.setColor(ev.target.value);
+//     // }
+//     console.log(ev.target.value);
+// });
+
+
+
+
 
 function pencil() {
     if (!canvas.isDrawingMode) {
@@ -57,17 +75,57 @@ function pencil() {
     else {
         canvas.isDrawingMode = false;
     }
-    canvas.freeDrawingBrush.width = brushWidth;
+    canvas.defaultCursor = "/images/a.jpg";
+    canvas.freeDrawingBrush.width = brushSize();
     canvas.freeDrawingBrush.color = color;
 }
+
+
+
+function addText() {
+    var input = prompt("Enter your text: ");
+    var text_obj = new fabric.Text(
+        input,{
+            fontFamily: 'Comic Sans',
+            fontSize : 16,
+            left: 100,
+            top : 100
+        }
+    );
+
+   // text_obj.on('selected', function(e){
+   //     var x = prompt("change text: ");
+   //     text_obj.setText(x);
+   // });
+
+
+    canvas.add(text_obj);
+
+}
+
+
+
 
 function eraser() {
 
 }
 
 function bucket() {
+  var bucket = document.getElementById("col-pk").value;
+  console.log(bucket == null);
+  var selection = canvas.getActiveObject();
+  if(selection == null){
+      canvas.backgroundColor = bucket;
+  }else{
+      selection.set({fill:bucket});
+      console.log("slection color has been changed to " + bucket);
+  }
+canvas.renderAll();
+
 
 }
+
+
 
 function select() {
 
@@ -107,18 +165,62 @@ function setColor(newColor) {
     color = newColor;
 }
 
-var holder;
-
 function exportEdit() {
-    holder = canvas.toJSON();
-    canvas.clear();
+    holder = JSON.stringify(canvas.toJSON());
+    console.log(holder);
+    var fileName = window.prompt("Please enter filename:");
+    var file = new Blob([holder], {type: "application/json"});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename)
+    else {
+        var a = document.createElement("a"),
+        url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
 }
 
-function importEdit() {
-    canvas.loadFromJSON(holder);
-}
 
-var clipboard = null;
+var fileInput = document.getElementById('import-inp');
+fileInput.addEventListener('change', function(e){
+    console.log("file input is real!");
+        console.log(e);
+        console.log(e.target.files[0].name);
+        var dataBlob;
+        var fileReader = new FileReader();
+        fileReader.onload = function(o) {
+        console.log("yo");
+        //canvas.clear();
+        dataText = o.target.result;
+        console.log(dataText);
+        dataBlob = new Blob([dataText], {type: "application/json"});
+        console.log(dataBlob);
+        };
+        //console.log(dataBlob);
+        //var jsonText = fileReader.readAsText(dataBlob);
+        //console.log(jsonText);
+        //canvas.loadFromJSON(jsonText);
+        console.log(fileReader.readAsText(e.target.files[0]));
+        //canvas.loadFromJSON(fileReader.readAsText(e.target.files[0]),
+        //canvas.renderAll.bind(canvas), function(o, object) {console.log(o, object)});
+
+    //console.log("file input is real!");
+    //console.log(e);
+    //console.log(e.target.files[0].name);
+    //var fileReader = new FileReader();
+    //fileReader.onload = function(o) {
+        //canvas.clear();
+        //console.log("yo");
+        //console.log(fileReader.readAsText(new Blob([o.target.result], {type: "application/json"})));
+        //canvas.loadFromJSON(fileReader.readAsText(new Blob([o.target.result], {type: "application/json"})));
+    });
+
 
 function copy() {
     canvas.getActiveObject().clone(function(clonedObj) {
@@ -158,8 +260,7 @@ function paste() {
     });
 }
 
-var redoOn = false;
-var actionStack = [];
+
 
 function undo() {
     if (canvas._objects.length > 0) {
@@ -181,25 +282,76 @@ function text() {
     canvas.renderAll();
 }
 
-//
-// function image(e) {
-//     var fileReader = new FileReader();
-//     fileReader.onload = function(o) {
-//         var imgObject = new Image();
-//         imgObject.src = o.target.result;
-//         imgObject.onload = function() {
-//             var img = new fabric.Image(imgObject);
-//             img.set({
-//                 angle: 0,
-//                 padding: 15,
-//                 cornersize: 15,
-//                 height: 200,
-//                 width: 200
-//             });
-//             canvas.centerObject(img);
-//             canvas.add(img);
-//             canvas.renderAll();
-//         }
-//     }
-//     reader.readAsDataURL(e.target.files[0]);
-// }
+
+
+function brushSize(){
+    if (canvas.isDrawingMode) {
+        var size = prompt("Enter the brush size: ");
+    }
+    return size;
+}
+
+
+
+function boldToggle(){
+
+    var selected = canvas.getActiveObject();
+    console.log(selected);
+    if(selected.get('type')==='text' && selected.get('fontWeight')!== 'bold'){
+        selected.set({fontWeight:'bold'});
+    }else{
+        selected.set({fontWeight:'normal'});
+    }
+    canvas.renderAll();
+}
+
+
+function italicToggle(){
+
+    var selected = canvas.getActiveObject();
+    console.log(selected);
+    if(selected.get('type')==='text' && selected.get('fontStyle')!== 'italic'){
+        selected.set({fontStyle:'italic'});
+    }else{
+        selected.set({fontStyle:'normal'});
+    }
+
+    canvas.renderAll();
+
+
+}
+
+
+
+
+
+
+
+
+function loadWorkspace(){
+
+}
+
+
+function initWorkspace(){
+
+}
+
+
+function registerHandler(){
+
+}
+
+function updateWorkspace(){
+
+}
+
+
+
+
+/**
+ * need to add setup workspace component
+ * need to register event listeners
+ *
+ */
+
