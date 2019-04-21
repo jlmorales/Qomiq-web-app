@@ -277,7 +277,7 @@ function redo() {
 }
 
 function text() {
-    var text = new fabric.Text('Type here...', {fontFamily: 'times new roman', left: 100, top:1000});
+    var text = new fabric.IText('Type here...', { left: 100, top:100});
     canvas.add(text);
     canvas.renderAll();
 }
