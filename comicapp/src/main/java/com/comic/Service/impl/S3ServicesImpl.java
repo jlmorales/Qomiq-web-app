@@ -3,7 +3,7 @@ package com.comic.Service.impl;
 import java.io.File;
 import java.io.IOException;
 
-import com.comic.util.Utility;
+
 import com.comic.Service.S3Services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,31 +30,7 @@ public class S3ServicesImpl implements S3Services {
     @Value("${jsa.s3.bucket}")
     private String bucketName;
 
-    @Override
-    public void downloadFile(String keyName) {
 
-        try {
-
-            System.out.println("Downloading an object");
-            S3Object s3object = s3client.getObject(new GetObjectRequest(bucketName, keyName));
-            System.out.println("Content-Type: "  + s3object.getObjectMetadata().getContentType());
-            Utility.displayText(s3object.getObjectContent());
-            logger.info("===================== Import File - Done! =====================");
-
-        } catch (AmazonServiceException ase) {
-            logger.info("Caught an AmazonServiceException from GET requests, rejected reasons:");
-            logger.info("Error Message:    " + ase.getMessage());
-            logger.info("HTTP Status Code: " + ase.getStatusCode());
-            logger.info("AWS Error Code:   " + ase.getErrorCode());
-            logger.info("Error Type:       " + ase.getErrorType());
-            logger.info("Request ID:       " + ase.getRequestId());
-        } catch (AmazonClientException ace) {
-            logger.info("Caught an AmazonClientException: ");
-            logger.info("Error Message: " + ace.getMessage());
-        } catch (IOException ioe) {
-            logger.info("IOE Error Message: " + ioe.getMessage());
-        }
-    }
 
     @Override
     public void uploadFile(String keyName, String uploadFilePath) {
