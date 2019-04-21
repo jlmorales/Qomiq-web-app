@@ -1,4 +1,5 @@
 package com.comic.Controllers;
+import com.comic.Service.S3Services;
 import com.comic.Service.SeriesService;
 import com.comic.Service.UserService;
 import com.comic.model.Series;
@@ -22,6 +23,10 @@ public class CreateController {
     @Autowired
     SeriesService seriesService;
 
+    @Autowired
+    S3Services s3Services;
+
+
     @RequestMapping(value = {"/create"}, method = RequestMethod.GET)
     public ModelAndView create() {
         ModelAndView modelAndView = new ModelAndView();
@@ -32,5 +37,10 @@ public class CreateController {
         modelAndView.addObject("currentUser", user);
         modelAndView.addObject("series", series);
         return modelAndView;
+    }
+
+    @RequestMapping(value = {"/upload"}, method = RequestMethod.GET)
+    public void upload() {
+        s3Services.uploadFile("s.txt","C:/Users/Rongan Li/Desktop/s.txt");
     }
 }
