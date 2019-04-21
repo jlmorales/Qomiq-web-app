@@ -47,7 +47,7 @@ public class ExploreController {
             User user = userService.findUserByUsername(s.getAuthorUsername());
             users.add(user);
             if(currentUser != null){
-                Subscription subscription = subscriptionService.findIfSubscriptionExists(user.getEmail(),currentUser.getEmail());
+                Subscription subscription = subscriptionService.findIfSubscriptionExists(user.getUsername(),currentUser.getUsername());
                 if(subscription == null){
                     isSubscribed.add(false);
                 }
@@ -156,7 +156,7 @@ public class ExploreController {
         for (Series s: filteredList) {
             User user = userService.findUserByUsername(s.getAuthorUsername());
             if(currentUser != null){
-                Subscription subscription = subscriptionService.findIfSubscriptionExists(user.getEmail(),currentUser.getEmail());
+                Subscription subscription = subscriptionService.findIfSubscriptionExists(user.getUsername(),currentUser.getUsername());
                 if(subscription == null){
                     isSubscribed.add(false);
                 }
@@ -183,9 +183,9 @@ public class ExploreController {
         System.out.println(s);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
-        newSubscription.setSubscriberUsername(currentUser.getEmail());
+        newSubscription.setSubscriberUsername(currentUser.getUsername());
         User author = userService.findUserByUsername(s.getAuthorUsername());
-        newSubscription.setSubscribeeUsername(author.getEmail());
+        newSubscription.setSubscribeeUsername(author.getUsername());
         System.out.println(newSubscription);
         subscriptionService.saveSubscription(newSubscription);
         System.out.println(newSubscription);
@@ -199,7 +199,7 @@ public class ExploreController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User author = userService.findUserByUsername(s.getAuthorUsername());
         User currentUser = userService.findUserByEmail(auth.getName());
-        Subscription subscription = subscriptionService.findIfSubscriptionExists(author.getEmail(),currentUser.getEmail());
+        Subscription subscription = subscriptionService.findIfSubscriptionExists(author.getUsername(),currentUser.getUsername());
         System.out.println(subscription.getSubscriptionId());
         subscriptionService.deleteSubscription(subscription);
         ModelAndView modelAndView;

@@ -60,9 +60,12 @@
        <figure>
 
            </figtitle><figtitle th:text="${series.title}"></figtitle>
-          <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:100%">
+           <a th:href="@{'/account/series/' + ${series.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:100%"></a>
            <figcaption><div>Category: </div><div th:text="${series.category}"></div>
             <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
+               <a th:href="@{'/account/series/' + ${series.id}}">
+                   <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Manage Comics in Series</div></button>
+               </a>
             <button id="subs-btn"><div><span class="glyphicon glyphicon-trash"></span> Delete</div></button>
             <button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> Make Public</div></button>
             <button id="subs-btn"><div><span class="glyphicon glyphicon-comment"></span> Enable Comment</div></button>
@@ -87,22 +90,12 @@
   <div id ="displaylist">
 
     <div class="row" id="display-row">
-
-
       <div th:each="subscriptions : ${subscriptions}" class="col-xs-3">
        <figure>
           <figtitle th:text="${subscriptions.username}"></figtitle>
           <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + subscriptions.id + '.png'}}" alt="Trulli" style="width:100%">-->
-          <figcaption>Category: </a><div th:text="${subscriptions.category}"></div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-minus"></span>Unsubscribe</div></button>
-          </figcaption>
         </figure>
       </div>
-
-
-
-
-
     </div>
   </div>
 

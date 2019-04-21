@@ -44,4 +44,7 @@ public class Comic {
     @Column(name = "comic_views")
     private int comicViews;
 
+    @Column(name = "is_public")
+    private boolean publicComic;
+
 }

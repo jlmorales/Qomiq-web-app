@@ -13,4 +13,6 @@ public interface SeriesRepository extends JpaRepository<Series, Integer> {
 
 
         public List<Series> findAllByAuthorUsername(String authorUserName);
+
+        public Series findSeriesById(int id);
 }
