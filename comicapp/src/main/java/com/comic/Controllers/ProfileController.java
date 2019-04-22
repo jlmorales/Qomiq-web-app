@@ -1,6 +1,8 @@
 package com.comic.Controllers;
 
+import com.comic.Service.SeriesService;
 import com.comic.Service.UserService;
+import com.comic.model.Series;
 import com.comic.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -12,10 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class ProfileController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private SeriesService seriesService;
 
     @RequestMapping(value = {"/profile/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView profile(@PathVariable("id") int id) {
@@ -24,16 +32,20 @@ public class ProfileController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
         User profileUser = userService.findUserById(id);
-        if(currentUser == null){
-            modelAndView.addObject("name", profileUser.getUsername());
-            return modelAndView;
-        }
-        if(currentUser.getId() == profileUser.getId()){
+        if(currentUser != null && currentUser.getId() == profileUser.getId()){
             modelAndView = new ModelAndView(new RedirectView("/account"));
             return modelAndView;
         }
-        modelAndView.addObject("name", profileUser.getUsername());
+        List<Series> series = seriesService.findAllSeries();
+        List<Series> seriesList = new ArrayList<>();
+        for (Series s : series) {
+            if (s.getAuthorUsername().equals(profileUser.getUsername())) {
+                seriesList.add(s);
+            }
+        }
         modelAndView.addObject("currentUser", currentUser);
+        modelAndView.addObject("profileUser", profileUser);
+        modelAndView.addObject("series", series);
         return modelAndView;
     }
 }

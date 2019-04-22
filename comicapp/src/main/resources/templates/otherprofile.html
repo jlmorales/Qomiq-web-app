@@ -35,14 +35,14 @@
 </nav>
 
 
-    <h1 class="display-4"><span th:utext="${name}"></span></h1>
+
 
 <!-- The hero  -->
 <div class="hero-image">
 	<div class="hero-text">
-		<img src="avatar.jpg" id="avatar">
+        <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + profileUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px">
     <br>
-    <p>Avatar Aong</p>
+        <h1 class="display-4"><span th:utext="${profileUser.username}"></span></h1>
     <button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>		
 	</div>
 	
@@ -54,15 +54,13 @@
 
     <h1>Series</h1>
 
-    <div class="row" id="display-row">
+    <div th:each="series : ${series}" class="row" id="display-row">
 
       <div class="col-xs-3">
        <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>by <a href="#">realwolfie</a><div>Category: Adventures</div>
-
-          </figcaption>
+          <figtitle th:text="${series.title}"></figtitle>
+           <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:50px; height:40px">
+          <div>Category: </div><div th:text="${series.category}"></div>
         </figure>
       </div>
 
