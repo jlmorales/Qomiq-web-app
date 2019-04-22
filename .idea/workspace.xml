@@ -7,29 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="rena">
-      <change afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Utility/Utility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/ComicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/ComicApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ExploreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ExploreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/ComicRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/ComicRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/SeriesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/SeriesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/ComicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/ComicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/SeriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/SeriesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3ServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Comic.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Comic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/comicapp/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,8 +97,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+            <state relative-caret-position="278">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+              <folding>
+                <element signature="n#ul#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#ul#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1491">
+              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -179,7 +171,6 @@
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/NavbarController.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/CreatePageController.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameeditor.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/static/js/lib/fabric.js" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/about.html" />
@@ -208,6 +199,7 @@
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" />
       </list>
     </option>
@@ -376,7 +368,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555969199645" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555970451492" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/comicapp/pom.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
@@ -503,7 +495,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41331000" />
+    <option name="totallyTimeSpent" value="42568000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -518,8 +510,43 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8039216" visible="true" weight="0.34089068" />
-      <window_info id="Structure" order="1" sideWeight="0.19607843" side_tool="true" visible="true" weight="0.34089068" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8039216" weight="0.19271255" />
+      <window_info id="Structure" order="1" sideWeight="0.19607843" side_tool="true" weight="0.19271255" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4993573" weight="0.32974428" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49357328" visible="true" weight="0.053285968" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32974428" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32974428" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50642675" side_tool="true" weight="0.6675639" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4993573" weight="0.32974428" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3285968" />
+      <window_info anchor="bottom" id="Spring" order="11" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32974428" />
+      <window_info anchor="bottom" id="Database Changes" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32874495" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8039216" visible="true" weight="0.19271255" />
+      <window_info id="Structure" order="1" sideWeight="0.19607843" side_tool="true" visible="true" weight="0.19271255" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -550,41 +577,6 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven" order="8" weight="0.32874495" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26092544" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49554655" weight="0.23418574" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5044534" side_tool="true" weight="0.26465365" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32974428" />
-      <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="bottom" id="Spring" order="11" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Database Changes" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32874495" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout-to-restore>
   </component>
@@ -671,13 +663,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -973,10 +958,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1491">
+          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        <state relative-caret-position="278">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
