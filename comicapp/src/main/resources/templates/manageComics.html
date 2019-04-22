@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link type="text/css" href="css/profile.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/home">Home</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/explore">Explore</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li th:switch="${currentUser}">
+                <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+            </li>
+            <li th:switch="${currentUser}">
+                <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<h1 class="display-4"><span th:utext="${currentUser.username}"></span></h1>
+<div th:each = "comic: ${comics}"></div>
+<section>
+    <div id ="displaylist">
+        <h2 th:text = ${series.title}></h2>
+        <h1>Manage Comics</h1>
+        <div class="row" id="display-row">
+            <div th:each="comic : ${comics}" class="col-xs-3" >
+                <figure>
+                    <!--</figtitle><figtitle th:text="${comic.title}"></figtitle>-->
+                    <a th:href="@{'/comic/' + ${comic.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.id + '.png'}}" alt="Trulli" style="width:100%"></a>
+                    <figcaption><div>Category: </div><div th:text="${series.category}"></div>
+                        <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
+                        <button id="subs-btn"><div><span class="glyphicon glyphicon-trash"></span> Delete</div></button>
+
+                        <div th:if ="${comic.publicComic} == true" >
+                            <form th:object="${comic}" th:action = "@{/account/series/makeprivate}" method="POST">
+                                <input type="hidden" th:value = "*{id}" id = "id" name = "id">
+                                <!--<input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>-->
+                                <input type="submit" value="Make Private" >
+                            </form>
+                        </div>
+                        <div th:if ="${comic.publicComic} == false" >
+                            <form th:object="${comic}" th:action = "@{/account/series/makepublic}" method="POST">
+                                <input type="hidden" th:value = "*{id}" id = "id" name = "id">
+                                <!--<input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>-->
+                                <input type="submit" value="Make Public" >
+                            </form>
+                        </div>
+
+                        <!--<button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> Make Public</div></button>-->
+                        <button id="subs-btn"><div><span class="glyphicon glyphicon-comment"></span> Enable Comment</div></button>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

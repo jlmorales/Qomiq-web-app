@@ -7,10 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="rena">
+      <change afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Utility/Utility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/ComicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/ComicApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ExploreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ExploreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/ComicRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/ComicRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/SeriesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/SeriesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/ComicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/ComicService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/SeriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/SeriesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3ServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Comic.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Comic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/comicapp/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,96 +44,100 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Series.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Dislike.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/CreateController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="128">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/data.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="241" lean-forward="true" selection-start-line="241" selection-end-line="241" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1516#1517#0" expanded="true" />
-                <element signature="e#1597#1598#0" expanded="true" />
+                <element signature="e#297#359#0" />
+                <element signature="e#508#1229#0" />
+                <element signature="e#1234#1281#0" />
+                <element signature="n#!!block;n#pencil#0" />
+                <element signature="n#!!block;n#addText#0" />
+                <element signature="n#!!block;n#eraser#0" />
+                <element signature="n#!!block;n#bucket#0" />
+                <element signature="n#!!block;n#select#0" />
+                <element signature="n#!!block;n#circle#0" />
+                <element signature="n#!!block;n#rectangle#0" />
+                <element signature="n#!!block;n#triangle#0" />
+                <element signature="n#!!block;n#setWidth#0" />
+                <element signature="n#!!block;n#setColor#0" />
+                <element signature="n#!!block;n#exportEdit#0" />
+                <element signature="e#4046#4337#0" />
+                <element signature="n#!!block;n#copy#0" />
+                <element signature="n#!!block;n#cut#0" />
+                <element signature="n#!!block;n#paste#0" />
+                <element signature="n#!!block;n#undo#0" />
+                <element signature="n#!!block;n#redo#0" />
+                <element signature="n#!!block;n#text#0" />
+                <element signature="n#!!block;n#brushSize#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-102" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/ComicApplication.java">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="238">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.3.RELEASE/spring-boot-autoconfigure-2.1.3.RELEASE.jar!/org/springframework/boot/autoconfigure/orm/jpa/JpaBaseConfiguration.class">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3ServicesImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="100" column="114" lean-forward="true" selection-start-line="100" selection-start-column="114" selection-end-line="100" selection-end-column="114" />
+            <state relative-caret-position="-34">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -137,6 +160,7 @@
       <find>eraser</find>
       <find>canvas</find>
       <find>editor.</find>
+      <find>aws</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,14 +200,15 @@
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Comic.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Dislike.java" />
         <option value="$PROJECT_DIR$/comicapp/pom.xml" />
-        <option value="$PROJECT_DIR$/comicapp/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/util/util.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/util/Utility.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/ComicApplication.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/CreateController.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java" />
-        <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" />
+        <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java" />
+        <option value="$PROJECT_DIR$/comicapp/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" />
       </list>
     </option>
   </component>
@@ -215,6 +240,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,7 +291,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="comic" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamyellow_finalproject" type="b2602c69:ProjectViewProjectNode" />
@@ -276,7 +302,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="comic" type="462c0819:PsiDirectoryNode" />
               <item name="Service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamyellow_finalproject" type="b2602c69:ProjectViewProjectNode" />
@@ -286,15 +311,64 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="teamyellow_finalproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamyellow_finalproject" type="462c0819:PsiDirectoryNode" />
+              <item name="comicapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamyellow_finalproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamyellow_finalproject" type="462c0819:PsiDirectoryNode" />
+              <item name="comicapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamyellow_finalproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamyellow_finalproject" type="462c0819:PsiDirectoryNode" />
+              <item name="comicapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamyellow_finalproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamyellow_finalproject" type="462c0819:PsiDirectoryNode" />
+              <item name="comicapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamyellow_finalproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamyellow_finalproject" type="462c0819:PsiDirectoryNode" />
+              <item name="comicapp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -302,12 +376,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555081278857" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555969199645" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/comicapp/pom.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -429,7 +503,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36388000" />
+    <option name="totallyTimeSpent" value="41331000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -441,11 +515,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8071979" visible="true" weight="0.281491" />
-      <window_info id="Structure" order="1" sideWeight="0.19280206" side_tool="true" visible="true" weight="0.281491" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8039216" visible="true" weight="0.34089068" />
+      <window_info id="Structure" order="1" sideWeight="0.19607843" side_tool="true" visible="true" weight="0.34089068" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -454,7 +528,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4993573" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49357328" visible="true" weight="0.47644684" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49357328" visible="true" weight="0.18472469" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -462,7 +536,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50642675" side_tool="true" weight="0.6675639" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4993573" weight="0.32974428" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32974428" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3285968" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32974428" />
@@ -471,11 +545,11 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32874495" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32874495" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
     <layout-to-restore>
@@ -523,21 +597,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="rename table" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/home.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/NavbarController.java" />
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/js/lib/src/editor.js" />
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -589,23 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="81" column="86" selection-start-line="81" selection-start-column="79" selection-end-line="81" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/editor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="46" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -709,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Subscription.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -773,12 +808,6 @@
     <entry file="file://$PROJECT_DIR$/comicapp/mvnw.cmd">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/data.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -791,13 +820,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/util/Utility" />
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/util/Utility.java" />
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="46" lean-forward="true" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Series.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -825,53 +847,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/CreateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1597#1598#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/ComicApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.3.RELEASE/spring-boot-autoconfigure-2.1.3.RELEASE.jar!/org/springframework/boot/autoconfigure/orm/jpa/JpaBaseConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="100" column="114" lean-forward="true" selection-start-line="100" selection-start-column="114" selection-end-line="100" selection-end-column="114" />
+        <state relative-caret-position="969">
+          <caret line="100" column="105" selection-start-line="100" selection-start-column="105" selection-end-line="100" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/config/S3Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="194">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3ServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/impl/S3ServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-353">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java">
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/CreateController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        <state relative-caret-position="128">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/data.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/js/src/editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="241" lean-forward="true" selection-start-line="241" selection-end-line="241" />
+          <folding>
+            <element signature="e#297#359#0" />
+            <element signature="e#508#1229#0" />
+            <element signature="e#1234#1281#0" />
+            <element signature="n#!!block;n#pencil#0" />
+            <element signature="n#!!block;n#addText#0" />
+            <element signature="n#!!block;n#eraser#0" />
+            <element signature="n#!!block;n#bucket#0" />
+            <element signature="n#!!block;n#select#0" />
+            <element signature="n#!!block;n#circle#0" />
+            <element signature="n#!!block;n#rectangle#0" />
+            <element signature="n#!!block;n#triangle#0" />
+            <element signature="n#!!block;n#setWidth#0" />
+            <element signature="n#!!block;n#setColor#0" />
+            <element signature="n#!!block;n#exportEdit#0" />
+            <element signature="e#4046#4337#0" />
+            <element signature="n#!!block;n#copy#0" />
+            <element signature="n#!!block;n#cut#0" />
+            <element signature="n#!!block;n#paste#0" />
+            <element signature="n#!!block;n#undo#0" />
+            <element signature="n#!!block;n#redo#0" />
+            <element signature="n#!!block;n#text#0" />
+            <element signature="n#!!block;n#brushSize#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/editor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -894,7 +999,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited>Spring</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -934,6 +1039,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
