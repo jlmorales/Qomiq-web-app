@@ -39,8 +39,13 @@ public class CreateController {
         return modelAndView;
     }
 
-    @RequestMapping(value = {"/upload"}, method = RequestMethod.GET)
-    public void upload() {
-        s3Services.uploadFile("s.txt","C:/Users/Rongan Li/Desktop/s.txt");
+
+    public void upload(String bucketName, String fileName, String filePath) {
+        s3Services.uploadFile(bucketName, fileName, filePath);
     }
+
+    public void delete(String fileName, String bucketName){
+        s3Services.deleteFileFromS3Bucket(fileName,bucketName);
+    }
+
 }

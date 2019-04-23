@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.comic.Service.S3Services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,13 +28,12 @@ public class S3ServicesImpl implements S3Services {
     @Autowired
     private AmazonS3 s3client;
 
-    @Value("${jsa.s3.bucket}")
-    private String bucketName;
+
 
 
 
     @Override
-    public void uploadFile(String keyName, String uploadFilePath) {
+    public void uploadFile(String bucketName,String keyName, String uploadFilePath) {
 
         try {
 
@@ -51,6 +51,15 @@ public class S3ServicesImpl implements S3Services {
         } catch (AmazonClientException ace) {
             logger.info("Caught an AmazonClientException: ");
             logger.info("Error Message: " + ace.getMessage());
+        }
+    }
+
+    @Override
+    public void deleteFileFromS3Bucket(String fileName, String bucketName){
+        try {
+            s3client.deleteObject(new DeleteObjectRequest(bucketName, fileName));
+        } catch (AmazonServiceException ex) {
+            logger.error("error [" + ex.getMessage() + "] occurred while removing [" + fileName + "] ");
         }
     }
 
