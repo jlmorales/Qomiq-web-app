@@ -54,9 +54,9 @@
 
     <h1>Series</h1>
 
-    <div th:each="series : ${series}" class="row" id="display-row">
+    <div  class="row" id="display-row">
 
-      <div class="col-xs-3">
+      <div th:each="series : ${series}" class="col-lg-4">
        <figure>
           <figtitle th:text="${series.title}"></figtitle>
            <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:50px; height:40px">
