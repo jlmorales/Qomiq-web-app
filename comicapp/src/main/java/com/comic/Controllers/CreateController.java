@@ -33,4 +33,11 @@ public class CreateController {
         modelAndView.addObject("series", series);
         return modelAndView;
     }
+
+    @RequestMapping(value = {"/edit"}, method = RequestMethod.GET)
+    public ModelAndView edit(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editor");
+        return modelAndView;
+    }
 }
