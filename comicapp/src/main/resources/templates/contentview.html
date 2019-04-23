@@ -69,7 +69,7 @@
       <!-- <img src="c.jpg" id="hxh"> --></div>
     <div class="col-xs-6">
       <figure>
-        <figtitle>Hunter X Hunter</figtitle>
+        <figtitle th:src="${comic.title}"></figtitle>
         <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.id + '.png'}}" alt="Trulli" style="width:100%"/>
         <!--<img src="c.jpg" alt="Trulli" style="width:100%">-->
         <figcaption>by <a href="#">realwolfie</a>
