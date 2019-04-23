@@ -25,8 +25,8 @@ public class ComicApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        System.out.println("---------------- START UPLOAD FILE ----------------");
-//        s3Services.uploadFile("edit1.json", uploadFilePath);
+        System.out.println("---------------- START UPLOAD FILE ----------------");
+//        s3Services.uploadFile("test.png", uploadFilePath);
 //        System.out.println("---------------- START DOWNLOAD FILE ----------------");
 //        s3Services.downloadFile(downloadKey);
     }

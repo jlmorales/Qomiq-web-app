@@ -1,4 +1,7 @@
 package com.comic.Controllers;
+import com.amazonaws.services.s3.model.S3Object;
+import com.comic.Forms.ExploreForm;
+import com.comic.Service.S3Services;
 import com.comic.Service.SeriesService;
 import com.comic.Service.UserService;
 import com.comic.model.Series;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 @Controller
@@ -21,6 +26,9 @@ public class CreateController {
 
     @Autowired
     SeriesService seriesService;
+
+    @Autowired
+    S3Services s3Services;
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.GET)
     public ModelAndView create() {
@@ -37,7 +45,8 @@ public class CreateController {
     @RequestMapping(value = {"/edit"}, method = RequestMethod.GET)
     public ModelAndView edit(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editor");
+        modelAndView.addObject("thing", "edit1");
+        modelAndView.setViewName("editEditor");
         return modelAndView;
     }
 }
