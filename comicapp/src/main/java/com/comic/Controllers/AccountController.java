@@ -108,11 +108,8 @@ public class AccountController {
         ModelAndView modelAndView;
 //        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 //        User currentUser = userService.findUserByEmail(auth.getName());
-
         comic = comicService.findComicById(comic.getId());
-
         comic.setPublicComic(false);
-
         comicService.saveComic(comic);
         Series series =seriesService.findSeriesById(comic.getSeriesId());
         modelAndView = new ModelAndView(new RedirectView("/account/series/" + series.getId()));
