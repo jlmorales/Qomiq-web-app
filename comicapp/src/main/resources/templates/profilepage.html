@@ -62,7 +62,8 @@
            </figtitle><figtitle th:text="${series.title}"></figtitle>
            <a th:href="@{'/account/series/' + ${series.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:100%"></a>
            <figcaption><div>Category: </div><div th:text="${series.category}"></div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
+               <a href="/edit"> <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button></a>
+
                <a th:href="@{'/account/series/' + ${series.id}}">
                    <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Manage Comics in Series</div></button>
                </a>
