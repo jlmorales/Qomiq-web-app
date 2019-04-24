@@ -34,8 +34,13 @@ public class CreateController {
     public ModelAndView create() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByUsername(auth.getName());
-        List<Series> series = seriesService.findAllSeriesByAuthorUsername(auth.getName());
+        User user = userService.findUserByEmail(auth.getName());
+        List<Series> series;
+        if (user != null)
+            series = seriesService.findAllSeriesByAuthorUsername(user.username);
+        else{
+            series = null;
+        }
         modelAndView.setViewName("editor");
         modelAndView.addObject("currentUser", user);
         modelAndView.addObject("series", series);
