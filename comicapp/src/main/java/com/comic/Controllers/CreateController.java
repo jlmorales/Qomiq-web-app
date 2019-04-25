@@ -45,7 +45,7 @@ public class CreateController {
     @RequestMapping(value = {"/edit"}, method = RequestMethod.GET)
     public ModelAndView edit(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("thing", "edit1");
+        modelAndView.addObject("thing", "series28comic29");
         modelAndView.setViewName("editEditor");
         return modelAndView;
     }
