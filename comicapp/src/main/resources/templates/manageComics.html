@@ -4,7 +4,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-    <link type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -43,11 +43,11 @@
         <div class="row" id="display-row">
             <div th:each="comic : ${comics}" class="col-xs-3" >
                 <figure>
-                    <!--</figtitle><figtitle th:text="${comic.title}"></figtitle>-->
+                    <figtitle th:text="${comic.comic_title}"></figtitle>
                     <a th:href="@{'/comic/' + ${comic.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.id + '.png'}}" alt="Trulli" style="width:100%"></a>
                     <figcaption><div>Category: </div><div th:text="${series.category}"></div>
-                        <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
-                        <button id="subs-btn"><div><span class="glyphicon glyphicon-trash"></span> Delete</div></button>
+                        <button id="edit-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
+                        <button id="delete-btn"><div><span class="glyphicon glyphicon-trash"></span> Delete</div></button>
 
                         <div th:if ="${comic.publicComic} == true" >
                             <form th:object="${comic}" th:action = "@{/account/series/makeprivate}" method="POST">

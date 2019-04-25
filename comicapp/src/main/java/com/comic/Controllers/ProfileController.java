@@ -45,7 +45,7 @@ public class ProfileController {
         }
         modelAndView.addObject("currentUser", currentUser);
         modelAndView.addObject("profileUser", profileUser);
-        modelAndView.addObject("series", series);
+        modelAndView.addObject("series", seriesList);
         return modelAndView;
     }
 }

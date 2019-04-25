@@ -3,9 +3,11 @@ package com.comic.Controllers;
 import com.comic.Repository.ComicRepository;
 import com.comic.Service.ComicService;
 import com.comic.Service.CommentService;
+import com.comic.Service.SeriesService;
 import com.comic.Service.UserService;
 import com.comic.model.Comic;
 import com.comic.model.Comment;
+import com.comic.model.Series;
 import com.comic.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -34,6 +36,9 @@ public class ComicController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private SeriesService seriesService;
+
     @RequestMapping(value = {"/comic/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView category(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -56,11 +61,15 @@ public class ComicController {
         System.out.println(comic);
         Comment newComment = new Comment();
         newComment.setComicId(comic.getId());
+        User profileUser = userService.findUserById(id);
+        Series series = seriesService.findSeriesById(comic.getSeriesId());
         modelAndView.addObject("currentUser", currentUser);
         modelAndView.addObject("commentators", commentators);
         modelAndView.addObject("newComment", newComment);
+        modelAndView.addObject("profileUser", profileUser);
         modelAndView.addObject("comments", comments);
         modelAndView.addObject("comic", comic);
+        modelAndView.addObject("series", series);
         modelAndView.setViewName("contentview");
         return modelAndView;
     }
