@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Home</title>
+    <title>Your Profile</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
@@ -34,13 +34,13 @@
     </div>
 </nav>
 
-    <h1 class="display-4"><span th:utext="${user.username}"></span></h1>
+<h1 class="display-4"><span th:utext="${user.username}"></span></h1>
 
 <!-- The hero  -->
 <div class="hero-image">
 	<div class="hero-text">
     <br>
-		<button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Profile Settings</div></button>
+        <a th:href="@{/profileSettings/}"><button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Profile Settings</div></button></a>
     <button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscriptions</div></button>		
 	</div>
 	

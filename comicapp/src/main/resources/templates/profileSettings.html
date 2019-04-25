@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <meta charset="UTF-8">
+    <title>Profile Settings</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -32,45 +29,20 @@
                 <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
             </li>
             <li th:if="${currentUser} != null">
-            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
-        </li>
+                <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
+            </li>
         </ul>
     </div>
 </nav>
 
-
+<h1 class="display-4"><span th:utext="${currentUser.username}"></span></h1>
 
 <!-- The hero  -->
 <div class="hero-image">
     <div class="hero-text">
-        <h1>Make It Your Comic Universe!</h1>
-        <form action="/create"><input type="submit" value="Create" class="btn btn-primary"/></form>
-        <form action="/login"><input type="submit" value="Login" class="btn btn-primary"/></form>
+        <br>
     </div>
-
 </div>
-
-<section id="projects" >
-    <h1>Featured</h1>
-    <div class="row" >
-        <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-    </div>
-
-</section>
-
-
-
-<!-- <h1>Featured</h1>
-<div class="row" id="projects">
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-</div>
- -->
-
-
-
 
 
 </body>
