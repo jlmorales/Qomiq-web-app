@@ -74,9 +74,11 @@
         <!--<img src="c.jpg" alt="Trulli" style="width:100%">-->
         <div>by </div><span th:href="@{'/profile/' + profileUser.id}" th:text="${profileUser.username}"></span>
         <div>Category: <span th:text="${series.category}"></span></div>
-          <div><span class="glyphicon glyphicon-thumbs-up"></span>100</div>
-          <div><span class="glyphicon glyphicon-thumbs-down"></span>2</div>
-          <div><span class="glyphicon glyphicon-eye-open"></span>1000</div>
+        <div th:if="${currentUser} != null"><a th:href="@{${'/comic/like/' + comic.id}}"><span th:text="${comic.likes}" class="glyphicon glyphicon-thumbs-up"></span></a>
+          <a th:href="@{${'/comic/dislike/' + comic.id}}"><span th:text="${comic.dislikes}" class="glyphicon glyphicon-thumbs-down"></span></a></div>
+        <div th:if="${currentUser} == null"><span th:text="${comic.likes}" class="glyphicon glyphicon-thumbs-up"></span>
+          <span th:text="${comic.dislikes}" class="glyphicon glyphicon-thumbs-down"></span></div>
+        <div><span th:text="${comic.comicViews}" class="glyphicon glyphicon-eye-open"></span></div>
       </figure>
     </div>
 

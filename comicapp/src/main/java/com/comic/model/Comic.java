@@ -44,6 +44,9 @@ public class Comic {
     @Column(name = "comic_likes")
     private int likes;
 
+    @Column(name = "comic_dislikes")
+    private int dislikes;
+
     @Column(name = "comic_views")
     private int comicViews;
 

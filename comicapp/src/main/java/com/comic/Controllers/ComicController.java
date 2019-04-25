@@ -1,22 +1,13 @@
 package com.comic.Controllers;
 
 import com.comic.Repository.ComicRepository;
-import com.comic.Service.ComicService;
-import com.comic.Service.CommentService;
-import com.comic.Service.SeriesService;
-import com.comic.Service.UserService;
-import com.comic.model.Comic;
-import com.comic.model.Comment;
-import com.comic.model.Series;
-import com.comic.model.User;
+import com.comic.Service.*;
+import com.comic.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -39,6 +30,12 @@ public class ComicController {
     @Autowired
     private SeriesService seriesService;
 
+    @Autowired
+    private LikeService likeService;
+
+    @Autowired
+    private DislikeService dislikeService;
+
     @RequestMapping(value = {"/comic/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView category(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -59,8 +56,14 @@ public class ComicController {
         System.out.println(comments);
         System.out.println("Comic:");
         System.out.println(comic);
+        comic.setComicViews(comic.getComicViews() + 1);
+        comicService.saveComic(comic);
         Comment newComment = new Comment();
         newComment.setComicId(comic.getId());
+        Like like = null;
+        Dislike dislike = null;
+        if (currentUser != null) like = likeService.findByUsernameandId(currentUser.getUsername(), id);
+        if (currentUser != null) dislike = dislikeService.findByUsernameandId(currentUser.getUsername(), id);
         User profileUser = userService.findUserById(id);
         Series series = seriesService.findSeriesById(comic.getSeriesId());
         modelAndView.addObject("currentUser", currentUser);
@@ -70,6 +73,8 @@ public class ComicController {
         modelAndView.addObject("comments", comments);
         modelAndView.addObject("comic", comic);
         modelAndView.addObject("series", series);
+        modelAndView.addObject("like", like);
+        modelAndView.addObject("dislike", dislike);
         modelAndView.setViewName("contentview");
         return modelAndView;
     }
@@ -94,6 +99,62 @@ public class ComicController {
         System.out.println(comment);
         commentService.deleteComment(comment);
         modelAndView = new ModelAndView(new RedirectView("/comic/" + comment.getComicId()));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/comic/like/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView like(@PathVariable("id") int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Like newLike = new Like();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findUserByEmail(auth.getName());
+        Like like = likeService.findByUsernameandId(currentUser.getUsername(), id);
+        Dislike dislike = dislikeService.findByUsernameandId(currentUser.getUsername(), id);
+        Comic comic = comicService.findComicById(id);
+        if (like == null) {
+            newLike.setLikerUsername(currentUser.getUsername());
+            newLike.setComicId(id);
+            likeService.saveLike(newLike);
+            comic.setLikes(comic.getLikes() + 1);
+        }
+        else {
+            likeService.deleteLike(like);
+            comic.setLikes(comic.getLikes() - 1);
+        }
+        if (dislike != null) {
+            dislikeService.deleteDislike(dislike);
+            comic.setDislikes(comic.getDislikes() - 1);
+        }
+        comicService.saveComic(comic);
+        modelAndView = new ModelAndView(new RedirectView("/comic/" + id));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/comic/dislike/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView dislike(@PathVariable("id") int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Dislike newDislike = new Dislike();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findUserByEmail(auth.getName());
+        Like like = likeService.findByUsernameandId(currentUser.getUsername(), id);
+        Dislike dislike = dislikeService.findByUsernameandId(currentUser.getUsername(), id);
+        Comic comic = comicService.findComicById(id);
+        if (dislike == null) {
+            newDislike.setDislikerUsername(currentUser.getUsername());
+            newDislike.setComicId(id);
+            dislikeService.saveDislike(newDislike);
+            comic.setDislikes(comic.getDislikes() + 1);
+        }
+        else {
+            dislikeService.deleteDislike(dislike);
+            comic.setDislikes(comic.getDislikes() - 1);
+        }
+        if (like != null) {
+            likeService.deleteLike(like);
+            comic.setLikes(comic.getLikes() - 1);
+        }
+        comicService.saveComic(comic);
+        modelAndView = new ModelAndView(new RedirectView("/comic/" + id));
         return modelAndView;
     }
 }

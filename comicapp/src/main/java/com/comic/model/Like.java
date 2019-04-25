@@ -20,11 +20,8 @@ public class Like {
     @Column(name = "liker_username")
     private String likerUsername;
 
-    @Column(name = "seriesId")
-    private String seriesId;
-
     @Column(name = "comicId")
-    private String comicId;
+    private int comicId;
 
 }
 

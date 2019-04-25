@@ -10,19 +10,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Dislike")
+@Table(name = "dislike")
 public class Dislike {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Dislike_Id")
-    private int DislikeId;
+    @Column(name = "dislike_Id")
+    private int dislikeId;
 
-    @Column(name = "Disliker_Username")
-    private String liker_username;
+    @Column(name = "disliker_Username")
+    private String dislikerUsername;
 
-    @Column(name = "Disliker_seriesId")
-    private String seriesId;
-
-    @Column(name = "Disliker_comicId")
-    private String comicId;
+    @Column(name = "disliker_comicId")
+    private int comicId;
 }
