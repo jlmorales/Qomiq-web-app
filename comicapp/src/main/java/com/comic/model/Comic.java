@@ -24,6 +24,9 @@ public class Comic {
     @Column(name = "comic_seriesId")
     private int seriesId;
 
+    @Column(name = "comic_title")
+    private String comic_title;
+
     //time is stored in an int and 24-hour format. For example, 1742 represents 17:42 or 5:42 pm
     @Column(name = "comic_creationTime")
     private int creationTime;

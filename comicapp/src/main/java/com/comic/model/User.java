@@ -33,7 +33,7 @@ public class User {
     private String password;
     @Column(name = "username")
     @NotEmpty(message = "*Please provide username")
-    private String username;
+    public String username;
     @Column(name = "active")
     private int active;
     @ManyToMany(cascade = CascadeType.ALL)

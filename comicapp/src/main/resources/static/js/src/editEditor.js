@@ -13,23 +13,23 @@ canvas.renderAll();
 canvas.defaultCursor = 'circle';
 
 canvas.on('object:added',function(){
-  if(!redoOn){
-    actionStack = [];
-  }
-  redoOn = false;
+    if(!redoOn){
+        actionStack = [];
+    }
+    redoOn = false;
 });
 var color = "black";
 var brushWidth = 2;
 
+//check that message exists from backend
+console.log(message);
 
-// console.log(message);
-//
-// $.getJSON("https://s3.us-east-2.amazonaws.com/comic-bucket/"+ message +".json",function(data){
-//     console.log(data);
-//     canvas.loadFromJSON(data,
-//         canvas.renderAll.bind(canvas));
-//
-// });
+$.getJSON("https://s3.us-east-2.amazonaws.com/comic-bucket/"+ message +".json",function(data){
+    console.log(data);
+    canvas.loadFromJSON(data,
+        canvas.renderAll.bind(canvas));
+
+});
 
 // ajaxGet();
 //
@@ -73,7 +73,7 @@ fileInput.addEventListener('change', function(e){
     console.log(e.target.files[0].name);
     var fileReader = new FileReader();
     fileReader.onload = function(o) {
-    console.log("yo");
+        console.log("yo");
         var imgObject = new Image();
         imgObject.src = o.target.result;
         imgObject.onload = function() {
@@ -134,10 +134,10 @@ function addText() {
         }
     );
 
-   // text_obj.on('selected', function(e){
-   //     var x = prompt("change text: ");
-   //     text_obj.setText(x);
-   // });
+    // text_obj.on('selected', function(e){
+    //     var x = prompt("change text: ");
+    //     text_obj.setText(x);
+    // });
 
 
     canvas.add(text_obj);
@@ -152,16 +152,16 @@ function eraser() {
 }
 
 function bucket() {
-  var bucket = document.getElementById("col-pk").value;
-  console.log(bucket == null);
-  var selection = canvas.getActiveObject();
-  if(selection == null){
-      canvas.backgroundColor = bucket;
-  }else{
-      selection.set({fill:bucket});
-      console.log("slection color has been changed to " + bucket);
-  }
-canvas.renderAll();
+    var bucket = document.getElementById("col-pk").value;
+    console.log(bucket == null);
+    var selection = canvas.getActiveObject();
+    if(selection == null){
+        canvas.backgroundColor = bucket;
+    }else{
+        selection.set({fill:bucket});
+        console.log("slection color has been changed to " + bucket);
+    }
+    canvas.renderAll();
 
 
 }
@@ -238,7 +238,7 @@ function exportEdit() {
         window.navigator.msSaveOrOpenBlob(file, filename)
     else {
         var a = document.createElement("a"),
-        url = URL.createObjectURL(file);
+            url = URL.createObjectURL(file);
         a.href = url;
         a.download = fileName;
         document.body.appendChild(a);
@@ -257,13 +257,13 @@ fileInput.addEventListener('change', function(e){
     if(!file) return;
     var reader = new FileReader();
     reader.onload = function(f) {
-      var data = f.target.result;
-      canvas.loadFromJSON(
-      JSON.parse(data),
-      canvas.renderAll.bind(canvas));
+        var data = f.target.result;
+        canvas.loadFromJSON(
+            JSON.parse(data),
+            canvas.renderAll.bind(canvas));
     };
     reader.readAsText(file);
-    });
+});
 
 function copy() {
     canvas.getActiveObject().clone(function(clonedObj) {
@@ -280,26 +280,26 @@ function cut() {
 
 function paste() {
     clipboard.clone(function(clonedObj) {
-    	canvas.discardActiveObject();
-    	clonedObj.set({
-    	    left: clonedObj.left + 10,
-    		top: clonedObj.top + 10,
-    		event: true,
-    	});
-    	if (clonedObj.type === 'activeSelection') {
-    		clonedObj.canvas = canvas;
-    		clonedObj.forEachObject(function(o) {
-    			canvas.add(o);
-    		});
-    		clonedObj.setCoords();
-    	}
-    	else {
-    		canvas.add(clonedObj);
-    	}
-    	clipboard.top += 10;
-    	clipboard.left += 10;
-    	canvas.setActiveObject(clonedObj);
-    	canvas.requestRenderAll();
+        canvas.discardActiveObject();
+        clonedObj.set({
+            left: clonedObj.left + 10,
+            top: clonedObj.top + 10,
+            event: true,
+        });
+        if (clonedObj.type === 'activeSelection') {
+            clonedObj.canvas = canvas;
+            clonedObj.forEachObject(function(o) {
+                canvas.add(o);
+            });
+            clonedObj.setCoords();
+        }
+        else {
+            canvas.add(clonedObj);
+        }
+        clipboard.top += 10;
+        clipboard.left += 10;
+        canvas.setActiveObject(clonedObj);
+        canvas.requestRenderAll();
     });
 }
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-	<link rel="stylesheet" type="text/css" href="profile.css">
+	<link rel="stylesheet" type="text/css" href="/css/profile.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -34,6 +34,7 @@
 <div class="hero-image">
 	<div class="hero-text">
     <h1>Telephone Game</h1>
+        <h1>Hello <span th:utext="${currentUser.username}"></h1>
 		<button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Start A Game</div></button>		
 	</div>
 	

@@ -14,14 +14,14 @@ import javax.persistence.*;
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "comicLike_id")
+    @Column(name = "like_id")
     private int likeId;
 
     @Column(name = "liker_username")
     private String likerUsername;
 
-//    @Column(name = "comicLike_seriesId")
-//    private String seriesId;
+    @Column(name = "seriesId")
+    private String seriesId;
 
     @Column(name = "comicId")
     private String comicId;
