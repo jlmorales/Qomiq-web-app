@@ -36,26 +36,11 @@ public class ProfileController {
             modelAndView = new ModelAndView(new RedirectView("/account"));
             return modelAndView;
         }
-        List<Series> series = seriesService.findAllSeries();
-        List<Series> seriesList = new ArrayList<>();
-        for (Series s : series) {
-            if (s.getAuthorUsername().equals(profileUser.getUsername())) {
-                seriesList.add(s);
-            }
-        }
+        List<Series> seriesList = seriesService.findAllSeriesByAuthorUsername(profileUser.getUsername());
         modelAndView.addObject("currentUser", currentUser);
         modelAndView.addObject("profileUser", profileUser);
         modelAndView.addObject("series", seriesList);
         return modelAndView;
     }
 
-    @RequestMapping(value = {"/profileSettings"},method = RequestMethod.GET)
-    public ModelAndView profileSettings() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("profileSettings");
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User currentUser = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("currentUser", currentUser);
-        return modelAndView;
-    }
 }
