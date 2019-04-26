@@ -150,7 +150,7 @@
 
   </div>
   <div th:each = "comment,iter : ${comments}">
-    <div th:text = ${commentators[iter.index].username}></div>
+    <a th:href="@{${'/profile/' + comment.commenterId}}"><div th:text = ${commentators[iter.index].username}></div></a>
     <div th:text = "${comment.commentContent}"></div>
     <div th:if ="${currentUser != null && currentUser.username == commentators[iter.index].username} ">
         <form th:object="${comment}" th:action = "@{/comic/deleteComment}" method="POST">

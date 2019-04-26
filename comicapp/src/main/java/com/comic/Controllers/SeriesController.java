@@ -25,10 +25,8 @@ public class SeriesController {
     @RequestMapping(value = {"/series/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView series(@PathVariable("id") int id){
         ModelAndView modelAndView;
-        Series series = seriesService.findSeriesById(id);
         List<Comic> comics = comicService.findComicsBySeriesIdAndPublicComic(id);
         modelAndView = new ModelAndView();
-        modelAndView.addObject("series", series);
         modelAndView.addObject("comics", comics);
         modelAndView.setViewName("series");
         return modelAndView;

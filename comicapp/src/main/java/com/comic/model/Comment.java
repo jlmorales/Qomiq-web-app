@@ -18,7 +18,7 @@ public class Comment {
     private int commentId;
 
     @Column(name="commentor_Id")
-    private int commentorId;
+    private int commenterId;
 
     @Column(name="commentContent")
     private  String commentContent;
