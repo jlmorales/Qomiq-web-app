@@ -152,10 +152,13 @@
             </div>
             <div>
                 <label for="comicSeries">Pick Series for this Comic: </label>
-                <select id="comicSeries" th:each="series : ${series}">
-                    <option th:text="${series.title}"></option>
+                <select id="comicSeries">
+                    <div  th:each="series : ${series}">
+                        <option th:text="${series.title}" th:value="${series.title}"></option>
+                    </div>
                 </select>
             </div>
+
             <div>
                 <label for="commentsBoolean">Enable Comments: </label>
                 <input id="commentsBoolean" type="checkbox" />
