@@ -157,4 +157,37 @@ public class ComicController {
         modelAndView = new ModelAndView(new RedirectView("/comic/" + id));
         return modelAndView;
     }
+
+    @RequestMapping(value = {"/comic/next/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView next(@PathVariable("id") int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Comic comic = comicService.findComicById(id);
+        List<Comic> comics = comicService.findComicsBySeriesId(comic.getSeriesId());
+        if (comics.size() > comics.indexOf(comic)+1) {
+            Comic nextComic = comics.get(comics.indexOf(comic) + 1);
+            int nextId = nextComic.getId();
+            modelAndView = new ModelAndView(new RedirectView("/comic/" + nextId));
+        }
+        else {
+            modelAndView = new ModelAndView(new RedirectView("/comic/" + id));
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/comic/prev/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView prev(@PathVariable("id") int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Comic comic = comicService.findComicById(id);
+        List<Comic> comics = comicService.findComicsBySeriesId(comic.getSeriesId());
+        if ((comics.indexOf(comic)+1) > 0) {
+            Comic prevComic = comics.get(comics.indexOf(comic) - 1);
+            int prevId = prevComic.getId();
+            modelAndView = new ModelAndView(new RedirectView("/comic/" + prevId));
+        }
+        else {
+            modelAndView = new ModelAndView(new RedirectView("/comic/" + id));
+        }
+        return modelAndView;
+    }
+
 }
