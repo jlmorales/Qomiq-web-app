@@ -8,6 +8,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="/js/lib/fabric.min.js"></script>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 
@@ -153,13 +155,33 @@
                 <input type="text" id="comicTitle" />
             </div>
             <div>
-                <label for="comicSeries">Pick Series for this Comic: </label>
-                <select  id="comicSeries" >
+                <select id = "currentSeries" class = "seriesSelect" >
                     <div th:each="series : ${series}">
                         <option th:text="${series.title}"></option>
                     </div>
-                    <option selected="selected" value="DEFAULT">DEFAULT</option>
                 </select>
+                <!--<label for="comicSeries">Pick Series for this Comic: </label>-->
+
+                <!--<select class="form-control">-->
+                    <!--<div th:each="series : ${series}">-->
+                    <!--<option th:text="${series.title}"></option>-->
+                    <!--</div>-->
+                <!--</select>-->
+
+
+                <!--<input id = "currentSeries" type="text" list="comicSeries" />-->
+                <!--<datalist id="comicSeries">-->
+                    <!--<div th:each="series : ${series}">-->
+                    <!--<option th:text="${series.title}"></option>-->
+                    <!--</div>-->
+                <!--</datalist>-->
+
+                <!--<select  id="comicSeries" >-->
+                    <!--<div th:each="series : ${series}">-->
+                        <!--<option th:text="${series.title}"></option>-->
+                    <!--</div>-->
+                    <!--<option selected="selected" value="DEFAULT">DEFAULT</option>-->
+                <!--</select>-->
             </div>
             <div>
                 <label for="commentsBoolean">Enable Comments: </label>
