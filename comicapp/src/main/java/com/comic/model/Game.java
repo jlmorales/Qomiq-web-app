@@ -1,6 +1,5 @@
 package com.comic.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,13 +12,18 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Game")
+@Table(name = "game")
 public class Game {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "gameId")
-    private int gameID;
+    @Column(name = "comic_id")
+    private int id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "game_name")
+    private String gameName;
+
+    @Column(name = "user_id")
+    private int userId;
+
 }

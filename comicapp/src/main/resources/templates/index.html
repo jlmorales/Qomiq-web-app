@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -49,6 +49,8 @@
     </div>
 
 </div>
+
+<img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series58comic59.png'}}" alt="Trulli" style="width:100%"/>
 
 <section id="projects" >
     <h1>Featured</h1>

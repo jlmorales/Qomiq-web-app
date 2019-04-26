@@ -35,6 +35,9 @@
 	<div class="hero-text">
     <h1>Telephone Game</h1>
         <h1>Hello <span th:utext="${currentUser.username}"></h1>
+        <form th:object="${newGame}" th:action = "@{/game/new}" method="POST">
+            <input  type="submit" value="Start A Game" >
+        </form>
 		<button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Start A Game</div></button>		
 	</div>
 	
@@ -44,81 +47,27 @@
 <section>
   <div id ="displaylist">
 
-    <h1>Past Games</h1>
+    <h1>Current Games</h1>
 
     <div class="row" id="display-row">
-
-
-
-      <div class="col-xs-3">
-       <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>
-            owner: <a href="#">realwolfie</a><br>
-            collaborators:<a href="#">wildcardplayer</a>
-            <a href="#">jazzygamer</a>
-            <a href="#">pokemonhunter</a>
-            <a href="#">paintmaster</a>
-            <div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-blackboard"></span> View</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
-
-      <div class="col-xs-3">
-       <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>
-            owner: <a href="#">realwolfie</a><br>
-            collaborators:<a href="#">wildcardplayer</a>
-            <a href="#">jazzygamer</a>
-            <a href="#">pokemonhunter</a>
-            <a href="#">paintmaster</a>
-            <div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-blackboard"></span> View</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
-
-      <div class="col-xs-3">
-       <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>
-            owner: <a href="#">realwolfie</a><br>
-            collaborators:<a href="#">wildcardplayer</a>
-            <a href="#">jazzygamer</a>
-            <a href="#">pokemonhunter</a>
-            <a href="#">paintmaster</a>
-            <div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-blackboard"></span> View</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
-
-      <div class="col-xs-3">
-       <figure>
-          <figtitle>Hunter X Hunter</figtitle>
-          <img src="c.jpg" alt="Trulli" style="width:100%">
-          <figcaption>
-            owner: <a href="#">realwolfie</a><br>
-            collaborators:<a href="#">wildcardplayer</a>
-            <a href="#">jazzygamer</a>
-            <a href="#">pokemonhunter</a>
-            <a href="#">paintmaster</a>
-            <div>Category: Adventures</div>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-blackboard"></span> View</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
-
-
+    <div th:each="game,iter : ${games}">
+        <div class="col-xs-3">
+            <figure>
+                <figtitle th:text="${game.gameName}">Hunter X Hunter</figtitle>
+                <img src="c.jpg" alt="Trulli" style="width:100%">
+                <figcaption>
+                    owner: <a href="#">realwolfie</a><br>
+                    collaborators:<a href="#">wildcardplayer</a>
+                    <a href="#">jazzygamer</a>
+                    <a href="#">pokemonhunter</a>
+                    <a href="#">paintmaster</a>
+                    <div>Category: Adventures</div>
+                    <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>
+                    <button id="subs-btn"><div><span class="glyphicon glyphicon-blackboard"></span> View</div></button>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
 
     </div>
   </div>

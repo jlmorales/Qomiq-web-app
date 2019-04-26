@@ -12,21 +12,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "gamePage")
-public class GamePage {
+@Table(name = "gamePlayer")
+public class GamePlayer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "game_page_id")
+    @Column(name = "player_id")
     private int id;
 
     @Column(name = "game_id")
     private int gameId;
 
-    @Column(name = "page_number")
-    private int pageNumber;
-
-    @Column(name = "page_key")
-    private String pageKey;
-
+    @Column(name = "user_id")
+    private int userId;
 }

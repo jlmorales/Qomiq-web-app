@@ -1,0 +1,11 @@
+body,html{
+    height: 100%;
+    background-color: #f0e7e3;
+    position: relative;
+
+}
+
+section{
+    background-color: #eaf2f4;
+    color: blue;
+}

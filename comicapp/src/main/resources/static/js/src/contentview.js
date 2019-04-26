@@ -12,3 +12,18 @@ function addComment(){
     );
 
 }
+
+$(document).ready(function(){
+    $("#like").click(function(){
+        $("#like").toggleClass("like");
+    });
+});;
+
+$(document).ready(function(){
+    $("#like").click(function(){
+        $("#like").toggleClass("like");
+    });
+});;
+
+
+

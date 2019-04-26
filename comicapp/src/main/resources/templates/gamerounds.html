@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Rounds</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/gamerounds.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/home">Home</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/explore">Explore</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+            </li>
+
+
+
+            <li>
+                <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+<!--This is the starting of section for the ongoing games-->
+<section id="current-round">
+    <h1>Current Games</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Game ID</th>
+            <th>Round Name</th>
+            <th>Player Name</th>
+            <th>Round State</th>
+            <th>Voting Right</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Game 1</td>
+            <td>Round 0</td>
+            <td>Owner</td>
+            <td>Completed</td>
+            <td><button class="btn btn-info">Vote</button></td>
+        </tr>
+
+        <tr>
+            <td>Game 1</td>
+            <td>Round 2</td>
+            <td>OneOKAsian(You)</td>
+            <td>Completed</td>
+            <td><button class="btn btn-info" disabled>Vote</button></td>
+        </tr>
+
+        <tr>
+            <td>Game 1</td>
+            <td>Round 0</td>
+            <td>therobotguy</td>
+            <td>Running</td>
+            <td><button class="btn btn-info" disabled>Vote</button></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+
+
+
+<!--This is where the current game section ends-->
+
+<!--This is the round stat from inactive rounds-->
+<section id="current-round">
+    <h1>Past Rounds</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Game ID</th>
+            <th>Round Name</th>
+            <th>Player Name</th>
+            <th>Round Status</th>
+            <th>Votes</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <!--<tr>-->
+            <!--<td>Game 1</td>-->
+            <!--<td>Round 0</td>-->
+            <!--<td>Owner</td>-->
+            <!--<td>Completed/Expired</td>-->
+            <!--<td disabled>None</td>-->
+        <!--</tr>-->
+
+        <tr>
+            <td>Game 1</td>
+            <td>Round 2</td>
+            <td>TheMoonCheeseChef</td>
+            <td>Completed/Expired</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td>Game 1</td>
+            <td>Round 2</td>
+            <td>MarvelDon</td>
+            <td>Completed/Expired</td>
+            <td>10</td>
+        </tr>
+
+        <tr>
+            <td>Game 1</td>
+            <td>Round 2</td>
+            <td>ComicLord</td>
+            <td>Completed/Expired</td>
+            <td>3</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+
+<!--Ends round stat from inactive rounds-->
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

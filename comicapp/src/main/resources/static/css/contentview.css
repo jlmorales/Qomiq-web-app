@@ -65,4 +65,12 @@ figcaption{
 	display: inline-flex;
 }
 
+#like{
+	color:blue;
+}
+
+#dislike{
+	color:red;
+}
+
 

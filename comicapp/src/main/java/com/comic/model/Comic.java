@@ -21,6 +21,9 @@ public class Comic {
     @Column(name = "comic_id")
     private int id;
 
+    @Column(name = "comic_title")
+    private String comicTitle;
+
     @Column(name = "comic_seriesId")
     private int seriesId;
 
