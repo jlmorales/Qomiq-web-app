@@ -29,7 +29,7 @@ public class GamePage {
     @Column(name = "content_ref")
     private String content_ref;
 
-    @Column(name = "player_username")
-    private String playerUsername;
+    @Column(name = "playerId")
+    private String playerId;
 
 }
