@@ -24,5 +24,7 @@ public class ComicService {
 
     public List<Comic> findComicsBySeriesId(int id){ return this.comicRepository.findAllBySeriesId(id);}
 
+    public List<Comic> findComicsBySeriesIdAndPublicComic(int id) { return this.comicRepository.findAllBySeriesIdAndPublicComicTrue(id); }
+
     public Comic saveComic(Comic comic){ return this.comicRepository.save(comic);}
 }

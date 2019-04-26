@@ -26,7 +26,7 @@ public class SeriesController {
     public ModelAndView series(@PathVariable("id") int id){
         ModelAndView modelAndView;
         Series series = seriesService.findSeriesById(id);
-        List<Comic> comics = comicService.findComicsBySeriesId(id);
+        List<Comic> comics = comicService.findComicsBySeriesIdAndPublicComic(id);
         modelAndView = new ModelAndView();
         modelAndView.addObject("series", series);
         modelAndView.addObject("comics", comics);
