@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>Content View: <span th:text="${comic.comic_title}"></span></title>
+  <title th:text="${comic.comicTitle}"></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
   <!--<link rel="stylesheet" type="text/css" href="../static/css/contentview.css">-->
@@ -55,11 +55,11 @@
 
   <div class="row">
     <div class="col-xs-3">
-      <button>Previous Series</button>
+      <a th:href="@{${'/comic/prev/'+ comic.id}}"><button>Previous Comic</button></a>
     </div>
     <div class="col-xs-6"></div>
     <div class="col-xs-3">
-      <button>Next Series</button>
+      <a th:href="@{${'/comic/next/' + comic.id}}"><button>Next Comic</button></a>
     </div>
 
   </div>
@@ -69,7 +69,7 @@
       <!-- <img src="c.jpg" id="hxh"> --></div>
     <div class="col-xs-6">
       <figure>
-        <figtitle th:text="${comic.comic_title}"></figtitle>
+        <figtitle th:text="${comic.comicTitle}"></figtitle>
         <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.id + '.png'}}" alt="Trulli" style="width:100%"/>
         <!--<img src="c.jpg" alt="Trulli" style="width:100%">-->
         <div>by </div><span th:href="@{'/profile/' + profileUser.id}" th:text="${profileUser.username}"></span>
@@ -89,15 +89,6 @@
 
   </div>
 
-  <div class="row">
-    <div class="col-xs-4"></div>
-    <div class="col-xs-4">
-      <button>Previous Comic</button>
-      <button>Next Comic</button>
-    </div>
-    <div class="col-xs-4"></div>
-
-  </div>
 
   <div class="row">
     <div class="col-xs-3"></div>

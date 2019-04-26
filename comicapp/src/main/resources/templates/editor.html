@@ -63,7 +63,7 @@
 
 <!-- Adding the tabs -->
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Editor</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">Ligetor</a></li>
     <li><a data-toggle="tab" href="#menu1">Preview & Manage</a></li>
     <li><a data-toggle="tab" href="#menu2">Config</a></li>
 </ul>
@@ -84,7 +84,9 @@
             <div class = "row">
 
                 <div class = "col-xs-3"></div>
-
+                <div class = "col-xs-6">
+                    Title Here: <input id="edit-title" value="title here" type="text"></input>
+                </div>
                 <div class = "col-xs-3"></div>
 
             </div>
@@ -152,12 +154,14 @@
             </div>
             <div>
                 <label for="comicSeries">Pick Series for this Comic: </label>
-                <select id="comicSeries">
-                    <div  th:each="series : ${series}">
-                        <option th:text="${series.title}" th:value="${series.title}"></option>
+                <select  id="comicSeries" >
+                    <div th:each="series : ${series}">
+                        <option th:text="${series.title}"></option>
                     </div>
+                    <option selected="selected" value="DEFAULT">DEFAULT</option>
                 </select>
             </div>
+
             <div>
                 <label for="newSeriesOrNot">Make a new Series: </label>
                 <div id="newSeriesOrNot">
@@ -170,6 +174,7 @@
                 <input type="text" id="newSeriesTitle"  />
             </div>
 
+
             <div>
                 <label for="commentsBoolean">Enable Comments: </label>
                 <input id="commentsBoolean" type="checkbox" />
@@ -178,7 +183,8 @@
                 <label for="makePublic" type="checkbox">Make Public: </label>
                 <input id="makePublic" type="checkbox" />
             </div>
-            <input id="submitComic" type="submit">
+            <button onclick="window.publish()">Publish</button>
+            <input id="submitComic" type="submit" action = "window.">
         </form>
     </div>
 </div>

@@ -206,14 +206,65 @@ function setColor(newColor) {
     color = newColor;
 }
 
+function publish() {
+    holder = JSON.stringify(canvas.toJSON());
+    var file = new Blob([holder], {type: "application/json"});
+    var seriesName = $("#comicSeries option:selected").text();
+    console.log(seriesName);
+    var comicName= $("#comicTitle").val();
+    var myForm = new FormData();
+    var pngholder=null;
+    // $("#myCanvas").get(0).toBlob(function(blob){
+    //     pngholder=blob;
+    // });
+    var data = canvas.toDataURL()
+    // var blob = new Blob([data], {type:"octet/stream"});
+
+    console.log(data);
+    // var pngfile = new Blob([pngholder], {type:'image/png'});
+
+    myForm.append("file", file);
+    myForm.append("pngFile",data);
+    myForm.append("seriesName", seriesName);
+    myForm.append("comicName", comicName);
+
+    $.ajax({
+        url : '/upload',
+        data : myForm,
+        type : "POST",
+        processData: false,
+        contentType:false,
+        success : function (result) {
+            console.log("success");
+            console.log(result);
+        },
+        error : function (result) {
+            console.log("error");
+            console.log(result)
+
+        }
+
+    });
+
+
+
+
+
+}
+
 function exportEdit() {
     holder = JSON.stringify(canvas.toJSON());
     console.log(holder);
     var fileName = window.prompt("Please enter filename:");
     var file = new Blob([holder], {type: "application/json"});
     //stuff
+    var seriesName = "mySeries";
+    var comicName = "myComic";
     var myForm = new FormData();
     myForm.append("file", file);
+    myForm.append("seriesName", seriesName);
+    myForm.append("comicName", comicName);
+    console.log(myForm);
 
     $.ajax({
         dataType : 'json',
@@ -224,9 +275,11 @@ function exportEdit() {
         processData: false,
         contentType:false,
         success : function (result) {
+            console.log("success");
             console.log(result);
         },
         error : function (result) {
+            console.log("error");
             console.log(result)
 
         }

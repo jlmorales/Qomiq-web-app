@@ -12,18 +12,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "game")
-public class Game {
+@Table(name = "gamePlayer")
+public class GamePlayer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "game_id")
+    @Column(name = "player_id")
     private int id;
 
-    @Column(name = "game_name")
-    private String gameName;
+    @Column(name = "game_id")
+    private int gameId;
 
     @Column(name = "user_id")
     private int userId;
-
 }
