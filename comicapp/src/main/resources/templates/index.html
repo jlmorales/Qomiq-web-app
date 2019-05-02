@@ -45,17 +45,27 @@
     <div class="hero-text">
         <h1>Make It Your Comic Universe!</h1>
         <form action="/create"><input type="submit" value="Create" class="btn btn-primary"/></form>
-        <form action="/login"><input type="submit" value="Login" class="btn btn-primary"/></form>
+        <form action="/login"><input type="submit" value="Join" class="btn btn-primary"/></form>
     </div>
 
 </div>
 
-<img id="home-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series58comic59.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"/>
+<!--<img id="home-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series58comic59.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"/>-->
 
 <section id="projects" >
     <h1>Featured</h1>
     <div class="row" >
-        <div id= "home2-img" class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"    onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"></div>
+        <div id="proj-disp" class ="col-xs-3">
+
+            <div class ="card">
+
+
+               <img src="c.jpg" id="hxh"    onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';">
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>
