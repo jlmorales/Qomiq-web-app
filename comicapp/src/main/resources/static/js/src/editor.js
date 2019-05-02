@@ -261,6 +261,31 @@ function publish() {
 
 }
 
+function sendBackwards() {
+    var selected = canvas.getActiveObject();
+    canvas.sendBackwards(selected);
+}
+
+function sendToBack() {
+    var selected = canvas.getActiveObject();
+    canvas.sendToBack(selected);
+}
+
+function bringForwards() {
+    var selected = canvas.getActiveObject();
+    canvas.bringForwards(selected);
+}
+
+function bringToFront() {
+    var selected = canvas.getActiveObject();
+    canvas.bringToFront(selected);
+}
+
+function trash() {
+    var selected = canvas.getActiveObject();
+    canvas.remove(selected);
+}
+
 function exportEdit() {
     holder = JSON.stringify(canvas.toJSON());
     console.log(holder);
