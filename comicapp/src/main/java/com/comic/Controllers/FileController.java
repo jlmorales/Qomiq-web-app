@@ -24,6 +24,7 @@ import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 
 @Controller
 public class FileController {
@@ -56,6 +57,12 @@ public class FileController {
         series.setCreationTime(0);
         series.setSeriesViews(0);
         series.setTitle(seriesName);
+        List<Series> seriesList = seriesService.findAllSeriesByAuthorUsername(user.getUsername());
+        for(Series s : seriesList){
+            if(s.getTitle().equalsIgnoreCase(seriesName)){
+                series = s;
+            }
+        }
         series = seriesService.saveSeries(series);
         System.out.println(series);
         Comic comic = new Comic();
@@ -66,6 +73,7 @@ public class FileController {
         comic.setLikes(0);
         comic.setComicTitle(comicName);
         comic.setComicViews(0);
+        comic.setSeriesId(series.getId());
         comic = comicService.saveComic(comic);
         System.out.println(comic);
         String keyName = "series"+series.getId()+"comic"+comic.getId()+"."+"json";
@@ -75,7 +83,6 @@ public class FileController {
         byte[] imagedata = DatatypeConverter.parseBase64Binary(pngFile.substring(pngFile.indexOf(",")+1));
         BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
         s3Services.uploadFile(keyName, realFile);
-
         return "Upload Successfully -> KeyName = " + keyName;
     }
 }

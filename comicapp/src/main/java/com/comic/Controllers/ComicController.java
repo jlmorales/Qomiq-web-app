@@ -1,6 +1,5 @@
 package com.comic.Controllers;
 
-import com.comic.Repository.ComicRepository;
 import com.comic.Service.*;
 import com.comic.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -49,7 +47,7 @@ public class ComicController {
         List<Comment> comments = commentService.findCommentsByComicId(comic.getId());
         List<User> commentators= new ArrayList<>();
         for(Comment comment : comments){
-            User user = userService.findUserById(comment.getCommentorId());
+            User user = userService.findUserById(comment.getCommenterId());
             commentators.add(user);
         }
         System.out.println("Comments:");
@@ -64,8 +62,8 @@ public class ComicController {
         Dislike dislike = null;
         if (currentUser != null) like = likeService.findByUsernameandId(currentUser.getUsername(), id);
         if (currentUser != null) dislike = dislikeService.findByUsernameandId(currentUser.getUsername(), id);
-        User profileUser = userService.findUserById(id);
         Series series = seriesService.findSeriesById(comic.getSeriesId());
+        User profileUser = userService.findUserByUsername(series.getAuthorUsername());
         modelAndView.addObject("currentUser", currentUser);
         modelAndView.addObject("commentators", commentators);
         modelAndView.addObject("newComment", newComment);
@@ -84,7 +82,7 @@ public class ComicController {
         ModelAndView modelAndView;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
-        newComment.setCommentorId(currentUser.getId());
+        newComment.setCommenterId(currentUser.getId());
         System.out.println(newComment);
         commentService.saveComment(newComment);
         modelAndView = new ModelAndView(new RedirectView("/comic/" + newComment.getComicId()));

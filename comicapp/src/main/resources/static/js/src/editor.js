@@ -1,3 +1,9 @@
+$(document).ready(function() {
+    $(".seriesSelect").select2({
+        tags: true
+    });
+});
+
 
 //for the initial canvas setup
 var canvas = new fabric.Canvas('myCanvas');
@@ -209,7 +215,10 @@ function setColor(newColor) {
 function publish() {
     holder = JSON.stringify(canvas.toJSON());
     var file = new Blob([holder], {type: "application/json"});
-    var seriesName = $("#comicSeries option:selected").text();
+    // var seriesName = $("#comicSeries option:selected").text();
+    var seriesName = $("#comicSeries option:selected").attr('value');
+    seriesName = $("#currentSeries").val();
+    // var seriesName = document.getElementById("currentSeries").innerText = document.getElementById("comic_series").value;
     console.log(seriesName);
     var comicName= $("#comicTitle").val();
     var myForm = new FormData();
@@ -250,6 +259,31 @@ function publish() {
 
 
 
+}
+
+function sendBackwards() {
+    var selected = canvas.getActiveObject();
+    canvas.sendBackwards(selected);
+}
+
+function sendToBack() {
+    var selected = canvas.getActiveObject();
+    canvas.sendToBack(selected);
+}
+
+function bringForwards() {
+    var selected = canvas.getActiveObject();
+    canvas.bringForwards(selected);
+}
+
+function bringToFront() {
+    var selected = canvas.getActiveObject();
+    canvas.bringToFront(selected);
+}
+
+function trash() {
+    var selected = canvas.getActiveObject();
+    canvas.remove(selected);
 }
 
 function exportEdit() {

@@ -46,8 +46,9 @@
         <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + profileUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px">
     <br>
         <h1 class="display-4"><span th:utext="${profileUser.username}"></span></h1>
-    <button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>		
-	</div>
+        <a th:if="${subscription} == null" th:href="@{${'/profile/subscribe/' + profileUser.id}}"><button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button></a>
+        <a th:if="${subscription} != null" th:href="@{${'/profile/unsubscribe/' + profileUser.id}}"><button id="cover-btn"><div><span class="glyphicon glyphicon-minus"></span> Unsubscribe</div></button></a>
+    </div>
 	
 </div>
 
@@ -62,7 +63,7 @@
       <div th:each="series : ${series}" class="col-lg-4">
        <figure>
           <figtitle th:text="${series.title}"></figtitle>
-           <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:50px; height:40px">
+           <a th:href="@{${'/series/' + series.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
           <div>Category: </div><div th:text="${series.category}"></div>
         </figure>
       </div>

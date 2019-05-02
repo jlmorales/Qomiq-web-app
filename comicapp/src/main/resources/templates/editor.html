@@ -8,6 +8,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="/js/lib/fabric.min.js"></script>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 
@@ -112,11 +114,15 @@
                     <div id="paste" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.paste()"><span class="fas fa-paste" alt="pencil"></span></button></div>
                     <div id="cut" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.cut()"><span class="fas fa-cut" alt="pencil"></span></button></div>
                     <div id="color" class="col-xs-6"><button class ="btn btn-info btn-lg" ><input type="color" id="col-pk" /></button></div>
-                    <div id="trash" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-trash" alt="pencil"></span></button></div>
+                    <div id="trash" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.trash()"><span class="fas fa-trash" alt="pencil"></span></button></div>
                     <div id="text" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.addText()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button></div>
                     <div id="font" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button></div>
                     <div id="italic" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.italicToggle()"><span class="fas fa-italic" alt="pencil"></span></button></div>
                     <div id="bold" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button></div>
+                    <div id="sendBackwards" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendBackwards()">Send Backwards</button></div>
+                    <div id="sendToBack" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendToBack()">Send To Back</button></div>
+                    <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForward()">Bring Forward</button></div>
+                    <div id="bringToFront" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringToFront()">Bring To Front</button></div>
 
 
 
@@ -153,13 +159,33 @@
                 <input type="text" id="comicTitle" />
             </div>
             <div>
-                <label for="comicSeries">Pick Series for this Comic: </label>
-                <select  id="comicSeries" >
+                <select id = "currentSeries" class = "seriesSelect" >
                     <div th:each="series : ${series}">
                         <option th:text="${series.title}"></option>
                     </div>
-                    <option selected="selected" value="DEFAULT">DEFAULT</option>
                 </select>
+                <!--<label for="comicSeries">Pick Series for this Comic: </label>-->
+
+                <!--<select class="form-control">-->
+                    <!--<div th:each="series : ${series}">-->
+                    <!--<option th:text="${series.title}"></option>-->
+                    <!--</div>-->
+                <!--</select>-->
+
+
+                <!--<input id = "currentSeries" type="text" list="comicSeries" />-->
+                <!--<datalist id="comicSeries">-->
+                    <!--<div th:each="series : ${series}">-->
+                    <!--<option th:text="${series.title}"></option>-->
+                    <!--</div>-->
+                <!--</datalist>-->
+
+                <!--<select  id="comicSeries" >-->
+                    <!--<div th:each="series : ${series}">-->
+                        <!--<option th:text="${series.title}"></option>-->
+                    <!--</div>-->
+                    <!--<option selected="selected" value="DEFAULT">DEFAULT</option>-->
+                <!--</select>-->
             </div>
 
             <div>
