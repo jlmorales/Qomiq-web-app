@@ -115,4 +115,15 @@ public class AccountController {
         modelAndView = new ModelAndView(new RedirectView("/account/series/" + series.getId()));
         return modelAndView;
     }
+
+
+    @RequestMapping(value = {"/profileSettings"},method = RequestMethod.GET)
+    public ModelAndView profileSettings() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("profileSettings");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("currentUser", currentUser);
+        return modelAndView;
+    }
 }
