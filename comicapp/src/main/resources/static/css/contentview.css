@@ -1,5 +1,6 @@
 body,html{
 	height: 100%;
+	width:100%;
 	background-color: #f0e7e3;
 	position: relative;
 
@@ -43,14 +44,14 @@ body,html{
 
 
 
-#projects{
-	
-	height: 50%;
-	background-position: center;
-	width: 100%;
-	background-position: center;
-	display: flex inline;
-}
+/*#projects{*/
+/*	*/
+/*	height: 100%;*/
+/*	background-position: center;*/
+/*	width: 100%;*/
+/*	background-position: center;*/
+/*	display: flex inline;*/
+/*}*/
 
 #hxh{
 	margin: auto;
@@ -61,8 +62,9 @@ body,html{
 }
 
 figcaption{
-	align-content: center;
-	display: inline-flex;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #like{
@@ -72,5 +74,48 @@ figcaption{
 #dislike{
 	color:red;
 }
+
+
+figure{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+
+
+
+#view-port{
+
+	padding-left: 20px;
+	width: 60%;
+	height:100%;
+}
+
+#com-dis{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	height: 500px;
+
+}
+
+#com-txt{
+	color: green;
+	font-weight: bold;
+	width:100%;
+}
+
+figcaption{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+
+}
+
+
 
 
