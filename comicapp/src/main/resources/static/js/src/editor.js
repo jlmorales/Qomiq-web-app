@@ -273,7 +273,7 @@ function sendToBack() {
 
 function bringForwards() {
     var selected = canvas.getActiveObject();
-    canvas.bringForwards(selected);
+    canvas.bringForward(selected);
 }
 
 function bringToFront() {
