@@ -54,11 +54,23 @@ public class AccountController {
             User u = userService.findUserByUsername(s.getSubscribeeUsername());
             subscriptions.add(u);
         }
+        List<Comic> orderedComics = comicService.findLatestComics();
+        List<Comic> latestComics = new ArrayList<>();
+        int i = 0;
+        for (Comic o: orderedComics) {
+            Series s = seriesService.findSeriesById(o.getSeriesId());
+            if (subscriptionService.findIfSubscriptionExists(s.getAuthorUsername(), user.getUsername()) != null) {
+                latestComics.add(o);
+                i++;
+                if (i == 10) break;
+            }
+        }
         User currentUser = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("user", user);
         modelAndView.addObject("series", seriesList);
         System.out.println("Subscriptions: " + subscriptions);
         modelAndView.addObject("subscriptions", subscriptions);
+        modelAndView.addObject("latestComics", latestComics);
         modelAndView.addObject("currentUser", currentUser);
         return modelAndView;
     }

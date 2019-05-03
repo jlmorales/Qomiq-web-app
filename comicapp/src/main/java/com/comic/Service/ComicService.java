@@ -26,6 +26,8 @@ public class ComicService {
 
     public List<Comic> findComicsBySeriesIdAndPublicComic(int id) { return this.comicRepository.findAllBySeriesIdAndPublicComicTrue(id); }
 
+    public List<Comic> findLatestComics() { return this.comicRepository.findAllByOrderByCreationDate(); }
+
     public Comic saveComic(Comic comic){ return this.comicRepository.save(comic);}
 
     public void deleteComic (Comic comic){
