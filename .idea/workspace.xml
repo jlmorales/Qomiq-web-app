@@ -2,30 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="801ad40e-2046-4009-b935-60a306c4e456" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/SeriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/SeriesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/ComicRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/ComicRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/ComicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/ComicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3Services.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/S3ServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Series.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editEditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameeditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profileSettings.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profileSettings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/series.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/series.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/comicapp/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +17,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+            <state relative-caret-position="-134">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="73" selection-start-line="73" selection-end-line="113" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -57,13 +47,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/contentview.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
+            <state relative-caret-position="1560">
               <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>prev</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-14" />
+    <option name="y" value="-14" />
+    <option name="width" value="1946" />
+    <option name="height" value="1046" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -241,6 +252,8 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RunDashboard">
@@ -279,16 +292,24 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="801ad40e-2046-4009-b935-60a306c4e456" name="Default Changelist" comment="" />
+      <created>1556890452468</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556890452468</updated>
+      <workItem from="1556890467138" duration="940000" />
+    </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139000" />
+    <option name="totallyTimeSpent" value="1279000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8039216" visible="true" weight="0.3375761" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8039216" visible="true" weight="0.34144992" />
       <window_info id="Structure" order="1" sideWeight="0.19607843" side_tool="true" weight="0.19271255" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -298,8 +319,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4993573" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49357328" visible="true" weight="0.22678186" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39848813" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49357328" weight="0.32289416" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39848813" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.39076376" />
@@ -358,6 +379,9 @@
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout-to-restore>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
       <map>
@@ -373,5 +397,49 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java</url>
+          <line>175</line>
+          <properties class="com.comic.Controllers.ComicController" method="prev">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/comment.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/contentview.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/ComicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="73" selection-start-line="73" selection-end-line="113" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
