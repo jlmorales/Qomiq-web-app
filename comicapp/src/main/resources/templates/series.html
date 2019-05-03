@@ -85,7 +85,7 @@
                 <figure>
                     <figtitle th:text="${c.comicTitle}"></figtitle>
                     <a th:href="@{${'/comic/' + c.id}}">
-                        <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + c.id + '.png'}}" alt="Trulli" style="width:100%"/>
+                        <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic' +c.id +'.png'}}" alt="Trulli" style="width:100%"/>
                     </a>
                 </figure>
             </div>

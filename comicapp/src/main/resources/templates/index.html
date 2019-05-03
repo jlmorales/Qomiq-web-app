@@ -54,26 +54,14 @@
 
 <section id="projects" >
     <h1>Featured</h1>
-    <div class="row" >
-        <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
+    <div class="row" id="display-row">
+        <div th:each="s : ${series}" class="col-xs-3" >
+            <figure>
+                <figtitle th:text="${s.title}"></figtitle>
+                <a th:href="@{'/series/' + ${s.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + s.id + '.png'}}" alt="Trulli" style="width:100%"></a>
+            </figure>
+        </div>
     </div>
-
 </section>
-
-
-
-<!-- <h1>Featured</h1>
-<div class="row" id="projects">
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-  <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
-</div>
- -->
-
-
-
-
-
 </body>
 </html>

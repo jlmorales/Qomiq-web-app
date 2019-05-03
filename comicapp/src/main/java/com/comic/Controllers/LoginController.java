@@ -3,7 +3,9 @@ package com.comic.Controllers;
 
 
 
+import com.comic.Service.SeriesService;
 import com.comic.Service.UserService;
+import com.comic.model.Series;
 import com.comic.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private SeriesService seriesService;
 
     @RequestMapping(value={"/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
@@ -67,6 +73,9 @@ public class LoginController {
         User user = userService.findUserByEmail(auth.getName());
         System.out.println(user);
         modelAndView.addObject("currentUser", user);
+        List<Series> seriesList = seriesService.findTop5ByViews();
+        System.out.println(seriesList);
+        modelAndView.addObject("series", seriesList);
 //        modelAndView.addObject("userName", "Welcome " + user.getUsername() + " (" + user.getEmail() + ")");
         modelAndView.setViewName("index");
         return modelAndView;

@@ -95,7 +95,7 @@
           <figtitle th:text="${s.title}"></figtitle>
           <!--<img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + s.id + '.png'}}" alt="Trulli" style="width:100%"/>-->
           <a th:href="@{'/series/' + ${s.id}}">
-            <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + s.id + '.png'}}" alt="Trulli" style="width:100%"/>
+            <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + s.id + '.png'}}" alt="Trulli" style="width:100%"/>
           </a>
 
             <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>

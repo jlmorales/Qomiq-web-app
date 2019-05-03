@@ -11,6 +11,7 @@ public interface SeriesRepository extends JpaRepository<Series, Integer> {
 
         public List<Series> findAllByOrderBySeriesViewsDesc();
 
+        public List<Series> findTop5ByOrderBySeriesViewsDesc();
 
         public List<Series> findAllByAuthorUsername(String authorUserName);
 

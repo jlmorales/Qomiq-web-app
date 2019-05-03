@@ -246,10 +246,12 @@ function publish() {
         success : function (result) {
             console.log("success");
             console.log(result);
+            location.href = "/create"
         },
         error : function (result) {
             console.log("error");
-            console.log(result)
+            console.log(result);
+            window.location.replace('/create');
 
         }
 
