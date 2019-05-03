@@ -350,7 +350,7 @@ fileInput.addEventListener('change', function(e){
       canvas.renderAll.bind(canvas));
     };
     reader.readAsText(file);
-    });
+});
 
 function copy() {
     canvas.getActiveObject().clone(function(clonedObj) {
