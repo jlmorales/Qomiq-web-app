@@ -126,20 +126,22 @@
             <li th:each="comments, iter : ${comments}">
 
               <div class="commenterImage">
-                <a th:src="@{${'/profile/' + comments.commenterId}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comments.commenterId + '.png'}}"></a>
+                <a th:href="@{${'/profile/' + comments.commenterId}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comments.commenterId + '.png'}}"></a>
               </div>
               <br>
 
               <div class="commentText">
                 <div id="com-txt">
-                <a th:src="@{${'/profile/' + comments.commenterId}}"><span th:text="${commentators[iter.index].username}"></span></a>
+                <a th:href="@{${'/profile/' + comments.commenterId}}"><span th:text="${commentators[iter.index].username}"></span></a>
                 <p class="" th:text="${comments.commentContent}"></p>
                 </div>
+                <div th:if="${currentUser != null}">
                 <div th:if="${currentUser.username == commentators[iter.index].username} ">
                   <form class="form-inline" th:object="${comments}" th:action = "@{/comic/deleteComment}" method="POST">
                     <input type="hidden" th:value = "*{commentId}" id = "commentId" name = "commentId">
                     <input class="btn btn-info" type="submit" value="Delete">
                 </form>
+                </div>
                 </div>
               </div>
             </li>
