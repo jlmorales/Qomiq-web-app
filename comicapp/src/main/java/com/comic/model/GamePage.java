@@ -29,4 +29,5 @@ public class GamePage {
     @Column(name = "page_key")
     private String pageKey;
 
+
 }

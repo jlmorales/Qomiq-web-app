@@ -28,7 +28,7 @@
       </li>
       <li th:switch="${currentUser}">
         <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-        <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+        <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
       </li>
     </ul>
 
@@ -116,7 +116,7 @@
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
                           <input type="submit" value="unsub" >
-                        </form>
+                      </form>
                   </span>
                   <span th:if = "${isSubscribed[iter.index] == false}">
                     <span th:if = "${currentUser.username != s.authorUsername} ">
@@ -124,7 +124,7 @@
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
                           <input type="submit" value="sub">
-                        </form>
+                      </form>
                     </span>
                   </span>
               </span>
