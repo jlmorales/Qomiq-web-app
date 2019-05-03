@@ -63,6 +63,31 @@ public class AccountController {
         return modelAndView;
     }
 
+    @RequestMapping(value = {"/account/subscribe/{username}"}, method = RequestMethod.GET)
+    public ModelAndView subscribe(@PathVariable("username") String username) {
+        Subscription newSubscription = new Subscription();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findUserByEmail(auth.getName());
+        newSubscription.setSubscriberUsername(currentUser.getUsername());
+        User author = userService.findUserByUsername(username);
+        newSubscription.setSubscribeeUsername(author.getUsername());
+        subscriptionService.saveSubscription(newSubscription);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account"));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/account/unsubscribe/{username}"}, method = RequestMethod.GET)
+    public ModelAndView unsubscribe( @PathVariable("username") String username){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User author = userService.findUserByUsername(username);
+        User currentUser = userService.findUserByEmail(auth.getName());
+        Subscription subscription = subscriptionService.findIfSubscriptionExists(author.getUsername(),currentUser.getUsername());
+        subscriptionService.deleteSubscription(subscription);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account"));
+        return modelAndView;
+
+    }
+
     @RequestMapping(value = {"/account/series/{id:[\\d]+}"},method = RequestMethod.GET)
     public ModelAndView manageComics(@PathVariable("id") int id){
         ModelAndView modelAndView = new ModelAndView();
