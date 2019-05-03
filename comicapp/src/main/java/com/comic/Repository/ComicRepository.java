@@ -15,4 +15,6 @@ public interface ComicRepository extends JpaRepository<Comic, Integer> {
 
     List<Comic> findAllBySeriesIdAndPublicComicTrue(int id);
 
+
+
 }

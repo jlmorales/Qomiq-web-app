@@ -116,7 +116,7 @@
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
                           <input type="submit" value="unsub" >
-                        </form>
+                      </form>
                   </span>
                   <span th:if = "${isSubscribed[iter.index] == false}">
                     <span th:if = "${currentUser.username != s.authorUsername} ">
@@ -124,7 +124,7 @@
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
                           <input type="submit" value="sub">
-                        </form>
+                      </form>
                     </span>
                   </span>
               </span>

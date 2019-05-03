@@ -9,4 +9,5 @@ public interface S3Services {
 
     public ByteArrayOutputStream downloadFile(String keyName);
     public void uploadFile(String keyName, MultipartFile uploadFilePath);
+    public void deleteFileFromS3Bucket(String fileName);
 }

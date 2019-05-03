@@ -1,9 +1,6 @@
 package com.comic.Controllers;
 
-import com.comic.Service.ComicService;
-import com.comic.Service.SeriesService;
-import com.comic.Service.SubscriptionService;
-import com.comic.Service.UserService;
+import com.comic.Service.*;
 import com.comic.model.Comic;
 import com.comic.model.Series;
 import com.comic.model.Subscription;
@@ -21,6 +18,9 @@ import java.util.List;
 
 @Controller
 public class AccountController {
+
+    @Autowired
+    S3Services s3Services;
 
     @Autowired
     private UserService userService;
@@ -90,11 +90,21 @@ public class AccountController {
 
     }
 
+    @RequestMapping(value = {"account/series/comic/delete"}, method = RequestMethod.POST)
+    public ModelAndView deleteComic(@ModelAttribute Comic comic) {
+        ModelAndView modelAndView;
+        comic = comicService.findComicById(comic.getId());
+        int seriesId = comic.getSeriesId();
+        int comicId = comic.getId();
+        comicService.deleteComic(comic);
+        s3Services.deleteFileFromS3Bucket("series" +seriesId+"comic"+comicId+ ".png" );
+        modelAndView = new ModelAndView(new RedirectView("/account/series/" + seriesId));
+        return modelAndView;
+    }
+
     @RequestMapping(value = {"/account/series/makepublic"}, method = RequestMethod.POST)
     public ModelAndView makePublic(@ModelAttribute Comic comic){
         ModelAndView modelAndView;
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        User currentUser = userService.findUserByEmail(auth.getName());
         comic = comicService.findComicById(comic.getId());
         comic.setPublicComic(true);
         comicService.saveComic(comic);
