@@ -94,8 +94,8 @@
     <div th:each="s,iter : ${series}">
 
 
-      <div class="col-xs-4">
-        <div class ="card">
+      <div class="col-xs-4" id="edge">
+
         <figure>
           <h2 th:text="${s.title}" value="hello"></h2>
           <br>
@@ -106,31 +106,32 @@
 
           </a>
 
-            <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>
-              <div th:text = "${s.seriesViews}"></div>
-              <div th:text = "${s.creationDate}"></div>
-              <!--<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>-->
-              <span th:if = "${currentUser != null}">
-                  <span th:if = "${isSubscribed[iter.index] == true}">
-                      <form th:object="${s}" th:action = "@{/explore/unsubscribe}" method="POST">
-                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">
-                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="unsub" >
-                      </form>
-                  </span>
-                  <span th:if = "${isSubscribed[iter.index] == false}">
-                    <span th:if = "${currentUser.username != s.authorUsername} ">
-                      <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
-                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">
-                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="sub">
-                      </form>
-                    </span>
-                  </span>
-              </span>
-            </figcaption>
+<!--            <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>-->
+<!--              <div th:text = "${s.seriesViews}"></div>-->
+<!--              <div th:text = "${s.creationDate}"></div>-->
+<!--              &lt;!&ndash;<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>&ndash;&gt;-->
+<!--              <span th:if = "${currentUser != null}">-->
+<!--                  <span th:if = "${isSubscribed[iter.index] == true}">-->
+<!--                      <form th:object="${s}" th:action = "@{/explore/unsubscribe}" method="POST">-->
+<!--                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">-->
+<!--                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>-->
+<!--                          <input type="submit" value="unsub" >-->
+<!--                      </form>-->
+<!--                  </span>-->
+<!--                  <span th:if = "${isSubscribed[iter.index] == false}">-->
+<!--                    <span th:if = "${currentUser.username != s.authorUsername} ">-->
+<!--                      <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">-->
+<!--                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">-->
+<!--                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>-->
+<!--                          <input type="submit" value="sub">-->
+<!--                      </form>-->
+<!--                    </span>-->
+<!--                  </span>-->
+<!--              </span>-->
+<!--            </figcaption>-->
         </figure>
-        </div>
+
+
       </div>
     </div>
     <div>
