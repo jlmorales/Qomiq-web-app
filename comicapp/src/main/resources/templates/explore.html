@@ -142,12 +142,20 @@
 
 
 <!--          <h2 class="card-title" th:text="${s.title}" ></h2>-->
-          <p class="card-text">
+          <p class="card-text text-center">
+
+              by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a>
 
 
-            by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a>
-          <span th:text="${s.category}"></span>
-          <span th:text = "${s.seriesViews}" ></span>, <span th:text = "${s.creationDate}"></span>
+              <span th:text="${'Category: ' + s.category}" class="text-right"></span>
+
+
+
+
+              <br>
+              <span th:text = "${'Created ' + #dates.format(new java.util.Date(s.creationDate), 'MM/dd/yyyy')}"></span>
+
+              <span th:text = " ${'Views: ' + s.seriesViews}"  class="text-right"></span>
 
 
 
