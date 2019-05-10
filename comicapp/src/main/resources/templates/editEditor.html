@@ -4,12 +4,15 @@
     <title>Editor</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/component.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="/js/lib/fabric.min.js"></script>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+
 
 </head>
 <body>
@@ -31,7 +34,7 @@
             </li>
             <li th:switch="${currentUser}">
                 <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+                <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
             </li>
         </ul>
     </div>
@@ -102,21 +105,19 @@
                     <div id="triangle" class="col-xs-6"><button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button></div>
 
 
-                    <div id="image" class="col-xs-6"><button class = "btn btn-info btn-lg" ><span class="fas fa-file-image" alt="pencil"><input id="img-inp" type="file" /></span></button></div>
-
-
-
-
 
                     <div id="copy" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.copy()"><span class="fas fa-copy" alt="pencil"></span></button></div>
                     <div id="paste" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.paste()"><span class="fas fa-paste" alt="pencil"></span></button></div>
                     <div id="cut" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.cut()"><span class="fas fa-cut" alt="pencil"></span></button></div>
-                    <div id="color" class="col-xs-6"><button class ="btn btn-info btn-lg" ><input type="color" id="col-pk" /></button></div>
+                    <div id="color" class="col-xs-6"><input type="color" id="col-pk" /></div>
                     <div id="trash" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-trash" alt="pencil"></span></button></div>
                     <div id="text" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.addText()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button></div>
                     <div id="font" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button></div>
                     <div id="italic" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.italicToggle()"><span class="fas fa-italic" alt="pencil"></span></button></div>
                     <div id="bold" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button></div>
+                    <div id="image" class="col-xs-3"><button class = "btn btn-info btn-xs" ><span class="fas fa-file-image" alt="pencil"><input id="img-inp" type="file" /></span></button></div>
+
+
 
 
 
@@ -129,7 +130,6 @@
                     <div id="export" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.exportEdit()"><span class="fas fa-file-export" alt="pencil"></span></button></div>
                     <div id="undo" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.undo()"><span class="fas fa-undo" alt="pencil"></span></button></div>
                     <div id="redo" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.redo()"><span class="fas fa-redo" alt="pencil"></span></button></div>
-
 
 
 
@@ -252,7 +252,7 @@
     /*]]>*/
 </script>
 
-<script src="/js/src/editEditor.js"></script>
+<script src="../static/js/src/editEditor.js"></script>
 
 </body>
 </html>

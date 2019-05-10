@@ -75,3 +75,27 @@ body,html{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+#col-pk{
+    width:55%;
+    height: 40px;
+    border-radius: 12%;
+    border-color: #46b8da;
+    background-color: #5bc0de;
+}
+
+#img-inp {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 12px 19px;
+    cursor: pointer;
+    background-color: #5bc0de;
+    border-radius: 8px;
+}
+
+#import-inp{
+    display: none;
+}

@@ -2,26 +2,34 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Explore</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="/css/explore.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+            <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
+
         <ul class="nav navbar-nav">
             <li class="active"><a href="/home">Home</a></li>
             <li><a href="/create">Create</a></li>
             <li><a href="/explore">Explore</a></li>
             <li><a href="/about">About</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+
+
+        <ul class="nav navbar-nav navbar-right ml-auto">
             <li th:switch="${currentUser}">
                 <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
                 <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
@@ -32,66 +40,136 @@
             </li>
         </ul>
 
-    </div>
+
+
+
+
 </nav>
 
 
+<div class="text-left">
+    <h1>Explore Series : <span th:text="${series.title}"></span> by <span th:text="${series.authorUsername}" ></span></h1>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-4"> Explore Comics</div>
-        <div class="col-xs-6">
-            <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <span id="search_concept">Category</span> <span class="caret"></span>
-                    </button>
+    <p>Created on :  <span th:text="${#dates.format(new java.util.Date(series.creationTime), 'MM/dd/yyyy')}"></span>    , Last Updated:  <span th:text="${#dates.format(new java.util.Date(series.lastModTime), 'MM/dd/yyyy')}"></span> </p>
+</div>
 
-                    <ul class="dropdown-menu" role="menu">
-                        <!--<li><a href="/explore/Action">Action</a></li>-->
-                        <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>
-                        <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>
-                        <li class="divider"></li>
-                        <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>
-                    </ul>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">
-                <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-xs-8">-->
+<!--            <div class="input-group">-->
+<!--                <div class="input-group-btn search-panel">-->
+<!--                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
+<!--                        <span id="search_concept">Category</span> <span class="caret"></span>-->
+<!--                    </button>-->
+
+<!--                    <ul class="dropdown-menu" role="menu">-->
+<!--                        &lt;!&ndash;<li><a href="/explore/Action">Action</a></li>&ndash;&gt;-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>-->
+<!--                        <li class="divider"></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <input type="hidden" name="search_param" value="all" id="search_param">-->
+<!--                <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">-->
+<!--                <span class="input-group-btn">-->
+<!--                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
+<!--                </span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+<!--<div id ="displaylist">-->
+
+<!--    <h1>Result</h1>-->
+
+<!--    <div class="row" id="display-row">-->
+
+<!--        <div th:each="c,iter : ${comics}">-->
+<!--            <div  id="edge" class="col-xs-4">-->
+<!--                <figure>-->
+<!--                    <center>-->
+<!--                        <h2 ><div th:text="${c.comicTitle}"></div></h2>-->
+<!--                    </center>-->
+
+<!--                    <a th:href="@{${'/comic/' + c.id}}">-->
+<!--                        <img id="ser-img" th:src="@{${'https://s3.amazonaws.com/seriescovers/' + c.id + '.png'}}" />-->
+<!--                    </a>-->
+<!--                </figure>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+<section>
+
+<div class="row"   id="row-display" >
+
+
+    <!-- Start of Card Groups Layout -->
+    <div id="display"  class="col-md-4"  th:each="c, iter : ${comics}" >
+
+        <a th:href="@{${'/comic/' + c.id}}">
+        <div  class="card">
+
+
+            <div class= "card-header text-center" >
+
+                <span th:if="${c.comicTitle == null or c.comicTitle == ''}" ><h2>I Need Title</h2></span>
+                <span th:unless="${c.comicTitle == null or c.comicTitle ==''}"><h2 th:text= "${c.comicTitle}" ></h2></span>
+
             </div>
+
+
+            <div class="text-center">
+                <img id="ser-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic' +c.id +'.png'}}" />
+            </div>
+
+            <div class="card-body">
+
+                <p class="card-text">
+                    The latest release of this comic is dated back to <span th:text="${#dates.format(new java.util.Date(c.lastModTime), 'MM/dd/yyyy')}"></span>. You are one click away from learing more about this series.
+
+                </p>
+            </div>
+
         </div>
+        </a>
+
+
     </div>
 </div>
 
 
 
+</section>
 
-<div id ="displaylist">
 
-    <h1>Result</h1>
 
-    <div class="row" id="display-row">
 
-        <div th:each="c,iter : ${comics}">
-            <div  id="edge" class="col-xs-4">
-                <figure>
-                    <h2 ><div th:text="${c.comicTitle}"></div></h2>
-                    <a th:href="@{${'/comic/' + c.id}}">
-                        <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic' +c.id +'.png'}}" alt="Trulli" style="width:100%"/>
-                    </a>
-                </figure>
-            </div>
-        </div>
-    </div>
-</div>
 
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 
 

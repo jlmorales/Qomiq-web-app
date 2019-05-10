@@ -37,11 +37,13 @@ public class SeriesController {
         ModelAndView modelAndView;
         Series series = seriesService.findSeriesById(id);
         List<Comic> comics = comicService.findComicsBySeriesIdAndPublicComic(id);
+        Series seriesName = seriesService.findSeriesById(id);
         modelAndView = new ModelAndView();
         modelAndView.addObject("series", series);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("comics", comics);
+        modelAndView.addObject("series", seriesName);
         modelAndView.setViewName("series");
         return modelAndView;
     }
