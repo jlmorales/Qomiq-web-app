@@ -16,9 +16,9 @@
       <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/home">Home</a></li>
+      <li><a href="/home">Home</a></li>
       <li><a href="/create">Create</a></li>
-      <li><a href="/explore">Explore</a></li>
+      <li class="active"><a href="/explore">Explore</a></li>
       <li><a href="/about">About</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -28,7 +28,7 @@
       </li>
       <li th:switch="${currentUser}">
         <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-        <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+        <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
       </li>
     </ul>
 
@@ -81,47 +81,55 @@
 
   <h1>Result</h1>
 
+  <a th:href="@{/explore/searchBy(sortBy=Views )}"><span>Sort by Views</span></a>
+  <a th:href="@{/explore/searchBy(sortBy=Date )}"><span>Sort by Date</span></a>
+
   <div class="row" id="display-row">
 
-    <a th:href="@{/explore/searchBy(sortBy=Views )}"><span>Sort by Views</span></a>
-    <a th:href="@{/explore/searchBy(sortBy=Date )}"><span>Sort by Date</span></a>
+
 
 
 
 
     <div th:each="s,iter : ${series}">
-      <div class="col-xs-3">
+
+
+      <div class="col-xs-4" id="edge">
+
         <figure>
-          <figtitle th:text="${s.title}"></figtitle>
+          <h2 th:text="${s.title}" value="hello"></h2>
+          <br>
           <!--<img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + s.id + '.png'}}" alt="Trulli" style="width:100%"/>-->
           <a th:href="@{'/series/' + ${s.id}}">
             <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + s.id + '.png'}}" alt="Trulli" style="width:100%"/>
           </a>
 
-            <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>
-              <div th:text = "${s.seriesViews}"></div>
-              <div th:text = "${s.creationDate}"></div>
-              <!--<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>-->
-              <span th:if = "${currentUser != null}">
-                  <span th:if = "${isSubscribed[iter.index] == true}">
-                      <form th:object="${s}" th:action = "@{/explore/unsubscribe}" method="POST">
-                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">
-                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="unsub" >
-                        </form>
-                  </span>
-                  <span th:if = "${isSubscribed[iter.index] == false}">
-                    <span th:if = "${currentUser.username != s.authorUsername} ">
-                      <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
-                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">
-                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="sub">
-                        </form>
-                    </span>
-                  </span>
-              </span>
-            </figcaption>
+<!--            <figcaption>by <a th:href="@{'/profile/' + ${users[iter.index].id}}" th:text="${s.authorUsername}"></a><div th:text="${s.category}"></div>-->
+<!--              <div th:text = "${s.seriesViews}"></div>-->
+<!--              <div th:text = "${s.creationDate}"></div>-->
+<!--              &lt;!&ndash;<button id="subs-btn" th:field = "${series.authorUserName}"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>&ndash;&gt;-->
+<!--              <span th:if = "${currentUser != null}">-->
+<!--                  <span th:if = "${isSubscribed[iter.index] == true}">-->
+<!--                      <form th:object="${s}" th:action = "@{/explore/unsubscribe}" method="POST">-->
+<!--                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">-->
+<!--                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>-->
+<!--                          <input type="submit" value="unsub" >-->
+<!--                      </form>-->
+<!--                  </span>-->
+<!--                  <span th:if = "${isSubscribed[iter.index] == false}">-->
+<!--                    <span th:if = "${currentUser.username != s.authorUsername} ">-->
+<!--                      <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">-->
+<!--                          <input type="hidden" th:value = "*{id}" id = "id" name = "id">-->
+<!--                          <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>-->
+<!--                          <input type="submit" value="sub">-->
+<!--                      </form>-->
+<!--                    </span>-->
+<!--                  </span>-->
+<!--              </span>-->
+<!--            </figcaption>-->
         </figure>
+
+
       </div>
     </div>
     <div>

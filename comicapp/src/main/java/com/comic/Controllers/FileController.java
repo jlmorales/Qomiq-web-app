@@ -92,4 +92,14 @@ public class FileController {
         }
         return "Upload Successfully -> KeyName = " + keyName;
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/profileImage")
+    @ResponseBody
+    public String uploadFile(@RequestParam("image") String image){
+        byte[] imagedata = DatatypeConverter.parseBase64Binary(image.substring(image.indexOf(",")+1));
+        BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
+        s3Services.uploadFile("profileImage1.png", realFile);
+        return "uploaded";
+    }
+
 }

@@ -27,7 +27,7 @@ public class Series {
     private String category;
 
     @Column(name = "series_authorUsername")
-    private String authorUsername;
+    public String authorUsername;
 
     //time is stored in an int and 24-hour format. For example, 1742 represents 17:42 or 5:42 pm
     @Column(name = "series_creationTime")

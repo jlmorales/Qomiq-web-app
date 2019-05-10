@@ -177,7 +177,7 @@ public class ComicController {
         ModelAndView modelAndView = new ModelAndView();
         Comic comic = comicService.findComicById(id);
         List<Comic> comics = comicService.findComicsBySeriesIdAndPublicComic(comic.getSeriesId());
-        if ((comics.indexOf(comic)-1) > 0) {
+        if ((comics.indexOf(comic)-1) >= 0) {
             Comic prevComic = comics.get(comics.indexOf(comic) - 1);
             int prevId = prevComic.getId();
             modelAndView = new ModelAndView(new RedirectView("/comic/" + prevId));

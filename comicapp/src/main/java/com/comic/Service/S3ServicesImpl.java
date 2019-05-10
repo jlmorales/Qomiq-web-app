@@ -86,6 +86,15 @@ public class S3ServicesImpl implements S3Services {
         }
     }
 
+    @Override
+    public void deleteFileFromS3Bucket(String fileName){
+       try {
+           s3client.deleteObject(new DeleteObjectRequest(bucketName, fileName));
+           }
+       catch (AmazonServiceException ex) {
+               logger.error("error [" + ex.getMessage() + "] occurred while removing [" + fileName + "] ");
+            }
+    }
     public List<String> listFiles() {
 
         ListObjectsRequest listObjectsRequest =
