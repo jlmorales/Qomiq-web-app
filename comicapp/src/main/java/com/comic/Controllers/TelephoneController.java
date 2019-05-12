@@ -1,5 +1,7 @@
 package com.comic.Controllers;
 
+import com.amazonaws.services.s3.model.S3Object;
+import com.comic.Bean.GameForm;
 import com.comic.Service.*;
 import com.comic.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpSession;
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,11 +39,35 @@ public class TelephoneController {
     @Autowired
     public GamePlayerService gamePlayerService;
 
+    @Autowired
+    public ComicService comicService;
+
+    @Autowired
+    public SeriesService  seriesService;
+
+    @Autowired
+    S3Services s3Services;
+
+
+
+
     @RequestMapping(value = {"/play"}, method = RequestMethod.GET)
     public ModelAndView play() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+        List<Series> series;
+        if (user != null)
+            series = seriesService.findAllSeriesByAuthorUsername(user.username);
+        else{
+            series = null;
+        }
+        List<Comic> comicList = new ArrayList<>();
+        for(Series s: series){
+            comicList.addAll(comicService.findComicsBySeriesId(s.getId()));
+        }
+        modelAndView.addObject("gameForm", new GameForm());
+        modelAndView.addObject("comics", comicList);
         modelAndView.addObject("games", gameService.findAllGamesByUserId(user.getId()));
         modelAndView.addObject("newGame",new Game());
         modelAndView.addObject("currentUser", user);
@@ -47,12 +76,18 @@ public class TelephoneController {
     }
 
     @RequestMapping(value = {"/game/new"}, method = RequestMethod.POST)
-    public ModelAndView newGame(@ModelAttribute Game game) {
+    public ModelAndView newGame(@ModelAttribute("gameForm") GameForm gameForm) {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-        game = new Game();
-        game.setGameName("default name");
+        Comic comic = comicService.findComicById(gameForm.getComicName());
+        Series series = seriesService.findSeriesById(comic.getSeriesId());
+        String keyName1 = "series"+series.getId()+"comic"+comic.getId()+".json";
+        String keyName2 = "series"+series.getId()+"comic"+comic.getId()+".png";
+        S3Object output1 = s3Services.downloadFile(keyName1);
+        S3Object output2 = s3Services.downloadFile(keyName2);
+        Game game = new Game();
+        game.setGameName(gameForm.getGameName());
         game.setUserId(user.getId());
         game = gameService.saveGame(game);
         List<Subscription> subscriptions = subscriptionService.findBySubscribeeUsername(user.getUsername());
@@ -63,6 +98,14 @@ public class TelephoneController {
             gamePlayer.setUserId(subscriber.getId());
             gamePlayerService.savePlayer(gamePlayer);
         }
+        GamePage gamePage = new GamePage();
+        gamePage.setGameId(game.getId());
+        gamePage.setPageNumber(1);
+        gamePage = gamePageService.saveGamePage(gamePage);
+        keyName1 = "gamePage"+gamePage.getId()+".json";
+        keyName2 = "gamePage"+gamePage.getId()+".png";
+        s3Services.uploadFile(keyName1,output1);
+        s3Services.uploadFile(keyName2,output2);
         modelAndView = new ModelAndView(new RedirectView("/game/"+game.getId()));
         return modelAndView;
     }
@@ -74,19 +117,25 @@ public class TelephoneController {
         User user = userService.findUserByEmail(auth.getName());
         Game game = gameService.findGameById(id);
         List<GamePage> gamePages = gamePageService.findGamePagesByGameId(id);
-        if(gamePages.size() < 1){
-            modelAndView.addObject("firstPage", true);
-        }
         List<GamePlayer> players = gamePlayerService.findGamePlayersByGameId(game.getId());
         List<User> users = new LinkedList<>();
         for(GamePlayer player: players){
             users.add(userService.findUserById(player.getUserId()));
         }
+        modelAndView.addObject("gamePages", gamePages);
         modelAndView.addObject("users", users);
         modelAndView.addObject("players",players );
         modelAndView.addObject("currentUser", user);
         modelAndView.addObject("game", game);
         modelAndView.setViewName("gameMenu");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/gameEdit/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView edit(@PathVariable("id") int id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("fileName", "gamePage"+id+".json");
+        modelAndView.setViewName("gameeditor");
         return modelAndView;
     }
 

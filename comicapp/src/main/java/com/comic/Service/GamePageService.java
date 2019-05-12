@@ -16,4 +16,6 @@ public class GamePageService {
     GamePageService(GamePageRepository gamePageRepository){this.gamePageRepository = gamePageRepository;}
 
     public List<GamePage> findGamePagesByGameId(int id){return gamePageRepository.findAllByGameId(id);}
+
+    public GamePage saveGamePage(GamePage gamePage){return gamePageRepository.save(gamePage);}
 }

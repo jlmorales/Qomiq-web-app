@@ -34,11 +34,23 @@
 <div class="hero-image">
 	<div class="hero-text">
     <h1>Telephone Game</h1>
-        <h1>Hello <span th:utext="${currentUser.username}"></h1>
-        <form th:object="${newGame}" th:action = "@{/game/new}" method="POST">
-            <input  type="submit" value="Start A Game" >
+        <!--<h1>Hello <span th:utext="${currentUser.username}"></h1>-->
+        <!--<form th:object="${newGame}" th:action = "@{/game/new}" method="POST">-->
+            <!--<input  type="submit" value="Start A Game" >-->
+        <!--</form>-->
+        <form th:object ="${gameForm}" th:action = "@{/game/new}" method = "POST">
+            <div class="form-group">
+                <label for="gameName">Game Name</label>
+                <input name = "gameName" type="GameName" th:field="*{gameName}" class="form-control" id="gameName" placeholder="Game Name">
+            </div>
+            <div class="form-group">
+                <label for="comicName">Comics</label>
+                <select name = "comicName" th:field = "*{comicName}" class="form-control" id="comicName">
+                    <option  th:each = "comic : ${comics}" th:value = "${comic.id}" th:text = "${comic.comicTitle}" ></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Start Game</button>
         </form>
-		<button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Start A Game</div></button>		
 	</div>
 	
 </div>
@@ -53,17 +65,10 @@
     <div th:each="game,iter : ${games}">
         <div class="col-xs-3">
             <figure>
-                <figtitle th:text="${game.gameName}">Hunter X Hunter</figtitle>
+                <figtitle th:text="${game.gameName}"></figtitle>
                 <img src="c.jpg" alt="Trulli" style="width:100%">
                 <figcaption>
-                    owner: <a href="#">realwolfie</a><br>
-                    collaborators:<a href="#">wildcardplayer</a>
-                    <a href="#">jazzygamer</a>
-                    <a href="#">pokemonhunter</a>
-                    <a href="#">paintmaster</a>
-                    <div>Category: Adventures</div>
                     <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-blackboard"></span> View</div></button>
                 </figcaption>
             </figure>
         </div>
