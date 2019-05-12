@@ -63,6 +63,8 @@ public class ComicController {
         if (currentUser != null) like = likeService.findByUsernameandId(currentUser.getUsername(), id);
         if (currentUser != null) dislike = dislikeService.findByUsernameandId(currentUser.getUsername(), id);
         Series series = seriesService.findSeriesById(comic.getSeriesId());
+        series.setSeriesViews(series.getSeriesViews() + 1);
+        seriesService.saveSeries(series);
         User profileUser = userService.findUserByUsername(series.getAuthorUsername());
         modelAndView.addObject("currentUser", currentUser);
         modelAndView.addObject("commentators", commentators);
