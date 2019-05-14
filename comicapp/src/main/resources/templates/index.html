@@ -45,7 +45,7 @@
     <div class="hero-text">
         <h1>Make It Your Comic Universe!</h1>
         <form action="/create"><input type="submit" value="Create" class="btn btn-primary"/></form>
-        <form action="/login"><input type="submit" value="Join" class="btn btn-primary"/></form>
+        <div th:if="${currentUser != null}"><form action="/login"><input type="submit" value="Join" class="btn btn-primary"/></form></div>
     </div>
 
 </div>
@@ -55,12 +55,11 @@
 <section id="projects" >
     <h1>Featured</h1>
     <div class="row" >
-        <div id="proj-disp" class ="col-xs-3">
+        <div id="proj-disp" class ="col-xs-3" th:each="featuredComic : ${featuredComics}">
 
             <div class ="card">
-
-
-               <img src="c.jpg" id="hxh"    onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';">
+                <h1 th:text="${featuredComic.comicTitle}"></h1>
+               <img th:src="@{{'https://s3.amazonaws.com/seriescovers/' + featuredComic.seriesId + '.png'}}" id="hxh"    onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';">
 
             </div>
 
