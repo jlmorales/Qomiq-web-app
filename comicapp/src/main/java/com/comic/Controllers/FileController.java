@@ -2,13 +2,8 @@ package com.comic.Controllers;
 
 import com.amazonaws.services.s3.model.S3Object;
 import com.comic.Bean.BASE64DecodedMultipartFile;
-import com.comic.Service.ComicService;
-import com.comic.Service.S3Services;
-import com.comic.Service.SeriesService;
-import com.comic.Service.UserService;
-import com.comic.model.Comic;
-import com.comic.model.Series;
-import com.comic.model.User;
+import com.comic.Service.*;
+import com.comic.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -40,6 +35,18 @@ public class FileController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    GamePageService gamePageService;
+
+    @Autowired
+    GameService gameService;
+
+    @Autowired
+    GamePlayerService gamePlayerService;
+
+    @Autowired
+    SubmissionService submissionService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/upload")
     @ResponseBody
@@ -109,6 +116,26 @@ public class FileController {
                              @RequestParam("gameTitle") String gameTitle,
                              @RequestParam("gamePageId") int gamePageId)
     {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        GamePage gamePage = gamePageService.findGamePageById(gamePageId);
+        Game game = gameService.findGameById(gamePage.getGameId());
+        GamePlayer gamePlayer = gamePlayerService.findGamePlayerByUserId(user.getId());
+        Submission submission = new Submission();
+        submission.setPlayerId(gamePlayer.getId());
+        submission.setGamePageId(gamePage.getId());
+        submission.setVotes(0);
+        submission = submissionService.saveSubmission(submission);
+//        String keyName1 = "gamePage"+gamePage.getId()+".json";
+//        String keyName2 = "gamePage"+gamePage.getId()+".png";
+//        S3Object output1 = s3Services.downloadFile(keyName1);
+//        S3Object output2 = s3Services.downloadFile(keyName2);
+        String keyName1 = "submission"+submission.getId()+".json";
+        String keyName2 = "submission"+submission.getId()+".png";
+        s3Services.uploadFile(keyName1,file);
+        byte[] imagedata = DatatypeConverter.parseBase64Binary(pngFile.substring(pngFile.indexOf(",")+1));
+        BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
+        s3Services.uploadFile(keyName2,realFile);
         System.out.println(gameTitle);
         System.out.println(gamePageId);
         return "not implemented yet";
