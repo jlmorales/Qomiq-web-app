@@ -135,7 +135,7 @@
 
 
             <div class="text-center">
-                <img id="ser-img" th:src="@{${'https://s3.amazonaws.com/seriescovers/' + c.id + '.png'}}" />
+                <img id="ser-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic' +c.id +'.png'}}" />
             </div>
 
             <div class="card-body">

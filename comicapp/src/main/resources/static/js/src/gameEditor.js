@@ -1,9 +1,3 @@
-$(document).ready(function() {
-    $(".seriesSelect").select2({
-        tags: true
-    });
-});
-
 
 //for the initial canvas setup
 var canvas = new fabric.Canvas('myCanvas');
@@ -19,23 +13,23 @@ canvas.renderAll();
 canvas.defaultCursor = 'circle';
 
 canvas.on('object:added',function(){
-  if(!redoOn){
-    actionStack = [];
-  }
-  redoOn = false;
+    if(!redoOn){
+        actionStack = [];
+    }
+    redoOn = false;
 });
 var color = "black";
 var brushWidth = 2;
 
+//check that message exists from backend
+console.log(message);
 
-// console.log(message);
-//
-// $.getJSON("https://s3.us-east-2.amazonaws.com/comic-bucket/"+ message +".json",function(data){
-//     console.log(data);
-//     canvas.loadFromJSON(data,
-//         canvas.renderAll.bind(canvas));
-//
-// });
+$.getJSON("https://s3.us-east-2.amazonaws.com/comic-bucket/"+ message,function(data){
+    console.log(data);
+    canvas.loadFromJSON(data,
+        canvas.renderAll.bind(canvas));
+
+});
 
 // ajaxGet();
 //
@@ -79,7 +73,7 @@ fileInput.addEventListener('change', function(e){
     console.log(e.target.files[0].name);
     var fileReader = new FileReader();
     fileReader.onload = function(o) {
-    console.log("yo");
+        console.log("yo");
         var imgObject = new Image();
         imgObject.src = o.target.result;
         imgObject.onload = function() {
@@ -140,14 +134,13 @@ function addText() {
         }
     );
 
-   // text_obj.on('selected', function(e){
-   //     var x = prompt("change text: ");
-   //     text_obj.setText(x);
-   // });
+    // text_obj.on('selected', function(e){
+    //     var x = prompt("change text: ");
+    //     text_obj.setText(x);
+    // });
 
 
     canvas.add(text_obj);
-    update_layers();
 
 }
 
@@ -159,17 +152,16 @@ function eraser() {
 }
 
 function bucket() {
-  var bucket = document.getElementById("col-pk").value;
-  console.log(bucket == null);
-  var selection = canvas.getActiveObject();
-  if(selection == null){
-      canvas.backgroundColor = bucket;
-  }else{
-      selection.set({fill:bucket});
-      console.log("slection color has been changed to " + bucket);
-  }
-canvas.renderAll();
-  update_layers();
+    var bucket = document.getElementById("col-pk").value;
+    console.log(bucket == null);
+    var selection = canvas.getActiveObject();
+    if(selection == null){
+        canvas.backgroundColor = bucket;
+    }else{
+        selection.set({fill:bucket});
+        console.log("slection color has been changed to " + bucket);
+    }
+    canvas.renderAll();
 
 
 }
@@ -186,8 +178,6 @@ function circle() {
     });
     canvas.add(circle);
     canvas.renderAll();
-    update_layers();
-
 }
 
 function rectangle() {
@@ -199,7 +189,6 @@ function rectangle() {
     });
     canvas.add(rect); // add Object
     canvas.renderAll();
-    update_layers();
 }
 
 function triangle() {
@@ -207,8 +196,6 @@ function triangle() {
         width: 20, height: 30, fill: color, left: 50, top: 50
     });
     canvas.add(triangle);
-    canvas.renderAll();
-    update_layers();
 }
 
 function setWidth(newWidth) {
@@ -219,96 +206,14 @@ function setColor(newColor) {
     color = newColor;
 }
 
-function publish() {
-    holder = JSON.stringify(canvas.toJSON());
-    var file = new Blob([holder], {type: "application/json"});
-    // var seriesName = $("#comicSeries option:selected").text();
-    var seriesName = $("#comicSeries option:selected").attr('value');
-    seriesName = $("#currentSeries").val();
-    // var seriesName = document.getElementById("currentSeries").innerText = document.getElementById("comic_series").value;
-    console.log(seriesName);
-    var comicName= $("#comicTitle").val();
-    var myForm = new FormData();
-    var pngholder=null;
-    // $("#myCanvas").get(0).toBlob(function(blob){
-    //     pngholder=blob;
-    // });
-    var data = canvas.toDataURL()
-    // var blob = new Blob([data], {type:"octet/stream"});
-
-    console.log(data);
-    // var pngfile = new Blob([pngholder], {type:'image/png'});
-
-    myForm.append("file", file);
-    myForm.append("pngFile",data);
-    myForm.append("seriesName", seriesName);
-    myForm.append("comicName", comicName);
-
-    $.ajax({
-        url : '/upload',
-        data : myForm,
-        type : "POST",
-        processData: false,
-        contentType:false,
-        success : function (result) {
-            console.log("success");
-            console.log(result);
-            location.href = "/create"
-        },
-        error : function (result) {
-            console.log("error");
-            console.log(result);
-            window.location.replace('/create');
-
-        }
-
-    });
-
-
-
-
-
-}
-
-function sendBackwards() {
-    var selected = canvas.getActiveObject();
-    canvas.sendBackwards(selected);
-}
-
-function sendToBack() {
-    var selected = canvas.getActiveObject();
-    canvas.sendToBack(selected);
-}
-
-function bringForwards() {
-    var selected = canvas.getActiveObject();
-    canvas.bringForward(selected);
-}
-
-function bringToFront() {
-    var selected = canvas.getActiveObject();
-    canvas.bringToFront(selected);
-}
-
-function trash() {
-    var selected = canvas.getActiveObject();
-    canvas.remove(selected);
-    update_layers();
-}
-
 function exportEdit() {
     holder = JSON.stringify(canvas.toJSON());
     console.log(holder);
     var fileName = window.prompt("Please enter filename:");
     var file = new Blob([holder], {type: "application/json"});
     //stuff
-    var seriesName = "mySeries";
-    var comicName = "myComic";
     var myForm = new FormData();
     myForm.append("file", file);
-    myForm.append("seriesName", seriesName);
-    myForm.append("comicName", comicName);
-    console.log(myForm);
 
     $.ajax({
         dataType : 'json',
@@ -319,11 +224,9 @@ function exportEdit() {
         processData: false,
         contentType:false,
         success : function (result) {
-            console.log("success");
             console.log(result);
         },
         error : function (result) {
-            console.log("error");
             console.log(result)
 
         }
@@ -335,7 +238,7 @@ function exportEdit() {
         window.navigator.msSaveOrOpenBlob(file, filename)
     else {
         var a = document.createElement("a"),
-        url = URL.createObjectURL(file);
+            url = URL.createObjectURL(file);
         a.href = url;
         a.download = fileName;
         document.body.appendChild(a);
@@ -354,10 +257,10 @@ fileInput.addEventListener('change', function(e){
     if(!file) return;
     var reader = new FileReader();
     reader.onload = function(f) {
-      var data = f.target.result;
-      canvas.loadFromJSON(
-      JSON.parse(data),
-      canvas.renderAll.bind(canvas));
+        var data = f.target.result;
+        canvas.loadFromJSON(
+            JSON.parse(data),
+            canvas.renderAll.bind(canvas));
     };
     reader.readAsText(file);
 });
@@ -377,26 +280,26 @@ function cut() {
 
 function paste() {
     clipboard.clone(function(clonedObj) {
-    	canvas.discardActiveObject();
-    	clonedObj.set({
-    	    left: clonedObj.left + 10,
-    		top: clonedObj.top + 10,
-    		event: true,
-    	});
-    	if (clonedObj.type === 'activeSelection') {
-    		clonedObj.canvas = canvas;
-    		clonedObj.forEachObject(function(o) {
-    			canvas.add(o);
-    		});
-    		clonedObj.setCoords();
-    	}
-    	else {
-    		canvas.add(clonedObj);
-    	}
-    	clipboard.top += 10;
-    	clipboard.left += 10;
-    	canvas.setActiveObject(clonedObj);
-    	canvas.requestRenderAll();
+        canvas.discardActiveObject();
+        clonedObj.set({
+            left: clonedObj.left + 10,
+            top: clonedObj.top + 10,
+            event: true,
+        });
+        if (clonedObj.type === 'activeSelection') {
+            clonedObj.canvas = canvas;
+            clonedObj.forEachObject(function(o) {
+                canvas.add(o);
+            });
+            clonedObj.setCoords();
+        }
+        else {
+            canvas.add(clonedObj);
+        }
+        clipboard.top += 10;
+        clipboard.left += 10;
+        canvas.setActiveObject(clonedObj);
+        canvas.requestRenderAll();
     });
 }
 
@@ -420,7 +323,6 @@ function text() {
     var text = new fabric.Text('Type here...', {fontFamily: 'times new roman', left: 100, top:1000});
     canvas.add(text);
     canvas.renderAll();
-    update_layers();
 }
 
 
@@ -462,26 +364,34 @@ function italicToggle(){
 
 }
 
-
-
-
-function update_layers() {
-
-    obj = canvas.getObjects();
-
-    for( var i=0; i<obj.length; i++){
-        var layer = "<li>" + obj[i]+"</li>";
-        document.getElementById("layers").append(layer);
-    }
-
+function submitToGame() {
+    holder = JSON.stringify(canvas.toJSON());
+    var file = new Blob([holder], {type: "application/json"});
+    var gameTitle= $("#gameTitle").val();
+    var myForm = new FormData();
+    var data = canvas.toDataURL();
+    myForm.append("file", file);
+    myForm.append("pngFile",data);
+    myForm.append("gameName", gameTitle);
+    myForm.append("gamePageId", gamePageId);
+    $.ajax({
+        url : '/uploadToGame',
+        data : myForm,
+        type : "POST",
+        processData: false,
+        contentType:false,
+        success : function (result) {
+            console.log("success");
+            console.log(result);
+            location.href = "/create"
+        },
+        error : function (result) {
+            console.log("error");
+            console.log(result);
+            window.location.replace('/create');
+        }
+    });
 }
-
-
-
-
-
-
-
 
 function loadWorkspace(){
 

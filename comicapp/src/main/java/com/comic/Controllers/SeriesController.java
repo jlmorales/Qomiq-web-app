@@ -35,9 +35,11 @@ public class SeriesController {
     @RequestMapping(value = {"/series/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView series(@PathVariable("id") int id){
         ModelAndView modelAndView;
+        Series series = seriesService.findSeriesById(id);
         List<Comic> comics = comicService.findComicsBySeriesIdAndPublicComic(id);
         Series seriesName = seriesService.findSeriesById(id);
         modelAndView = new ModelAndView();
+        modelAndView.addObject("series", series);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("comics", comics);

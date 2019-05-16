@@ -17,7 +17,7 @@ public class GamePage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "game_page_id")
+    @Column(name = "page_id")
     private int id;
 
     @Column(name = "game_id")
