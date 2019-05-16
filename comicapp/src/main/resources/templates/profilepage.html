@@ -28,7 +28,7 @@
             </li>
             <li th:switch="${currentUser}">
                 <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
             </li>
         </ul>
     </div>
@@ -41,7 +41,6 @@
 	<div class="hero-text">
     <br>
         <a th:href="@{/profileSettings/}"><button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Profile Settings</div></button></a>
-   <button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscriptions</div></button>
 	</div>
 	
 </div>
@@ -83,8 +82,21 @@
 
 </section>
 
+<section>
+    <h1>Latest Comics From Your Subscriptions:</h1>
+    <div id ="displaylist">
 
+        <div class="row" id="display-row">
+            <div th:each="latestComic : ${latestComics}" class="col-xs-3">
+                <figure>
+                    <figtitle th:text="${latestComic.comicTitle}"></figtitle>
+                    <a th:href="@{${'/comic/' + latestComic.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + latestComic.SeriesId +'comic'+ latestComic.id+ '.png'}}" alt="Trulli" style="width:100%"></a>
+                </figure>
+            </div>
+        </div>
+    </div>
 
+</section>
 
 <section>
   <h1>Manage Subscriptions</h1>
@@ -94,7 +106,7 @@
       <div th:each="subscriptions : ${subscriptions}" class="col-xs-3">
        <figure>
           <figtitle th:text="${subscriptions.username}"></figtitle>
-          <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + subscriptions.id + '.png'}}" alt="Trulli" style="width:100%">
+          <img th:src="@{${'https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + subscriptions.id + '.png'}}" alt="Trulli" style="width:100%">
            <a th:if="${subscriptions} == null" th:href="@{${'/account/subscribe/' + subsriptions.username}}"><button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button></a>
            <a th:if="${subscriptions} != null" th:href="@{${'/account/unsubscribe/' + subscriptions.username}}"><button id="cover-btn"><div><span class="glyphicon glyphicon-minus"></span> Unsubscribe</div></button></a>
 

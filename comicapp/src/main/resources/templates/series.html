@@ -28,12 +28,15 @@
             </li>
             <li th:switch="${currentUser}">
                 <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
             </li>
         </ul>
 
     </div>
 </nav>
+
+
+
 
 <div class="container">
     <div class="row">
@@ -76,21 +79,24 @@
 
     <div class="row" id="display-row">
 
-        <!--<a th:href="@{/explore/searchBy(sortBy=Views )}"><span>Sort by Views</span></a>-->
-        <!--<a th:href="@{/explore/searchBy(sortBy=Date )}"><span>Sort by Date</span></a>-->
-
-
         <div th:each="c,iter : ${comics}">
-            <div class="col-xs-3">
+            <div  id="edge" class="col-xs-4">
                 <figure>
-                    <figtitle th:text="${c.comicTitle}"></figtitle>
+                    <h2 ><div th:text="${c.comicTitle}"></div></h2>
                     <a th:href="@{${'/comic/' + c.id}}">
-                        <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + c.id + '.png'}}" alt="Trulli" style="width:100%"/>
+                        <img id="ser-img" th:src="@{${'https://s3.amazonaws.com/seriescovers/' + c.id + '.png'}}" alt="Trulli" style="width:100%"/>
                     </a>
                 </figure>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
 </body>
 </html>

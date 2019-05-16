@@ -13,8 +13,8 @@ public interface ComicRepository extends JpaRepository<Comic, Integer> {
 
     List<Comic> findAllBySeriesId(int id);
 
+    List<Comic> findAllByOrderByCreationDate();
+
     List<Comic> findAllBySeriesIdAndPublicComicTrue(int id);
-
-
 
 }

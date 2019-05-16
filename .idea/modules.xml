@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/comicapp/comic.iml" filepath="$PROJECT_DIR$/comicapp/comic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/comicapp/comic.iml" filepath="$PROJECT_DIR$/comicapp/comic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/teamyellow_finalproject.iml" filepath="$PROJECT_DIR$/.idea/teamyellow_finalproject.iml" />
     </modules>
   </component>

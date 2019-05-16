@@ -273,7 +273,7 @@ function sendToBack() {
 
 function bringForwards() {
     var selected = canvas.getActiveObject();
-    canvas.bringForwards(selected);
+    canvas.bringForward(selected);
 }
 
 function bringToFront() {
@@ -350,7 +350,7 @@ fileInput.addEventListener('change', function(e){
       canvas.renderAll.bind(canvas));
     };
     reader.readAsText(file);
-    });
+});
 
 function copy() {
     canvas.getActiveObject().clone(function(clonedObj) {

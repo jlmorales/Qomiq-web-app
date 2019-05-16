@@ -33,7 +33,7 @@
             </li>
             <li th:switch="${currentUser}">
                 <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                <a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
             </li>
         </ul>
     </div>
@@ -121,7 +121,7 @@
                     <div id="bold" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button></div>
                     <div id="sendBackwards" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendBackwards()">Send Backwards</button></div>
                     <div id="sendToBack" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendToBack()">Send To Back</button></div>
-                    <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForward()">Bring Forward</button></div>
+                    <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForwards()">Bring Forward</button></div>
                     <div id="bringToFront" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringToFront()">Bring To Front</button></div>
 
 
