@@ -78,13 +78,13 @@ body,html{
     margin-bottom: 10px;
 }
 
-#col-pk{
-    width:55%;
-    height: 40px;
-    border-radius: 12%;
-    border-color: #46b8da;
-    background-color: #5bc0de;
-}
+/*#col-pk{*/
+/*    width:55%;*/
+/*    height: 40px;*/
+/*    border-radius: 12%;*/
+/*    border-color: #46b8da;*/
+/*    background-color: #5bc0de;*/
+/*}*/
 
 #img-inp {
     display: none;
@@ -101,3 +101,36 @@ body,html{
 #import-inp{
     display: none;
 }
+
+/*#col-pk{*/
+/*    display: none;*/
+/*}*/
+
+
+
+.canva{
+
+    padding-left: 25%;
+
+}
+#myCanvas{
+    width: 750px;
+    height: 750px;
+    border: solid;
+}
+
+.toolbar{
+
+    padding-left: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
