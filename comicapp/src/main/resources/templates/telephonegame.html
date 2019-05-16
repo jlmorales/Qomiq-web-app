@@ -8,37 +8,72 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+
 </head>
 <body>
-	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Create</a></li>
-      <li><a href="#">Explore</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-bell"></span>(1)</a></li>
-    </ul>
-  </div>
-</nav>
 
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
+    <ul class="nav navbar-nav">
+        <li class="nav-item"><a href="/home">Home</a></li>
+        <li class="nav-item"><a href="/create">Create</a></li>
+        <li class="nav-item active"><a href="/explore">Explore</a></li>
+        <li class="nav-item"><a href="/about">About</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right ml-auto">
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+        </li>
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+        </li>
+        <li th:if="${currentUser} != null">
+            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
+        </li>
+    </ul>
+
+    <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->
+    <!--<li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+    <!--<li th:switch="${currentUser}">-->
+    <!--<a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>-->
+    <!--<a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>-->
+    <!--</li>-->
+    <!--</ul>-->
+
+</nav>
 
 
 <!-- The hero  -->
 <div class="hero-image">
 	<div class="hero-text">
     <h1>Telephone Game</h1>
-        <h1>Hello <span th:utext="${currentUser.username}"></h1>
-        <form th:object="${newGame}" th:action = "@{/game/new}" method="POST">
-            <input  type="submit" value="Start A Game" >
+        <!--<h1>Hello <span th:utext="${currentUser.username}"></h1>-->
+        <!--<form th:object="${newGame}" th:action = "@{/game/new}" method="POST">-->
+            <!--<input  type="submit" value="Start A Game" >-->
+        <!--</form>-->
+        <form th:object ="${gameForm}" th:action = "@{/game/new}" method = "POST">
+            <div class="form-group">
+                <label for="gameName">Game Name</label>
+                <input name = "gameName" type="GameName" th:field="*{gameName}" class="form-control" id="gameName" placeholder="Game Name">
+            </div>
+            <div class="form-group">
+                <label for="comicName">Comics</label>
+                <select name = "comicName" th:field = "*{comicName}" class="form-control" id="comicName">
+                    <option  th:each = "comic : ${comics}" th:value = "${comic.id}" th:text = "${comic.comicTitle}" ></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Start Game</button>
         </form>
-		<button id="cover-btn"><div><span class="glyphicon glyphicon-cog"></span> Start A Game</div></button>		
 	</div>
 	
 </div>
@@ -53,17 +88,10 @@
     <div th:each="game,iter : ${games}">
         <div class="col-xs-3">
             <figure>
-                <figtitle th:text="${game.gameName}">Hunter X Hunter</figtitle>
+                <figtitle th:text="${game.gameName}"></figtitle>
                 <img src="c.jpg" alt="Trulli" style="width:100%">
                 <figcaption>
-                    owner: <a href="#">realwolfie</a><br>
-                    collaborators:<a href="#">wildcardplayer</a>
-                    <a href="#">jazzygamer</a>
-                    <a href="#">pokemonhunter</a>
-                    <a href="#">paintmaster</a>
-                    <div>Category: Adventures</div>
                     <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-blackboard"></span> View</div></button>
                 </figcaption>
             </figure>
         </div>
@@ -78,68 +106,7 @@
 
 
 <section>
-  <h1>Past Team Mates</h1>
-  <div id ="displaylist">
-
-    <div class="row" id="display-row">
-
-
-      <div class="col-xs-3">
-       <figure>
-          <p class="figtitle">jazzygamer</p>
-          <img src="http://placekitten.com/40/40" alt="Trulli" style="width:40%; border-radius:50%;">
-          <figcaption>
-            <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-              <br>
-              <button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> View Profile</div></button>
-          </figcaption>
-        </figure>
-      </div>
-
-        <div class="col-xs-3">
-            <figure>
-                <p class="figtitle">octopusSlayer</p>
-                <img src="http://placekitten.com/40/40" alt="Trulli" style="width:40%; border-radius:50%;">
-                <figcaption>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-                    <br>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> View Profile</div></button>
-                </figcaption>
-            </figure>
-        </div>
-
-
-        <div class="col-xs-3">
-            <figure>
-                <p class="figtitle">rockstarGames</p>
-                <img src="http://placekitten.com/40/40" alt="Trulli" style="width:40%; border-radius:50%;">
-                <figcaption>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-                    <br>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> View Profile</div></button>
-                </figcaption>
-            </figure>
-        </div>
-
-
-
-        <div class="col-xs-3">
-            <figure>
-                <p class="figtitle">seawolfwins</p>
-                <img src="http://placekitten.com/40/40" alt="Trulli" style="width:40%; border-radius:50%;">
-                <figcaption>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button>
-                    <br>
-                    <button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> View Profile</div></button>
-                </figcaption>
-            </figure>
-        </div>
-
-
-
-
-    </div>
-  </div>
+  <h1>Past Games</h1>
 
 </section>
 

@@ -57,10 +57,13 @@ public class FileController {
         series.setCreationTime(0);
         series.setSeriesViews(0);
         series.setTitle(seriesName);
+
         List<Series> seriesList = seriesService.findAllSeriesByAuthorUsername(user.getUsername());
+        boolean seriesExists= false;
         for(Series s : seriesList){
             if(s.getTitle().equalsIgnoreCase(seriesName)){
                 series = s;
+                seriesExists = true;
             }
         }
         series = seriesService.saveSeries(series);
@@ -83,6 +86,10 @@ public class FileController {
         byte[] imagedata = DatatypeConverter.parseBase64Binary(pngFile.substring(pngFile.indexOf(",")+1));
         BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
         s3Services.uploadFile(keyName, realFile);
+        if(!seriesExists){
+            keyName = "seriesCover"+series.getId()+"."+"png";
+            s3Services.uploadFile(keyName,realFile);
+        }
         return "Upload Successfully -> KeyName = " + keyName;
     }
 
@@ -91,8 +98,23 @@ public class FileController {
     public String uploadFile(@RequestParam("image") String image){
         byte[] imagedata = DatatypeConverter.parseBase64Binary(image.substring(image.indexOf(",")+1));
         BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
-        s3Services.uploadFile("profileImage1.png", realFile);
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        s3Services.uploadFile("profileImage" + user.getId(), realFile);
         return "uploaded";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/uploadToGame")
+    @ResponseBody
+    public String uploadFile(@RequestParam("file") MultipartFile file ,
+                             @RequestParam("pngFile") String pngFile,
+                             @RequestParam("gameTitle") String gameTitle,
+                             @RequestParam("gamePageId") int gamePageId)
+    {
+        System.out.println(gameTitle);
+        System.out.println(gamePageId);
+        return "not implemented yet";
     }
 
 }

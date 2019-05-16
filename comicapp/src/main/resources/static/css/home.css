@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe");
+
 body,html{
     height: 100%;
     background-color: #f0e7e3;
     position: relative;
-
+    font-family: 'ZCOOL KuaiLe', cursive;
 }
 
 
@@ -76,14 +78,59 @@ body,html{
     margin-bottom: 10px;
 }
 
-input[type="file"] {
+/*#col-pk{*/
+/*    width:55%;*/
+/*    height: 40px;*/
+/*    border-radius: 12%;*/
+/*    border-color: #46b8da;*/
+/*    background-color: #5bc0de;*/
+/*}*/
+
+#img-inp {
     display: none;
 }
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
-    padding: 13px 18px;
+    padding: 12px 19px;
     cursor: pointer;
-    border-radius: 2px;
     background-color: #5bc0de;
+    border-radius: 8px;
 }
+
+#import-inp{
+    display: none;
+}
+
+/*#col-pk{*/
+/*    display: none;*/
+/*}*/
+
+
+
+.canva{
+
+    padding-left: 25%;
+
+}
+#myCanvas{
+    width: 750px;
+    height: 750px;
+    border: solid;
+}
+
+.toolbar{
+
+    padding-left: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+

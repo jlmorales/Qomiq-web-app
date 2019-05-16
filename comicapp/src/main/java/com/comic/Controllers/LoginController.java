@@ -3,9 +3,9 @@ package com.comic.Controllers;
 
 
 
-import com.comic.Service.ComicService;
+import com.comic.Service.SeriesService;
 import com.comic.Service.UserService;
-import com.comic.model.Comic;
+import com.comic.model.Series;
 import com.comic.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,7 +26,7 @@ public class LoginController {
     private UserService userService;
 
     @Autowired
-    private ComicService comicService;
+    private SeriesService seriesService;
 
     @RequestMapping(value={"/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
@@ -72,18 +71,11 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-        List<Comic> latestComics = comicService.findLatestComics();
-        List<Comic> featuredComics = new ArrayList<>();
-        int i = 0;
-        for (Comic c : latestComics) {
-            if (c.isPublicComic() == true) {
-                featuredComics.add(c);
-            }
-            i++;
-            if (i == 6) break;
-        }
+        System.out.println(user);
         modelAndView.addObject("currentUser", user);
-        modelAndView.addObject("featuredComics", featuredComics);
+        List<Series> seriesList = seriesService.findTop5ByViews();
+        System.out.println(seriesList);
+        modelAndView.addObject("series", seriesList);
 //        modelAndView.addObject("userName", "Welcome " + user.getUsername() + " (" + user.getEmail() + ")");
         modelAndView.setViewName("index");
         return modelAndView;

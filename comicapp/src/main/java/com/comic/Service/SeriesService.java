@@ -24,6 +24,8 @@ public class SeriesService {
 
     public List<Series> findAllSeriesByViews(){return seriesRepository.findAllByOrderBySeriesViewsDesc();}
 
+    public List<Series> findTop5ByViews(){return seriesRepository.findTop5ByOrderBySeriesViewsDesc();}
+
     public Series findSeriesById(int id){return seriesRepository.findSeriesById(id);}
 
     public Series saveSeries(Series series){ return seriesRepository.save(series);}

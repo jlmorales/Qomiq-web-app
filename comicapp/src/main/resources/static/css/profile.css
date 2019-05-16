@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe");
+
 body,html{
 	height: 100%;
 	background-color: #f0e7e3;
 	position: relative;
-
+	font-family: 'ZCOOL KuaiLe', cursive;
 }
 
 
