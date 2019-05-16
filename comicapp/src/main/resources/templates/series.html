@@ -34,6 +34,9 @@
             <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
             <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
         </li>
+        <li th:if="${currentUser} != null">
+            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
+        </li>
     </ul>
 
     <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->

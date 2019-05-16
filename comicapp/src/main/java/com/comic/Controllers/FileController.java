@@ -98,7 +98,10 @@ public class FileController {
     public String uploadFile(@RequestParam("image") String image){
         byte[] imagedata = DatatypeConverter.parseBase64Binary(image.substring(image.indexOf(",")+1));
         BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
-        s3Services.uploadFile("profileImage1.png", realFile);
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        s3Services.uploadFile("profileImage" + user.getId(), realFile);
         return "uploaded";
     }
 
