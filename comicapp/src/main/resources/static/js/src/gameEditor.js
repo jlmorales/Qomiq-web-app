@@ -364,12 +364,34 @@ function italicToggle(){
 
 }
 
-
-
-
-
-
-
+function submitToGame() {
+    holder = JSON.stringify(canvas.toJSON());
+    var file = new Blob([holder], {type: "application/json"});
+    var gameTitle= $("#gameTitle").val();
+    var myForm = new FormData();
+    var data = canvas.toDataURL();
+    myForm.append("file", file);
+    myForm.append("pngFile",data);
+    myForm.append("gameName", gameTitle);
+    myForm.append("gamePageId", gamePageId);
+    $.ajax({
+        url : '/uploadToGame',
+        data : myForm,
+        type : "POST",
+        processData: false,
+        contentType:false,
+        success : function (result) {
+            console.log("success");
+            console.log(result);
+            location.href = "/create"
+        },
+        error : function (result) {
+            console.log("error");
+            console.log(result);
+            window.location.replace('/create');
+        }
+    });
+}
 
 function loadWorkspace(){
 

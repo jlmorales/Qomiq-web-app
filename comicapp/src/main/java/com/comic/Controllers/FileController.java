@@ -102,4 +102,14 @@ public class FileController {
         return "uploaded";
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/upload")
+    @ResponseBody
+    public String uploadFile(@RequestParam("file") MultipartFile file ,
+                             @RequestParam("pngFile") String pngFile,
+                             @RequestParam("gameTitle") String gameTitle,
+                             @RequestParam("gamePageId") int gamePageId)
+    {
+        return "not implemented yet";
+    }
+
 }

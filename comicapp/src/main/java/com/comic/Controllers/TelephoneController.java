@@ -135,8 +135,10 @@ public class TelephoneController {
     public ModelAndView edit(@PathVariable("id") int id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("fileName", "gamePage"+id+".json");
+        modelAndView.addObject("gamePageId", id);
         modelAndView.setViewName("gameeditor");
         return modelAndView;
     }
+
 
 }

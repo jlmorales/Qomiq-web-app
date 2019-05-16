@@ -153,42 +153,14 @@
 
         </section>
     </div>
-    <div id="menu1" class="tab-pane fade">
-        <h3>Preview & Manage</h3>
-        <p>This will be tile view of all the pages and users can move around pages</p>
-    </div>
     <div id="menu2" class="tab-pane fade">
         <h3>Config</h3>
-        <form id="comicInfo">
+        <form id="gameInfo">
             <div>
-                <label for="comicTitle">Comic Title: </label>
-                <input type="text" id="comicTitle" />
+                <label for="gameTitle">Game Title: </label>
+                <input type="text" id="gameTitle" />
             </div>
-
-
-            <div>
-                <label for="newSeriesOrNot">Make a new Series: </label>
-                <div id="newSeriesOrNot">
-                    <input type="radio" name="isNewSeries" value="Yes"> Yes<br>
-                    <input type="radio" name="isNewSeries" value="No" checked> No<br>
-                </div>
-            </div>
-            <div hidden>
-                <label for="newSeriesTitle" >New Series Title: </label>
-                <input type="text" id="newSeriesTitle"  />
-            </div>
-
-
-            <div>
-                <label for="commentsBoolean">Enable Comments: </label>
-                <input id="commentsBoolean" type="checkbox" />
-            </div>
-            <div>
-                <label for="makePublic" type="checkbox">Make Public: </label>
-                <input id="makePublic" type="checkbox" />
-            </div>
-            <button onclick="window.publish()">Publish</button>
-            <input id="submitComic" type="submit" action = "window.">
+            <button onclick="window.publish()">Create Submission</button>
         </form>
     </div>
 </div>
@@ -268,6 +240,7 @@
     /*<![CDATA[*/
 
     var message = [[${fileName}]];
+    var gamePageId = [[${gamePageId}]];
     // alert(message);
 
     /*]]>*/
