@@ -147,6 +147,7 @@ function addText() {
 
 
     canvas.add(text_obj);
+    update_layers();
 
 }
 
@@ -168,6 +169,7 @@ function bucket() {
       console.log("slection color has been changed to " + bucket);
   }
 canvas.renderAll();
+  update_layers();
 
 
 }
@@ -184,6 +186,8 @@ function circle() {
     });
     canvas.add(circle);
     canvas.renderAll();
+    update_layers();
+
 }
 
 function rectangle() {
@@ -195,6 +199,7 @@ function rectangle() {
     });
     canvas.add(rect); // add Object
     canvas.renderAll();
+    update_layers();
 }
 
 function triangle() {
@@ -202,6 +207,8 @@ function triangle() {
         width: 20, height: 30, fill: color, left: 50, top: 50
     });
     canvas.add(triangle);
+    canvas.renderAll();
+    update_layers();
 }
 
 function setWidth(newWidth) {
@@ -284,6 +291,7 @@ function bringToFront() {
 function trash() {
     var selected = canvas.getActiveObject();
     canvas.remove(selected);
+    update_layers();
 }
 
 function exportEdit() {
@@ -410,6 +418,7 @@ function text() {
     var text = new fabric.Text('Type here...', {fontFamily: 'times new roman', left: 100, top:1000});
     canvas.add(text);
     canvas.renderAll();
+    update_layers();
 }
 
 
@@ -448,6 +457,20 @@ function italicToggle(){
 
     canvas.renderAll();
 
+
+}
+
+
+
+
+function update_layers() {
+
+    obj = canvas.getObjects();
+
+    for( var i=0; i<obj.length; i++){
+        var layer = "<li>" + obj[i]+"</li>";
+        document.getElementById("layers").append(layer);
+    }
 
 }
 
