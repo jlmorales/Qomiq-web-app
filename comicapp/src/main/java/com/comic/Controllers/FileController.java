@@ -102,13 +102,15 @@ public class FileController {
         return "uploaded";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/upload")
+    @RequestMapping(method = RequestMethod.POST, value = "/uploadToGame")
     @ResponseBody
     public String uploadFile(@RequestParam("file") MultipartFile file ,
                              @RequestParam("pngFile") String pngFile,
                              @RequestParam("gameTitle") String gameTitle,
                              @RequestParam("gamePageId") int gamePageId)
     {
+        System.out.println(gameTitle);
+        System.out.println(gamePageId);
         return "not implemented yet";
     }
 
