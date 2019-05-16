@@ -24,6 +24,9 @@ import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -70,9 +73,11 @@ public class FileController {
         System.out.println(series);
         Comic comic = new Comic();
         comic.setPublicComic(true);
-        comic.setCreationDate(20190425);
+        java.util.Date javaDate = new java.util.Date();
+        Date date = new Date(javaDate.getTime());
+        comic.setCreationDate(date);
         comic.setComicViews(0);
-        comic.setCreationTime(0);
+        //comic.setCreationTime(0);
         comic.setLikes(0);
         comic.setComicTitle(comicName);
         comic.setComicViews(0);

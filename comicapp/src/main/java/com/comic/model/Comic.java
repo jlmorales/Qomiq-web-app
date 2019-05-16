@@ -5,8 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 
 @Data
 @Builder
@@ -29,14 +32,14 @@ public class Comic {
 
     //time is stored in an int and 24-hour format. For example, 1742 represents 17:42 or 5:42 pm
     @Column(name = "comic_creationTime")
-    private int creationTime;
+    private Time creationTime;
 
     //date is stored in an int format. For example, 20190801 represents August 1st, 2019.
     @Column(name = "comic_creationDate")
-    private int creationDate;
+    private Date creationDate;
 
     @Column(name = "comic_lastModTime")
-    private int lastModTime;
+    private DateTime lastModTime;
 
 
     @Column(name = "comic_likes")
