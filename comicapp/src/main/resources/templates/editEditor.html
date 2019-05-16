@@ -4,7 +4,7 @@
     <title>Editor</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -102,9 +102,15 @@
                     <div id="triangle" class="col-xs-6"><button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button></div>
 
 
-                    <div id="image" class="col-xs-6"><button class = "btn btn-info btn-lg" ><span class="fas fa-file-image" alt="pencil"><input id="img-inp" type="file" /></span></button></div>
 
-
+                    <div id="image" class="col-xs-6">
+                        <button class = "btn btn-info btn-lg" >
+                            <label for="img-inp" class="custom-file-upload">
+                                <i class="fas fa-file-image fa-1g"></i>
+                            </label>
+                            <input id="img-inp" type="file"/>
+                        </button>
+                    </div>
 
 
 
