@@ -8,6 +8,7 @@ import java.util.List;
 public interface SeriesRepository extends JpaRepository<Series, Integer> {
         public List<Series> findAll();
 
+        public List<Series> findAllByOrderByLastModDateDesc();
 
         public List<Series> findAllByOrderBySeriesViewsDesc();
 
