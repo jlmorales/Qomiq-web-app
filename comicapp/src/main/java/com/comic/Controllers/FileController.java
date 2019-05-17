@@ -63,11 +63,11 @@ public class FileController {
         Series series = new Series();
         series.setAuthorUsername(user.getUsername());
         series.setCategory("Action");
-        series.setCreationDate(20190425);
-        series.setCreationTime(0);
+        Date date = new Date();
+        series.setCreationDate(date);
+        series.setLastModDate(date);
         series.setSeriesViews(0);
         series.setTitle(seriesName);
-
         List<Series> seriesList = seriesService.findAllSeriesByAuthorUsername(user.getUsername());
         boolean seriesExists= false;
         for(Series s : seriesList){
@@ -80,13 +80,9 @@ public class FileController {
         System.out.println(series);
         Comic comic = new Comic();
         comic.setPublicComic(true);
-        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-        Date date = new Date();
-        String strdate = dateFormat.format(date);
-        int intdate = Integer.parseInt(strdate);
-        comic.setCreationDate(intdate);
+        comic.setCreationDate(date);
+        comic.setLastModDate(date);
         comic.setComicViews(0);
-        comic.setCreationTime(0);
         comic.setLikes(0);
         comic.setComicTitle(comicName);
         comic.setComicViews(0);
