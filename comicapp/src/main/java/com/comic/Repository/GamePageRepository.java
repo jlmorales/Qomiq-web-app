@@ -10,4 +10,6 @@ import java.util.List;
 public interface GamePageRepository extends JpaRepository<GamePage, Integer> {
 
     List<GamePage> findAllByGameId(int id);
+
+    GamePage findGamePageById(int id);
 }

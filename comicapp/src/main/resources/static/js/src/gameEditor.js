@@ -24,6 +24,8 @@ var brushWidth = 2;
 //check that message exists from backend
 console.log(message);
 
+console.log(gamePageId);
+
 $.getJSON("https://s3.us-east-2.amazonaws.com/comic-bucket/"+ message,function(data){
     console.log(data);
     canvas.loadFromJSON(data,
@@ -372,7 +374,7 @@ function submitToGame() {
     var data = canvas.toDataURL();
     myForm.append("file", file);
     myForm.append("pngFile",data);
-    myForm.append("gameName", gameTitle);
+    myForm.append("gameTitle", gameTitle);
     myForm.append("gamePageId", gamePageId);
     $.ajax({
         url : '/uploadToGame',

@@ -98,6 +98,10 @@ public class TelephoneController {
             gamePlayer.setUserId(subscriber.getId());
             gamePlayerService.savePlayer(gamePlayer);
         }
+        GamePlayer gamePlayer = new GamePlayer();
+        gamePlayer.setGameId(game.getId());
+        gamePlayer.setUserId(user.getId());
+        gamePlayerService.savePlayer(gamePlayer);
         GamePage gamePage = new GamePage();
         gamePage.setGameId(game.getId());
         gamePage.setPageNumber(1);
