@@ -482,11 +482,11 @@
             <div>
                 <label for="newSeriesOrNot">Make a new Series: </label>
                 <div id="newSeriesOrNot">
-                    <input type="radio" name="isNewSeries" value="Yes"> Yes<br>
-                    <input type="radio" name="isNewSeries" value="No" checked> No<br>
+                    <input type="radio" name="isNewSeries" value="Yes" onclick="displayNewSeriesInput()"> Yes<br>
+                    <input type="radio" name="isNewSeries" value="No" onclick="hideNewSeriesInput()" checked> No<br>
                 </div>
             </div>
-            <div hidden>
+            <div hidden id="newSeriesTextBox">
                 <label for="newSeriesTitle" >New Series Title: </label>
                 <input type="text" id="newSeriesTitle"  />
             </div>

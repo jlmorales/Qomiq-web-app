@@ -112,8 +112,15 @@ fileInput.addEventListener('change', function(e){
 // });
 
 
+function displayNewSeriesInput(){
+    document.getElementById('newSeriesTextBox').hidden = false;
+    document.getElementById('currentSeries').hidden = true;
+}
 
-
+function hideNewSeriesInput(){
+    document.getElementById('newSeriesTextBox').hidden = true;
+    document.getElementById('currentSeries').hidden = false;
+}
 
 function pencil() {
     if (!canvas.isDrawingMode) {
