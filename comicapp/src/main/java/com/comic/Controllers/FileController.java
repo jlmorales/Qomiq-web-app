@@ -124,15 +124,15 @@ public class FileController {
         GamePage gamePage = gamePageService.findGamePageById(gamePageId);
         Game game = gameService.findGameById(gamePage.getGameId());
         GamePlayer gamePlayer = gamePlayerService.findGamePlayerByUserId(user.getId());
-        Submission submission = new Submission();
+        Submission submission = submissionService.findSubmissionByGamePageIdAndPlayerId(gamePage.getId(),gamePlayer.getId());
+        if(submission == null){
+            submission = new Submission();
+        }
         submission.setPlayerId(gamePlayer.getId());
         submission.setGamePageId(gamePage.getId());
         submission.setVotes(0);
+        submission.setTitle(gameTitle);
         submission = submissionService.saveSubmission(submission);
-//        String keyName1 = "gamePage"+gamePage.getId()+".json";
-//        String keyName2 = "gamePage"+gamePage.getId()+".png";
-//        S3Object output1 = s3Services.downloadFile(keyName1);
-//        S3Object output2 = s3Services.downloadFile(keyName2);
         String keyName1 = "submission"+submission.getId()+".json";
         String keyName2 = "submission"+submission.getId()+".png";
         s3Services.uploadFile(keyName1,file);

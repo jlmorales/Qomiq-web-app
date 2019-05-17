@@ -25,6 +25,9 @@ public class Submission {
     @Column(name = "player_id")
     int playerId;
 
+    @Column(name = "submission_title")
+    String title;
+
     @Column(name = "submission_votes")
     int votes;
 

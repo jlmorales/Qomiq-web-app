@@ -46,6 +46,9 @@ public class TelephoneController {
     public SeriesService  seriesService;
 
     @Autowired
+    public SubmissionService submissionService;
+
+    @Autowired
     S3Services s3Services;
 
 
@@ -142,6 +145,16 @@ public class TelephoneController {
         modelAndView.addObject("gamePageId", id);
         modelAndView.setViewName("gameeditor");
         return modelAndView;
+    }
+
+    @RequestMapping(value = {"/gameSubmissions/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView gameSubmissions(@PathVariable("id") int id){
+        ModelAndView modelAndView = new ModelAndView();
+        GamePage gamePage = gamePageService.findGamePageById(id);
+        List<Submission> submissions = submissionService.findAllSubmissionsByGamePageId(gamePage.getId());
+        modelAndView.addObject("submissions", submissions);
+        modelAndView.setViewName("gameSubmissions");
+        return  modelAndView;
     }
 
 
