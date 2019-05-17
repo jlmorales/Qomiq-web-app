@@ -112,8 +112,15 @@ fileInput.addEventListener('change', function(e){
 // });
 
 
+function displayNewSeriesInput(){
+    document.getElementById('newSeriesTextBox').hidden = false;
+    document.getElementById('currentSeries').hidden = true;
+}
 
-
+function hideNewSeriesInput(){
+    document.getElementById('newSeriesTextBox').hidden = true;
+    document.getElementById('currentSeries').hidden = false;
+}
 
 function pencil() {
     if (!canvas.isDrawingMode) {
@@ -223,8 +230,15 @@ function publish() {
     holder = JSON.stringify(canvas.toJSON());
     var file = new Blob([holder], {type: "application/json"});
     // var seriesName = $("#comicSeries option:selected").text();
-    var seriesName = $("#comicSeries option:selected").attr('value');
-    seriesName = $("#currentSeries").val();
+    var seriesName;
+    if (willCreateNewSeries() == "No"){
+        seriesName = $("#comicSeries option:selected").attr('value');
+        seriesName = $("#currentSeries").val();
+    }
+    else{
+        seriesName = document.getElementById("newSeriesTitle").value;
+    }
+
     // var seriesName = document.getElementById("currentSeries").innerText = document.getElementById("comic_series").value;
     console.log(seriesName);
     var comicName= $("#comicTitle").val();
@@ -432,6 +446,19 @@ function brushSize(){
     return size;
 }
 
+
+function willCreateNewSeries(){
+    var radios = document.getElementsByName('isNewSeries');
+    for (var i = 0, length = radios.length; i < length; i++)
+    {
+        if (radios[i].checked)
+        {
+            // do whatever you want with the checked radio
+            return radios[i].value;
+        }
+    }
+
+}
 
 
 function boldToggle(){

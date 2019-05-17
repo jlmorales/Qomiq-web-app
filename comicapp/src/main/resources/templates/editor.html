@@ -3,7 +3,13 @@
 <head>
     <title>Editor</title>
 
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -12,43 +18,34 @@
     <script src="/js/lib/fabric.min.js"></script>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 
-    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
 
 </head>
 <body>
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-    <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
-    <ul class="nav navbar-nav">
-        <li class="nav-item"><a href="/home">Home</a></li>
-        <li class="nav-item"><a href="/create">Create</a></li>
-        <li class="nav-item active"><a href="/explore">Explore</a></li>
-        <li class="nav-item"><a href="/about">About</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right ml-auto">
-        <li th:switch="${currentUser}">
-            <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-            <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
-        </li>
-        <li th:switch="${currentUser}">
-            <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
-        </li>
-    </ul>
-
-    <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->
-    <!--<li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-    <!--<li th:switch="${currentUser}">-->
-    <!--<a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>-->
-    <!--<a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>-->
-    <!--</li>-->
-    <!--</ul>-->
-
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/home">Home</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/explore">Explore</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li th:switch="${currentUser}">
+                <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+            </li>
+            <li th:switch="${currentUser}">
+                <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 
@@ -78,7 +75,7 @@
 <!-- Adding the tabs -->
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Editor</a></li>
-    <li><a data-toggle="tab" href="#menu1">Preview & Manage</a></li>
+<!--    <li><a data-toggle="tab" href="#menu1">Preview & Manage</a></li>-->
     <li><a data-toggle="tab" href="#menu2">Config</a></li>
 </ul>
 
@@ -180,113 +177,219 @@
 
             <!-- This is the editing pane -->
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2">
 
 
-                        <div class="row">
+                <div class="toolbar">
+                    <div class="btn-toolbar ">
 
 
-                            <div class="col-md-6">
-
-                                <button class ="btn btn-info btn-lg" onclick="window.share()"><span class="fas fa-share" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-save" alt="pencil"></span></button>
-                                <span id="import" >
-                            <label for="import-inp"  class="custom-file-upload">
-                                <i class="fas fa-file-import fa-1g"></i>
-                            </label>
-                            <input id="import-inp" type="file" />
-                        </span>
-                                <button class ="btn btn-info btn-lg" onclick="window.exportEdit()"><span class="fas fa-file-export" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.undo()"><span class="fas fa-undo" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.redo()"><span class="fas fa-redo" alt="pencil"></span></button>
+                        <div class="btn-group">
 
 
 
 
-
-                                <button class="btn btn-info btn-lg" onclick="window.pencil()"><span class="fa fa-paint-brush" alt="pencil"></span></button>
-                                <button class="btn btn-info btn-lg" onclick="window.eraser()"><span class="fa fa-eraser" alt="eraser"></span></button>
-                                <button class= "btn btn-info btn-lg" onclick="window.bucket()"><span class="fa fa-fill-drip" alt="bucket"></span></button>
-                              <button class="btn btn-info btn-lg" onclick="window.select()"><span class="fa fa-mouse-pointer" alt="select"></span></button>
-                                <button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button>
-                                <button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button>
-                                <button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button>
-
+                            <button class="btn btn-info btn-lg" onclick="window.pencil()"><span class="fa fa-paint-brush" alt="pencil"></span></button>
+                            <button class="btn btn-info btn-lg" onclick="window.eraser()"><span class="fa fa-eraser" alt="eraser"></span></button>
+                            <button class= "btn btn-info btn-lg" onclick="window.bucket()"><span class="fa fa-fill-drip" alt="bucket"></span></button>
+                            <button class="btn btn-info btn-lg" onclick="window.select()"><span class="fa fa-mouse-pointer" alt="select"></span></button>
+                            <button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button>
+                            <button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button>
+                            <button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button>
 
 
-                                <span id="image"  class="btn-lg">
-                                    <label for="img-inp"  class="custom-file-upload">
-                                        <i class="fas fa-file-image fa-1g"></i>
-                                    </label>
-                                    <input id="img-inp" type="file" />
 
-                                </span>
+                            <button id="image"  class="btn btn-info btn-lg">
+                                <!--                                    <label for="img-inp"  class="custom-file-upload">-->
+                                <!--                                        <i class="fas fa-file-image fa-1g"></i>-->
+                                <!--                                    </label>-->
+                                <span  class= "fas fa-file-image fa-lg" ><input id="img-inp" type="file" /></span>
+
+                            </button>
 
 
 
 
 
-                               <button class ="btn btn-info btn-lg" onclick="window.copy()"><span class="fas fa-copy" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.paste()"><span class="fas fa-paste" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.cut()"><span class="fas fa-cut" alt="pencil"></span></button>
-                                <input type="color" id="col-pk" />
-                                <button class ="btn btn-info btn-lg" onclick="window.trash()"><span class="fas fa-trash" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.addText()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.italicToggle()"><span class="fas fa-italic" alt="pencil"></span></button>
-                                <button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.copy()"><span class="fas fa-copy" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.paste()"><span class="fas fa-paste" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.cut()"><span class="fas fa-cut" alt="pencil"></span></button>
 
 
-                                <!--
-                                <div id="sendBackwards" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendBackwards()">Send Backwards</button></div>
-                                <div id="sendToBack" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendToBack()">Send To Back</button></div>
-                                <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForwards()">Bring Forward</button></div>
-                                <div id="bringToFront" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringToFront()">Bring To Front</button></div> -->
+                            <button class="btn btn-info btn-lg"><span class="ml-auto" ><input type="color" id="col-pk" /></span></button>
+
+                            <button class ="btn btn-info btn-lg" onclick="window.trash()"><span class="fas fa-trash" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.addText()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.italicToggle()"><span class="fas fa-italic" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button>
+
+
+                            <!--
+                            <div id="sendBackwards" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendBackwards()">Send Backwards</button></div>
+                            <div id="sendToBack" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendToBack()">Send To Back</button></div>
+                            <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForwards()">Bring Forward</button></div>
+                            <div id="bringToFront" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringToFront()">Bring To Front</button></div> -->
 
 
 
-
-
-                            </div>
-                            <!-- <div class="col-md-6">
-                            </div> -->
 
 
                         </div>
+
+
+
+                        <div class="btn-group">
+
+
+                            <button class ="btn btn-info btn-lg" onclick="window.share()"><span class="fas fa-share" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-save" alt="pencil"></span></button>
+
+
+                            <button class="btn- btn-info btn-lg" id="import" >
+
+
+                                <!--                                 <label for="import-inp"  class="custom-file-upload">-->
+                                <!--                                <i class="fas fa-file-import fa-1g"></i>-->
+                                <!--                            </label>-->
+                                <span class= "fas fa-file-import fa-1g" ><input id="import-inp" type="file" /></span>
+                            </button>
+
+
+                            <button class ="btn btn-info btn-lg" onclick="window.exportEdit()"><span class="fas fa-file-export" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.undo()"><span class="fas fa-undo" alt="pencil"></span></button>
+                            <button class ="btn btn-info btn-lg" onclick="window.redo()"><span class="fas fa-redo" alt="pencil"></span></button>
+
+
+
+<!--sfsjdsdjhshfsdj-->
+
+                        </div>
+
+
+
                     </div>
 
+                </div>
+
+
+                <div class="canva" ><canvas id="myCanvas"></canvas></div>
+
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-4">-->
+
+
+<!--&lt;!&ndash;                        <div class="btn-toolbar text-center">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                            <div class="btn-group">&ndash;&gt;-->
+
+
+
+
+<!--&lt;!&ndash;                                <button class="btn btn-info btn-lg" onclick="window.pencil()"><span class="fa fa-paint-brush" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class="btn btn-info btn-lg" onclick="window.eraser()"><span class="fa fa-eraser" alt="eraser"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class= "btn btn-info btn-lg" onclick="window.bucket()"><span class="fa fa-fill-drip" alt="bucket"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                              <button class="btn btn-info btn-lg" onclick="window.select()"><span class="fa fa-mouse-pointer" alt="select"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button>&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;                                <button id="image"  class="btn btn-info btn-lg">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                    <label for="img-inp"  class="custom-file-upload">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                        <i class="fas fa-file-image fa-1g"></i>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                    </label>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <span  class= "fas fa-file-image fa-lg" ><input id="img-inp" type="file" /></span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                </button>&ndash;&gt;-->
+
+
+
+
+
+<!--&lt;!&ndash;                               <button class ="btn btn-info btn-lg" onclick="window.copy()"><span class="fas fa-copy" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class ="btn btn-info btn-lg" onclick="window.paste()"><span class="fas fa-paste" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class ="btn btn-info btn-lg" onclick="window.cut()"><span class="fas fa-cut" alt="pencil"></span></button>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                                <button class="btn btn-info btn-lg"><span class="ml-auto" ><input type="color" id="col-pk" /></span></button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <button class ="btn btn-info btn-lg" onclick="window.trash()"><span class="fas fa-trash" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class ="btn btn-info btn-lg" onclick="window.addText()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class ="btn btn-info btn-lg" onclick="window.italicToggle()"><span class="fas fa-italic" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                                &lt;!&ndash;&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div id="sendBackwards" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendBackwards()">Send Backwards</button></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div id="sendToBack" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendToBack()">Send To Back</button></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForwards()">Bring Forward</button></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div id="bringToFront" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringToFront()">Bring To Front</button></div> &ndash;&gt;&ndash;&gt;-->
+
+
+
+
+
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;                             <div class="btn-group">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                            <button class ="btn btn-info btn-lg" onclick="window.share()"><span class="fas fa-share" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-save" alt="pencil"></span></button>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                            <button class="btn- btn-info btn-lg" id="import" >&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;&lt;!&ndash;                                 <label for="import-inp"  class="custom-file-upload">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                <i class="fas fa-file-import fa-1g"></i>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                            </label>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class= "fas fa-file-import fa-1g" ><input id="import-inp" type="file" /></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </button>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                            <button class ="btn btn-info btn-lg" onclick="window.exportEdit()"><span class="fas fa-file-export" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <button class ="btn btn-info btn-lg" onclick="window.undo()"><span class="fas fa-undo" alt="pencil"></span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <button class ="btn btn-info btn-lg" onclick="window.redo()"><span class="fas fa-redo" alt="pencil"></span></button>&ndash;&gt;-->
+
+
+
+
+
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
 
 
 
 
 
 
-                    <div class="col-md-8">
 
-                        <canvas id="myCanvas" width="1000px" height="750px" style="border: solid;"></canvas>
+<!--                    <div class="col-md-8">-->
 
-                    </div>
+<!--                        <div class="text-center" ><canvas id="myCanvas" width="750" height="750px" style="border: solid;"></canvas></div>-->
 
-
-                    <div class="col-md-2">
-
-                        <h1>The Layers</h1>
-                        <ul id="layers">
-
-                        </ul>
+<!--                    </div>-->
 
 
-                    </div>
+<!--&lt;!&ndash;                    <div class="col-md-2">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <h1>The Layers</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <ul id="layers">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        </ul>&ndash;&gt;-->
 
 
-
-
-
-
-
-
-<!--                    <div class="col-md-1"> </div>-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
 
 
 
@@ -295,13 +398,23 @@
 
 
 
+<!--&lt;!&ndash;                    <div class="col-md-1"> </div>&ndash;&gt;-->
+
+
+
+
+
+
+
+
+<!--            </div>-->
+
+<!--            &lt;!&ndash; This ends the editing pane  &ndash;&gt;-->
+
+
+
+<!--        </div>-->
             </div>
-
-            <!-- This ends the editing pane  -->
-
-
-
-        </div>
         </section>
 
 
@@ -319,10 +432,16 @@
 
 
     </div>
-    <div id="menu1" class="tab-pane fade">
-        <h3>Preview & Manage</h3>
-        <p>This will be tile view of all the pages and users can move around pages</p>
-    </div>
+
+
+
+
+
+
+
+
+
+
     <div id="menu2" class="tab-pane fade">
         <h3>Config</h3>
         <form id="comicInfo">
@@ -363,11 +482,11 @@
             <div>
                 <label for="newSeriesOrNot">Make a new Series: </label>
                 <div id="newSeriesOrNot">
-                    <input type="radio" name="isNewSeries" value="Yes"> Yes<br>
-                    <input type="radio" name="isNewSeries" value="No" checked> No<br>
+                    <input type="radio" name="isNewSeries" value="Yes" onclick="displayNewSeriesInput()"> Yes<br>
+                    <input type="radio" name="isNewSeries" value="No" onclick="hideNewSeriesInput()" checked> No<br>
                 </div>
             </div>
-            <div hidden>
+            <div hidden id="newSeriesTextBox">
                 <label for="newSeriesTitle" >New Series Title: </label>
                 <input type="text" id="newSeriesTitle"  />
             </div>
@@ -457,6 +576,19 @@
 
 
 <!--</section>-->
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
 
 
 

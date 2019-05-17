@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,6 +27,9 @@
         <li th:switch="${currentUser}">
             <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
             <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+        </li>
+        <li th:if="${currentUser} != null">
+            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
         </li>
     </ul>
 
@@ -47,8 +51,12 @@
         <br>
     </div>
 </div>
-
-<div id="image" class="col-xs-6"><button class = "btn btn-info btn-lg" ><span class="fas fa-file-image" alt="pencil"><input id="img-inp" type="file" />Upload New Profile Picture</span></button></div>
+<span id="image"  class="btn-lg">
+    <label for="img-inp"  class="custom-file-upload">
+        Upload New Profile Picture
+    </label>
+    <input id="img-inp" type="file" />
+</span>
 
 <script src="/js/src/profilesettings.js"></script>
 </body>
