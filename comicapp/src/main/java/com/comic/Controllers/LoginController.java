@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -74,6 +75,7 @@ public class LoginController {
         System.out.println(user);
         modelAndView.addObject("currentUser", user);
         List<Series> seriesList = seriesService.findTop5ByViews();
+//        seriesList = new ArrayList<>();
         System.out.println(seriesList);
         modelAndView.addObject("series", seriesList);
 //        modelAndView.addObject("userName", "Welcome " + user.getUsername() + " (" + user.getEmail() + ")");

@@ -39,13 +39,9 @@
         </li>
     </ul>
 
-    <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->
-    <!--<li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-    <!--<li th:switch="${currentUser}">-->
-    <!--<a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>-->
-    <!--<a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>-->
-    <!--</li>-->
-    <!--</ul>-->
+
+
+
 
 </nav>
 
@@ -54,7 +50,7 @@
     <h1>Explore Series : <span th:text="${series.title}"></span> by <span th:text="${series.authorUsername}" ></span></h1>
 
 
-    <p>Created on :  <span th:text="${#dates.format(new java.util.Date(series.creationTime), 'MM/dd/yyyy')}"></span>    , Last Updated:  <span th:text="${#dates.format(new java.util.Date(series.lastModTime), 'MM/dd/yyyy')}"></span> </p>
+    <p>Created on :  <span th:text="${#dates.format(series.creationDate, 'MM/dd/yyyy')}"></span>    , Last Updated:  <span th:text="${#dates.format(series.lastModDate, 'MM/dd/yyyy')}"></span> </p>
 </div>
 
 
@@ -144,7 +140,7 @@
             <div class="card-body">
 
                 <p class="card-text">
-                    The latest release of this comic is dated back to <span th:text="${#dates.format(new java.util.Date(c.lastModTime), 'MM/dd/yyyy')}"></span>. You are one click away from learning more about this series.
+                    The latest release of this comic is dated back to <span th:text="${#dates.format(c.lastModDate, 'MM/dd/yyyy')}"></span>. You are one click away from learing more about this series.
 
                 </p>
             </div>

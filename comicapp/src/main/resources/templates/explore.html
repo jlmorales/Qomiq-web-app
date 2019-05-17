@@ -156,7 +156,7 @@
 
 
               <br>
-              <span th:text = "${'Created ' + #dates.format(new java.util.Date(s.creationDate), 'MM/dd/yyyy')}"></span>
+              <span th:text = "${'Created ' + #dates.format(s.creationDate, 'MM/dd/yyyy')}"></span>
 
               <span th:text = " ${'Views: ' + s.seriesViews}"  class="text-right"></span>
 

@@ -8,7 +8,8 @@ public class SeriesDateComparator implements Comparator<Series> {
 
     @Override
     public int compare(Series series1, Series series2){
-        int comparison = Integer.compare(series1.getCreationDate(), series2.getCreationDate());
+//        int comparison = Integer.compare(series1.getCreationDate(), series2.getCreationDate());
+        int comparison = 0;
         return comparison;
     }
 }
