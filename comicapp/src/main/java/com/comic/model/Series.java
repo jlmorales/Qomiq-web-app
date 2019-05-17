@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Builder
@@ -30,18 +31,20 @@ public class Series {
     public String authorUsername;
 
     //time is stored in an int and 24-hour format. For example, 1742 represents 17:42 or 5:42 pm
-    @Column(name = "series_creationTime")
-    private int creationTime;
+//    @Column(name = "series_creationTime")
+//    private int creationTime;
 
     //date is stored in an int format. For example, 20190801 represents August 1st, 2019.
     @Column(name = "series_creationDate")
-    private int creationDate;
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
 
-    @Column(name = "series_lastModTime")
-    private int lastModTime;
+//    @Column(name = "series_lastModTime")
+//    private int lastModTime;
 
     @Column(name = "series_lastModDate")
-    private int lastModDate;
+    @Temporal(TemporalType.DATE)
+    private Date lastModDate;
 
     @Column(name = "series_views")
     private int seriesViews;

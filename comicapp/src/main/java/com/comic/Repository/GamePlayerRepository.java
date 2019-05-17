@@ -10,4 +10,8 @@ import java.util.List;
 public interface GamePlayerRepository extends JpaRepository<GamePlayer, Integer> {
 
     List<GamePlayer> findAllByGameId(int id);
+
+    GamePlayer findGamePlayerById(int id);
+
+    GamePlayer findGamePlayerByUserId(int id);
 }

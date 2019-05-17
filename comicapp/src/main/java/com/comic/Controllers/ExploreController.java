@@ -120,9 +120,9 @@ public class ExploreController {
             series = seriesService.findAllSeriesByViews();
         }
         else if (sortOrder.equalsIgnoreCase("date")){
-            series = seriesService.findAllSeries();
-            Collections.sort(series ,new SeriesDateComparator());
-            Collections.reverse(series);
+            series = seriesService.findAllSeriesByDateDesc();
+//            Collections.sort(series ,new SeriesDateComparator());
+//            Collections.reverse(series);
 
         }
         else{
