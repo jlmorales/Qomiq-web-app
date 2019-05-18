@@ -18,4 +18,8 @@ public class VoteService {
 
     public Vote findVoteBySubmissionIdAndVoterUsername(int submissionId, String voterUsername){
         return this.voteRepository.findVoteBySubmissionIdAndVoterUsername(submissionId,voterUsername);}
+
+    public Vote findVoteByGamePageIdAndVoterUsername(int gamePageId, String voterUsername){
+        return this.voteRepository.findVoteByGamePageIdAndVoterUsername(gamePageId, voterUsername);
+    }
 }

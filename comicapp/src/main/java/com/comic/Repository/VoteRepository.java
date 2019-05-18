@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface VoteRepository extends JpaRepository<Vote, Long> {
 
     public Vote findVoteBySubmissionIdAndVoterUsername(int submissionId, String voterUsername);
+
+    public Vote findVoteByGamePageIdAndVoterUsername(int gamePageId, String voterUsername);
 }

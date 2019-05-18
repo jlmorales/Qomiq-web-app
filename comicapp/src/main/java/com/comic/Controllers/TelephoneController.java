@@ -162,19 +162,43 @@ public class TelephoneController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userService.findUserByEmail(auth.getName());
         Submission submission = submissionService.findSubmissionById(id);
-        Vote vote = voteService.findVoteBySubmissionIdAndVoterUsername(submission.getId(),currentUser.getUsername());
+        GamePage gamePage = gamePageService.findGamePageById(submission.getGamePageId());
+        Vote vote = voteService.findVoteByGamePageIdAndVoterUsername(gamePage.getId(),currentUser.getUsername());
+        int gamePageId;
         if(vote == null){
             vote = new Vote();
             vote.setVoterUsername(currentUser.getUsername());
             vote.setSubmissionId(submission.getId());
+            vote.setGamePageId(submission.getGamePageId());
+            gamePageId = submission.getGamePageId();
             voteService.saveVote(vote);
             submission.setVotes(submission.getVotes()+1);
+            submissionService.saveSubmission(submission);
         }
         else{
-            voteService.deleteVote(vote);
+            if(submission.getId() == vote.getSubmissionId()){
+                submission.setVotes(submission.getVotes() - 1);
+                submissionService.saveSubmission(submission);
+                gamePageId = submission.getGamePageId();
+                voteService.deleteVote(vote);
+            }
+            else{
+                submissionService.findSubmissionById(vote.getSubmissionId());
+                submission.setVotes(submission.getVotes() - 1);
+                voteService.deleteVote(vote);
+                vote = new Vote();
+                vote.setVoterUsername(currentUser.getUsername());
+                vote.setSubmissionId(submission.getId());
+                vote.setGamePageId(gamePage.getId());
+                gamePageId = gamePage.getId();
+                voteService.saveVote(vote);
+                submission.setVotes(submission.getVotes()+1);
+                submissionService.saveSubmission(submission);
 
+            }
         }
-    return  null;
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/gameSubmissions/"+gamePageId));
+        return  modelAndView;
     }
 
 }

@@ -20,6 +20,9 @@ public class Vote {
     @Column(name = "VoteId")
     private int voteId;
 
+    @Column(name= "gamePageId")
+    private int gamePageId;
+
     @Column(name = "submissionId")
     private int submissionId;
 
