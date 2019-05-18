@@ -56,4 +56,7 @@ public class Comic {
     @Column(name = "is_public")
     private boolean publicComic;
 
+    @Column(name = "comments_enabled")
+    private boolean commentsEnabled;
+
 }

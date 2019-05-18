@@ -158,6 +158,26 @@ public class ComicController {
         return modelAndView;
     }
 
+    @RequestMapping(value = {"/comic/disable/{id:[\\d]+}"})
+    public ModelAndView disable(@PathVariable("id") int id) {
+        Comic comic = comicService.findComicById(id);
+        System.out.print("Disabling comments...");
+        comic.setCommentsEnabled(!comic.isCommentsEnabled());
+        comicService.saveComic(comic);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account/series/" + comic.getSeriesId()));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/comic/enable/{id:[\\d]+}")
+    public ModelAndView enable(@PathVariable("id") int id) {
+        Comic comic = comicService.findComicById(id);
+        System.out.print("Enabling comments...");
+        comic.setCommentsEnabled(!comic.isCommentsEnabled());
+        comicService.saveComic(comic);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account/series/" + comic.getSeriesId()));
+        return modelAndView;
+    }
+
     @RequestMapping(value = {"/comic/next/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView next(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();

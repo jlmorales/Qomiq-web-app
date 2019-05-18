@@ -47,7 +47,7 @@
             </li>
             <li th:switch="${currentUser}">
                 <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
             </li>
         </ul>
     </div>
@@ -199,6 +199,7 @@
                                 <!--                                    </label>-->
                                 <span  class= "fas fa-file-image fa-lg" ><input id="img-inp" type="file" /></span>
 
+                                
                             </button>
 
 

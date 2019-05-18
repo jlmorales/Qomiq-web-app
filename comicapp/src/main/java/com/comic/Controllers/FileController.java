@@ -56,7 +56,9 @@ public class FileController {
     public String uploadFile(@RequestParam("file") MultipartFile file ,
                              @RequestParam("pngFile") String pngFile,
                              @RequestParam("seriesName") String seriesName,
-                             @RequestParam("comicName") String comicName)
+                             @RequestParam("comicName") String comicName,
+                             @RequestParam("makePublic") boolean makePublic,
+                             @RequestParam("enableComments") boolean enableComments)
                              {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
@@ -79,7 +81,8 @@ public class FileController {
         series = seriesService.saveSeries(series);
         System.out.println(series);
         Comic comic = new Comic();
-        comic.setPublicComic(true);
+        comic.setCommentsEnabled(enableComments);
+        comic.setPublicComic(makePublic);
         comic.setCreationDate(date);
         comic.setLastModDate(date);
         comic.setComicViews(0);
@@ -105,10 +108,12 @@ public class FileController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/profileImage")
     @ResponseBody
-    public String uploadFile(@RequestParam("image") String image){
+    public String uploadFile(@RequestParam("image") StringBuilder image){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
         byte[] imagedata = DatatypeConverter.parseBase64Binary(image.substring(image.indexOf(",")+1));
         BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
-        s3Services.uploadFile("profileImage1.png", realFile);
+        s3Services.uploadFile("profileImage" + user.getId() + ".png", realFile);
         return "uploaded";
     }
 
