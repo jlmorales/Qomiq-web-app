@@ -54,65 +54,6 @@
 </div>
 
 
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-xs-8">-->
-<!--            <div class="input-group">-->
-<!--                <div class="input-group-btn search-panel">-->
-<!--                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-<!--                        <span id="search_concept">Category</span> <span class="caret"></span>-->
-<!--                    </button>-->
-
-<!--                    <ul class="dropdown-menu" role="menu">-->
-<!--                        &lt;!&ndash;<li><a href="/explore/Action">Action</a></li>&ndash;&gt;-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>-->
-<!--                        <li class="divider"></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <input type="hidden" name="search_param" value="all" id="search_param">-->
-<!--                <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">-->
-<!--                <span class="input-group-btn">-->
-<!--                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
-<!--                </span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-
-
-<!--<div id ="displaylist">-->
-
-<!--    <h1>Result</h1>-->
-
-<!--    <div class="row" id="display-row">-->
-
-<!--        <div th:each="c,iter : ${comics}">-->
-<!--            <div  id="edge" class="col-xs-4">-->
-<!--                <figure>-->
-<!--                    <center>-->
-<!--                        <h2 ><div th:text="${c.comicTitle}"></div></h2>-->
-<!--                    </center>-->
-
-<!--                    <a th:href="@{${'/comic/' + c.id}}">-->
-<!--                        <img id="ser-img" th:src="@{${'https://s3.amazonaws.com/seriescovers/' + c.id + '.png'}}" />-->
-<!--                    </a>-->
-<!--                </figure>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-
-
 <section>
 
 <div class="row"   id="row-display" >
@@ -127,8 +68,7 @@
 
             <div class= "card-header text-center" >
 
-                <span th:if="${c.comicTitle == null or c.comicTitle == ''}" ><h2>I Need Title</h2></span>
-                <span th:unless="${c.comicTitle == null or c.comicTitle ==''}"><h2 th:text= "${c.comicTitle}" ></h2></span>
+                <h2 th:text= "${c.comicTitle}" ></h2></span>
 
             </div>
 

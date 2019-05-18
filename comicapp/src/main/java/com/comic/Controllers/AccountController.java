@@ -156,6 +156,7 @@ public class AccountController {
             dislikeService.deleteDislike(dislike);
         }
         s3Services.deleteFileFromS3Bucket("series" +seriesId+"comic"+comicId+ ".png" );
+        s3Services.deleteFileFromS3Bucket("series" + seriesId + "comic" + comicId + ".json");
         modelAndView = new ModelAndView(new RedirectView("/account/series/" + seriesId));
         return modelAndView;
     }
