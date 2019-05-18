@@ -14,7 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "vote")
-public class vote {
+public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "voteId")

@@ -26,7 +26,7 @@
         </li>
         <li th:switch="${currentUser}">
             <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
         </li>
         <li th:if="${currentUser} != null">
             <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
@@ -68,7 +68,7 @@
        <figure>
 
            </figtitle><figtitle th:text="${series.title}"></figtitle>
-           <a th:href="@{'/account/series/' + ${series.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + series.id + '.png'}}" alt="Trulli" style="width:100%"></a>
+           <a th:href="@{'/account/series/' + ${series.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + series.id + '.png'}}" alt="Trulli" style="width:100%"></a>
            <figcaption><div>Category: </div><div th:text="${series.category}"></div>
                <a href="/edit"> <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button></a>
 
@@ -99,7 +99,7 @@
             <div th:each="latestComic : ${latestComics}" class="col-xs-3">
                 <figure>
                     <figtitle th:text="${latestComic.comicTitle}"></figtitle>
-                    <a th:href="@{${'/comic/' + latestComic.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + latestComic.SeriesId +'comic'+ latestComic.id+ '.png'}}" alt="Trulli" style="width:100%"></a>
+                    <a th:href="@{${'/comic/' + latestComic.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + latestComic.seriesId +'comic'+ latestComic.id+ '.png'}}" alt="Trulli" style="width:100%"></a>
                 </figure>
             </div>
         </div>

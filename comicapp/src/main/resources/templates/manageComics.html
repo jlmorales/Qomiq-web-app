@@ -26,7 +26,7 @@
         </li>
         <li th:switch="${currentUser}">
             <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
         </li>
         <li th:if="${currentUser} != null">
             <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
@@ -53,7 +53,7 @@
             <div th:each="comic : ${comics}" class="col-xs-3" >
                 <figure>
                     <figtitle th:text="${comic.comicTitle}"></figtitle>
-                    <a th:href="@{'/comic/' + ${comic.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.seriesId + '.png'}}" alt="Trulli" style="width:100%"></a>
+                    <a th:href="@{'/comic/' + ${comic.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + comic.seriesId + 'comic' + comic.id + '.png'}}" alt="Trulli" style="width:100%"></a>
                     <figcaption><div>Category: </div><div th:text="${series.category}"></div>
                         <button id="edit-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
                         <form th:object="${comic}" th:action = "@{/account/series/comic/delete}" method="POST">
@@ -76,7 +76,8 @@
                         </div>
 
                         <!--<button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> Make Public</div></button>-->
-                        <button id="subs-btn"><div><span class="glyphicon glyphicon-comment"></span> Enable Comment</div></button>
+                        <div th:if="${comic.commentsEnabled} == true" ><button id="subs-btn"><a th:href="@{${'/comic/disable/' + comic.id}}"><span class="glyphicon glyphicon-comment"></span> Disable Comment</a></button></div>
+                        <div th:if="${comic.commentsEnabled} == false"><button id="subs-btn"><a th:href="@{${'/comic/enable/' + comic.id}}"><span class="glyphicon glyphicon-comment"></span> Enable Comment</a></button></div>
                     </figcaption>
                 </figure>
             </div>

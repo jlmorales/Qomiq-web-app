@@ -228,6 +228,8 @@ function publish() {
     // var seriesName = document.getElementById("currentSeries").innerText = document.getElementById("comic_series").value;
     console.log(seriesName);
     var comicName= $("#comicTitle").val();
+    var makePublic = $("#makePublic").val();
+    var enableComments = $("#commentsBoolean").val();
     var myForm = new FormData();
     var pngholder=null;
     // $("#myCanvas").get(0).toBlob(function(blob){
@@ -243,7 +245,8 @@ function publish() {
     myForm.append("pngFile",data);
     myForm.append("seriesName", seriesName);
     myForm.append("comicName", comicName);
-
+    myForm.append("makePublic", makePublic);
+    myForm.append("enableComments", enableComments);
     $.ajax({
         url : '/upload',
         data : myForm,
