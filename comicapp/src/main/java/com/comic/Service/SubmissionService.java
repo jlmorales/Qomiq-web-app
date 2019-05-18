@@ -15,6 +15,8 @@ public class SubmissionService {
     @Autowired
     public SubmissionService(SubmissionRepository submissionRepository){this.submissionRepository = submissionRepository;}
 
+    public Submission findSubmissionById(int id){return this.submissionRepository.findSubmissionById(id);}
+
     public List<Submission> findAllSubmissionsByGamePageId(int id){return this.submissionRepository.findAllByGamePageId(id);}
 
     public Submission saveSubmission(Submission submission){return submissionRepository.save(submission);}

@@ -14,15 +14,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "vote")
-public class vote {
+public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "voteId")
+    @Column(name = "VoteId")
     private int voteId;
 
-    @Column(name = "pageId")
-    private int pageId;
+    @Column(name = "submissionId")
+    private int submissionId;
 
     @Column(name = "voterUsername")
-    private int voterUsername;
+    private String voterUsername;
 }

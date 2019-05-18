@@ -11,4 +11,6 @@ public interface SubmissionRepository extends JpaRepository<Submission, Integer>
     List<Submission> findAllByGamePageId(int id);
 
     Submission findSubmissionByGamePageIdAndPlayerId(int gamePageId, int playerId);
+
+    Submission findSubmissionById(int id);
 }

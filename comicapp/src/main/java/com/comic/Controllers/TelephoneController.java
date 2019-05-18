@@ -51,8 +51,8 @@ public class TelephoneController {
     @Autowired
     S3Services s3Services;
 
-
-
+    @Autowired
+    VoteService voteService;
 
     @RequestMapping(value = {"/play"}, method = RequestMethod.GET)
     public ModelAndView play() {
@@ -157,5 +157,24 @@ public class TelephoneController {
         return  modelAndView;
     }
 
+    @RequestMapping(value = {"game/vote/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView vote(@PathVariable("id") int id){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findUserByEmail(auth.getName());
+        Submission submission = submissionService.findSubmissionById(id);
+        Vote vote = voteService.findVoteBySubmissionIdAndVoterUsername(submission.getId(),currentUser.getUsername());
+        if(vote == null){
+            vote = new Vote();
+            vote.setVoterUsername(currentUser.getUsername());
+            vote.setSubmissionId(submission.getId());
+            voteService.saveVote(vote);
+            submission.setVotes(submission.getVotes()+1);
+        }
+        else{
+            voteService.deleteVote(vote);
+
+        }
+    return  null;
+    }
 
 }

@@ -51,6 +51,9 @@ public class FileController {
     @Autowired
     SubmissionService submissionService;
 
+    @Autowired
+    VoteService voteService;
+
     @RequestMapping(method = RequestMethod.POST, value = "/upload")
     @ResponseBody
     public String uploadFile(@RequestParam("file") MultipartFile file ,
