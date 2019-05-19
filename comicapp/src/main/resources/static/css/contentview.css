@@ -149,3 +149,8 @@ figcaption{
 	font-size:240%;
 	margin-left: 35%;
 }
+.comicPad{
+	border: 2px solid;
+	padding: 15px;
+
+}
