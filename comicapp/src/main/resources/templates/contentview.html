@@ -103,8 +103,7 @@
 
       <figure>
         <figtitle th:text="${comic.comicTitle}"></figtitle>
-        <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic'+comic.id+ '.png'}}" alt="Trulli" style="width:100%"/>
-        <!--<img src="c.jpg" alt="Trulli" style="width:100%">-->
+        <div th:each="page : ${pages}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic'+comic.id+ 'page' + page.id + '.png'}}" alt="Trulli" style="width:100%"/></div>
 
         <figcaption>
         <div>by  <a th:href="@{${'/profile/' + profileUser.id}}" th:text="${profileUser.username}"></a></div>

@@ -69,6 +69,7 @@ public class ComicController {
         series.setSeriesViews(series.getSeriesViews() + 1);
         seriesService.saveSeries(series);
         User profileUser = userService.findUserByUsername(series.getAuthorUsername());
+        List<Pages> pages = pagesService.findByComicId(comic.getId());
         modelAndView.addObject("currentUser", currentUser);
         modelAndView.addObject("commentators", commentators);
         modelAndView.addObject("newComment", newComment);
@@ -78,6 +79,7 @@ public class ComicController {
         modelAndView.addObject("series", series);
         modelAndView.addObject("like", like);
         modelAndView.addObject("dislike", dislike);
+        modelAndView.addObject("pages", pages);
         modelAndView.setViewName("contentview");
         return modelAndView;
     }
@@ -94,7 +96,7 @@ public class ComicController {
         return modelAndView;
     }
 
-    @RequestMapping(value= {"/comic/pages/"})
+    @RequestMapping(value= {"account/comic/pages/"})
     public ModelAndView managePages(@ModelAttribute Comic comic) {
         ModelAndView modelAndView = new ModelAndView();
         List<Pages> pages = pagesService.findByComicId(comic.getId());

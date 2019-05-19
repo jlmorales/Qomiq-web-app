@@ -87,8 +87,10 @@
                             </form>
                         </div>
                         <div>
-                            <form th:object="${comic}" th:action = "@{/comic/pages/}" method="POST">
+                            <form th:object="${comic}" th:action = "@{/account/comic/pages/}" method="POST">
                                 <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+                                <input type="hidden" th:value = "${comic.seriesId}" id = "seriesId" name = "seriesId">
+                                <input type="hidden" th:value = "${comic.comicTitle}" id = "comicTitle" name = "comicTitle">
                                 <input type="submit" value=" Manage Pages">
                             </form>
                         </div>

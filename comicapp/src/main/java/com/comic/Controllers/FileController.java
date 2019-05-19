@@ -15,8 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.imageio.ImageIO;
+import javax.jws.WebParam;
 import javax.xml.bind.DatatypeConverter;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -115,9 +117,8 @@ public class FileController {
         return "Upload Successfully -> KeyName = " + keyName;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/upload")
-    @ResponseBody
-    public String upload(@RequestParam("file") MultipartFile file ,
+    @RequestMapping(method = RequestMethod.POST, value = "/uploadPage")
+    public ModelAndView upload(@RequestParam("file") MultipartFile file ,
                          @RequestParam("pngFile") String pngFile,
                          @RequestParam("comicId") int comicId)
     {
@@ -132,7 +133,8 @@ public class FileController {
         byte[] imagedata = DatatypeConverter.parseBase64Binary(pngFile.substring(pngFile.indexOf(",")+1));
         BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
         s3Services.uploadFile(keyName, realFile);
-        return "Upload Successfully -> KeyName = " + keyName;
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account/"));
+        return modelAndView;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/profileImage")

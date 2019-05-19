@@ -181,17 +181,18 @@ function publish() {
         url : '/uploadPage',
         data : myForm,
         type : "POST",
+        async : true,
         processData: false,
         contentType:false,
         success : function (result) {
             console.log("success");
             console.log(result);
-            location.href = "/create"
+            window.location.href = result.redirect
         },
         error : function (result) {
             console.log("error");
             console.log(result);
-            window.location.replace('/create');
+            window.location.replace(result.form);
         }
 
     });

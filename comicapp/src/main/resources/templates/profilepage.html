@@ -4,7 +4,7 @@
     <title>Your Profile</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-	<link rel="stylesheet" type="text/css" href="css/profile.css">
+	<link rel="stylesheet" type="text/css" href="/css/profile.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -75,8 +75,8 @@
                <a th:href="@{'/account/series/' + ${series.id}}">
                    <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Manage Comics in Series</div></button>
                </a>
-               <form th:object="${comic}" th:action = "@{/series/delete/}" method="POST">
-                   <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+               <form th:object="${series}" th:action = "@{/series/delete/}" method="POST">
+                   <input type="hidden" th:value = "${series.id}" id = "id" name = "id">
                    <button id="subs-btn"><span class="glyphicon glyphicon-trash"><input type="submit" value=" Delete"></span></button>
                </form>
           </figcaption>

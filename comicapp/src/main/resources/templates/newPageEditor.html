@@ -5,20 +5,22 @@
 
 
 
+
+
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-
-
     <link rel="stylesheet" type="text/css" href="/css/home.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="/js/lib/fabric.min.js"></script>
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 
@@ -27,7 +29,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
+            <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="/home">Home</a></li>
@@ -75,8 +77,6 @@
 <!-- Adding the tabs -->
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Editor</a></li>
-    <!--    <li><a data-toggle="tab" href="#menu1">Preview & Manage</a></li>-->
-    <li><a data-toggle="tab" href="#menu2">Config</a></li>
 </ul>
 
 
@@ -89,91 +89,10 @@
 
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-        <h3>Editor 1.1</h3>
-        <!--        <section style="border:solid;">-->
-
-        <!--            <div class = "row">-->
-
-        <!--                <div class = "col-xs-3"></div>-->
-        <!--                <div class = "col-xs-6">-->
-        <!--                    Title Here: <input id="edit-title" value="title here" type="text"></input>-->
-        <!--                </div>-->
-        <!--                <div class = "col-xs-3"></div>-->
-
-        <!--            </div>-->
-
-        <!--            <div class= "row">-->
-        <!--                <div class="col-xs-2" style="color:green;">-->
-        <!--                    <div id="pencil" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.pencil()"><span class="fa fa-paint-brush" alt="pencil"></span></button></div>-->
-        <!--                    <div id="eraser" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.eraser()"><span class="fa fa-eraser" alt="eraser"></span></button></div>-->
-        <!--                    <div id="bucket" class="col-xs-6"><button class= "btn btn-info btn-lg" onclick="window.bucket()"><span class="fa fa-fill-drip" alt="bucket"></span></button></div>-->
-        <!--                    <div id="select" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.select()"><span class="fa fa-mouse-pointer" alt="select"></span></button></div>-->
-        <!--                    <div id="circle" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button></div>-->
-        <!--                    <div id="rectangle" class="col-xs-6"><button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button></div>-->
-        <!--                    <div id="triangle" class="col-xs-6"><button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button></div>-->
-
-
-
-        <!--                    <div id="image" class="col-xs-6">-->
-        <!--                        <label for="img-inp"  class="custom-file-upload">-->
-        <!--                            <i class="fas fa-file-image fa-1g"></i>-->
-        <!--                        </label>-->
-        <!--                        <input id="img-inp" type="file" />-->
-
-        <!--                    </div>-->
-
-
-
-
-
-        <!--                    <div id="copy" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.copy()"><span class="fas fa-copy" alt="pencil"></span></button></div>-->
-        <!--                    <div id="paste" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.paste()"><span class="fas fa-paste" alt="pencil"></span></button></div>-->
-        <!--                    <div id="cut" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.cut()"><span class="fas fa-cut" alt="pencil"></span></button></div>-->
-        <!--                    <div id="color" class="col-xs-6"><input type="color" id="col-pk" /></div>-->
-        <!--                    <div id="trash" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.trash()"><span class="fas fa-trash" alt="pencil"></span></button></div>-->
-        <!--                    <div id="text" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.addText()"><span class="glyphicon glyphicon-text-size" alt="pencil"></span></button></div>-->
-        <!--                    <div id="font" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-font" alt="pencil"></span></button></div>-->
-        <!--                    <div id="italic" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.italicToggle()"><span class="fas fa-italic" alt="pencil"></span></button></div>-->
-        <!--                    <div id="bold" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button></div>-->
-        <!--                    <div id="sendBackwards" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendBackwards()">Send Backwards</button></div>-->
-        <!--                    <div id="sendToBack" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendToBack()">Send To Back</button></div>-->
-        <!--                    <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForwards()">Bring Forward</button></div>-->
-        <!--                    <div id="bringToFront" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringToFront()">Bring To Front</button></div>-->
-
-
-
-        <!--                </div>-->
-        <!--                <div class="col-xs-9" style="border:solid;"><canvas id="myCanvas" width="500" height="500" style="border: solid;"></canvas></div>-->
-        <!--                <div class="col-xs-1" style="color:green;">-->
-        <!--                    <div id="share" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.share()"><span class="fas fa-share" alt="pencil"></span></button></div>-->
-        <!--                    <div id="save" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.setWidth()"><span class="fas fa-save" alt="pencil"></span></button></div>-->
-        <!--                    <div id="import" class="col-xs-12">-->
-        <!--                        <label for="import-inp"  class="custom-file-upload">-->
-        <!--                            <i class="fas fa-file-import fa-1g"></i>-->
-        <!--                        </label>-->
-        <!--                        <input id="import-inp" type="file" />-->
-        <!--                    </div>-->
-        <!--                    <div id="export" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.exportEdit()"><span class="fas fa-file-export" alt="pencil"></span></button></div>-->
-        <!--                    <div id="undo" class="col-xs-12"><button class ="btn btn-info btn-lg" onclick="window.undo()"><span class="fas fa-undo" alt="pencil"></span></button></div>-->
-        <!--                    <div id="redo" class="col-xs-6"><button class ="btn btn-info btn-lg" onclick="window.redo()"><span class="fas fa-redo" alt="pencil"></span></button></div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-
-
-        <!--        </section>-->
-
-
-
-
-
-
-
-
-
 
 
         <!-- the new ditor code is added for testing purpose-->
-        <section>
+        <section class ="heart">
 
             <!-- This is the editing pane -->
             <div class="container-fluid">
@@ -195,11 +114,15 @@
                             <button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button>
                             <button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button>
                             <button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button>
-
+                            <button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="fa fa-comments" alt="pencil"></span></button>
 
 
                             <button id="image"  class="btn btn-info btn-lg">
+                                <!--                                    <label for="img-inp"  class="custom-file-upload">-->
+                                <!--                                        <i class="fas fa-file-image fa-1g"></i>-->
+                                <!--                                    </label>-->
                                 <span  class= "fas fa-file-image fa-lg" ><input id="img-inp" type="file" /></span>
+
                             </button>
 
 
@@ -220,6 +143,15 @@
                             <button class ="btn btn-info btn-lg" onclick="window.boldToggle()"><span class="fas fa-bold" alt="pencil"></span></button>
 
 
+                            <!--
+                            <div id="sendBackwards" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendBackwards()">Send Backwards</button></div>
+                            <div id="sendToBack" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.sendToBack()">Send To Back</button></div>
+                            <div id="bringForward" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringForwards()">Bring Forward</button></div>
+                            <div id="bringToFront" class="col-xs-6"><button class="btn btn-info brn-lg" onclick="window.bringToFront()">Bring To Front</button></div> -->
+
+
+
+
 
                         </div>
 
@@ -234,6 +166,10 @@
 
                             <button class="btn- btn-info btn-lg" id="import" >
 
+
+                                <!--                                 <label for="import-inp"  class="custom-file-upload">-->
+                                <!--                                <i class="fas fa-file-import fa-1g"></i>-->
+                                <!--                            </label>-->
                                 <span class= "fas fa-file-import fa-1g" ><input id="import-inp" type="file" /></span>
                             </button>
 
@@ -243,10 +179,12 @@
                             <button class ="btn btn-info btn-lg" onclick="window.redo()"><span class="fas fa-redo" alt="pencil"></span></button>
                             <form th:object="${comic}">
                                 <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
-                                <button class="btn btn-info btn-lg" onclick="window.publish()"><input type="submit" value="Submit"><span class="fas fa-redo">Publish</span></button>
+                                <button class="btn btn-info btn-lg" onclick="window.publish()"><span class="fas fa-redo">Publish</span></button>
                             </form>
-                            <button class="btn btn-info btn-lg" onclick="window.publish()"><span class="fas fa-redo"> Publish</span></button>
 
+                            <!--sfsjdsdjhshfsdj-->
+
+                        </div>
 
 
 
@@ -255,38 +193,16 @@
                 </div>
 
 
-                <div class="canvas" ><canvas id="myCanvas"></canvas></div>
+                <div class="canvas" ><canvas id="myCanvas" width="1000" height="800" ></canvas></div>
 
-
-
-
-
-
-
-
-
-
+            </div>
+        </section>
     </div>
-
-
-
-
-
-
 
 
 </div>
 
 
-<!-- Here ends the tab items  -->
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 
 
@@ -294,6 +210,12 @@
 
 
 
-<script src="/js/src/newPageEditor.js"></script>
+
+
+
+
+
+<script  src="/js/src/newPageEditor.js"></script>
 
 </body>
+</html>
