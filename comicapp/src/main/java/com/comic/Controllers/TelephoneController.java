@@ -69,9 +69,16 @@ public class TelephoneController {
         for(Series s: series){
             comicList.addAll(comicService.findComicsBySeriesId(s.getId()));
         }
+        List<Game> games = gameService.findAllGames();
+        List<Game> myGames = new ArrayList<>();
+        for(Game game: games){
+            if(gamePlayerService.findGamePlayerByUserIdAndGameId(user.getId(),game.getId()) != null){
+                myGames.add(game);
+            }
+        }
         modelAndView.addObject("gameForm", new GameForm());
         modelAndView.addObject("comics", comicList);
-        modelAndView.addObject("games", gameService.findAllGamesByUserId(user.getId()));
+        modelAndView.addObject("games", myGames);
         modelAndView.addObject("newGame",new Game());
         modelAndView.addObject("currentUser", user);
         modelAndView.setViewName("telephonegame");

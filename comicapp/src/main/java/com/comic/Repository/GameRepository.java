@@ -13,4 +13,6 @@ public interface GameRepository extends JpaRepository<Game, Integer> {
 
     List<Game> findAllByUserId(int id);
 
+    List<Game> findAll();
+
 }
