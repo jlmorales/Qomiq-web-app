@@ -114,7 +114,7 @@
             <a th:href="@{${'/comic/next/' + comic.id}}"><button class="PrevNextComicButton">Next Comic</button></a>
           </div>
 
-        <figcaption>
+        <figcaption class="creatorInfo">
         <div>by  <a th:href="@{${'/profile/' + profileUser.id}}" th:text="${profileUser.username}"></a></div>
         <div>Category: <span th:text="${series.category}"></span></div>
         <div th:if="${currentUser} != null"><a th:href="@{${'/comic/like/' + comic.id}}"><span th:text="${comic.likes}" class="glyphicon glyphicon-thumbs-up"></span></a>

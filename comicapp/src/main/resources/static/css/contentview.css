@@ -154,3 +154,10 @@ figcaption{
 	padding: 15px;
 
 }
+
+.creatorInfo{
+	font-size: 120%;
+	text-align: left;
+	margin-left:3%;
+	margin-top:6%;
+}
