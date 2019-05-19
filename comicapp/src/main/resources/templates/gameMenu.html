@@ -74,15 +74,29 @@
     <div class="row" id="row-display">
         <!-- Start of Card Groups Layout -->
         <div id="display"  class="col-md-3" th:each="page,iter : ${gamePages}">
-            <div  class="card">
-                <a th:href="@{'/gameEdit/' + ${page.id}}">
-                    <div class= "card-header text-center" >
-                    </div>
-                    <div class="text-center">
-                        <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/gamePage' + page.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />
-                    </div>
-                </a>
-                <a th:href="@{'/gameSubmissions/' + ${page.id}}">Game Submissions</a>
+            <div th:if = "${page.finished}">
+                <div  class="card">
+                    <a th:href="@{'/gameEdit/' + ${page.id}}">
+                        <div class= "card-header text-center" >
+                        </div>
+                        <div class="text-center">
+                            <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/pageWinner' + page.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />
+                        </div>
+                    </a>
+                    <a th:href="@{'/gameSubmissions/' + ${page.id}}">Game Submissions</a>
+                </div>
+            </div>
+            <div th:if = "${!page.finished and !game.finished}">
+                <div  class="card">
+                    <a th:href="@{'/gameEdit/' + ${page.id}}">
+                        <div class= "card-header text-center" >
+                        </div>
+                        <div class="text-center">
+                            <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/gamePage' + page.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />
+                        </div>
+                    </a>
+                    <a th:href="@{'/gameSubmissions/' + ${page.id}}">Game Submissions</a>
+                </div>
             </div>
         </div>
 
