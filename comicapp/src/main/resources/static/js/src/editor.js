@@ -50,7 +50,7 @@ fileInput.addEventListener('change', function(e){
                 height: 200,
                 width: 200
             });
-            imgObject.scaleToWidth(200,false);
+            //imgObject.scaleToWidth(200,false);
             canvas.centerObject(img);
             canvas.add(img);
             canvas.renderAll();
@@ -61,6 +61,14 @@ fileInput.addEventListener('change', function(e){
 
 
 });
+
+
+
+function labeling(){
+
+    var tagging  = document.createElement("lable");
+    tagging.for = "img-inp";
+}
 
 
 
