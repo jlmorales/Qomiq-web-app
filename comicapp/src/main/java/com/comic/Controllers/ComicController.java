@@ -34,6 +34,9 @@ public class ComicController {
     @Autowired
     private DislikeService dislikeService;
 
+    @Autowired
+    private PagesService pagesService;
+
     @RequestMapping(value = {"/comic/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView category(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -66,6 +69,7 @@ public class ComicController {
         series.setSeriesViews(series.getSeriesViews() + 1);
         seriesService.saveSeries(series);
         User profileUser = userService.findUserByUsername(series.getAuthorUsername());
+        List<Pages> pages = pagesService.findByComicId(comic.getId());
         modelAndView.addObject("currentUser", currentUser);
         modelAndView.addObject("commentators", commentators);
         modelAndView.addObject("newComment", newComment);
@@ -75,6 +79,7 @@ public class ComicController {
         modelAndView.addObject("series", series);
         modelAndView.addObject("like", like);
         modelAndView.addObject("dislike", dislike);
+        modelAndView.addObject("pages", pages);
         modelAndView.setViewName("contentview");
         return modelAndView;
     }
@@ -88,6 +93,16 @@ public class ComicController {
         System.out.println(newComment);
         commentService.saveComment(newComment);
         modelAndView = new ModelAndView(new RedirectView("/comic/" + newComment.getComicId()));
+        return modelAndView;
+    }
+
+    @RequestMapping(value= {"account/comic/pages/"})
+    public ModelAndView managePages(@ModelAttribute Comic comic) {
+        ModelAndView modelAndView = new ModelAndView();
+        List<Pages> pages = pagesService.findByComicId(comic.getId());
+        modelAndView.addObject("comic", comic);
+        modelAndView.addObject("pages", pages);
+        modelAndView.setViewName("managePages");
         return modelAndView;
     }
 
@@ -155,6 +170,24 @@ public class ComicController {
         }
         comicService.saveComic(comic);
         modelAndView = new ModelAndView(new RedirectView("/comic/" + id));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/comic/disable/"})
+    public ModelAndView disable(@ModelAttribute Comic comic) {
+        System.out.print("Disabling comments...");
+        comic.setCommentsEnabled(!comic.isCommentsEnabled());
+        comicService.saveComic(comic);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account/series/" + comic.getSeriesId()));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/comic/enable/")
+    public ModelAndView enable(@ModelAttribute Comic comic) {
+        System.out.print("Enabling comments...");
+        comic.setCommentsEnabled(!comic.isCommentsEnabled());
+        comicService.saveComic(comic);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account/series/" + comic.getSeriesId()));
         return modelAndView;
     }
 

@@ -92,8 +92,8 @@ public class TelephoneController {
         User user = userService.findUserByEmail(auth.getName());
         Comic comic = comicService.findComicById(gameForm.getComicName());
         Series series = seriesService.findSeriesById(comic.getSeriesId());
-        String keyName1 = "series"+series.getId()+"comic"+comic.getId()+".json";
-        String keyName2 = "series"+series.getId()+"comic"+comic.getId()+".png";
+        String keyName1 = "comicCover"+comic.getId()+".json";
+        String keyName2 = "comicCover"+comic.getId()+".png";
         S3Object output1 = s3Services.downloadFile(keyName1);
         S3Object output2 = s3Services.downloadFile(keyName2);
         Game game = new Game();

@@ -1,10 +1,7 @@
 package com.comic.Controllers;
 
 import com.comic.Service.*;
-import com.comic.model.Comic;
-import com.comic.model.Series;
-import com.comic.model.Subscription;
-import com.comic.model.User;
+import com.comic.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,12 +31,22 @@ public class AccountController {
     @Autowired
     private ComicService comicService;
 
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private LikeService likeService;
+
+    @Autowired
+    private DislikeService dislikeService;
+
     @RequestMapping(value = {"/account"}, method = RequestMethod.GET)
     public ModelAndView account() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("profilepage");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+        System.out.println("User: " + user);
         List<Series> series = seriesService.findAllSeries();
         List<Series> seriesList = new ArrayList<>();
         for (Series s : series) {
@@ -59,6 +66,8 @@ public class AccountController {
         int i = 0;
         for (Comic o: orderedComics) {
             Series s = seriesService.findSeriesById(o.getSeriesId());
+            System.out.println("Series:" + series);
+            System.out.println("service:" + subscriptionService);
             if (subscriptionService.findIfSubscriptionExists(s.getAuthorUsername(), user.getUsername()) != null) {
                 latestComics.add(o);
                 i++;
@@ -134,7 +143,20 @@ public class AccountController {
         int seriesId = comic.getSeriesId();
         int comicId = comic.getId();
         comicService.deleteComic(comic);
+        List<Comment> comments = commentService.findCommentsByComicId(comicId);
+        for (Comment comment : comments) {
+            commentService.deleteComment(comment);
+        }
+        List<Like> likes = likeService.findByComicId(comicId);
+        for (Like like : likes) {
+            likeService.deleteLike(like);
+        }
+        List<Dislike> dislikes = dislikeService.findByComicId(comicId);
+        for (Dislike dislike : dislikes) {
+            dislikeService.deleteDislike(dislike);
+        }
         s3Services.deleteFileFromS3Bucket("series" +seriesId+"comic"+comicId+ ".png" );
+        s3Services.deleteFileFromS3Bucket("series" + seriesId + "comic" + comicId + ".json");
         modelAndView = new ModelAndView(new RedirectView("/account/series/" + seriesId));
         return modelAndView;
     }

@@ -10,28 +10,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#" style="color:#9b9e19;">TBD</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/home">Home</a></li>
-            <li><a href="/create">Create</a></li>
-            <li><a href="/explore">Explore</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li th:switch="${currentUser}">
-                <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-                <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
-            </li>
-            <li th:switch="${currentUser}">
-                <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" th:alt="currentUser.id" style="width:50px; height:40px"></a>
-            </li>
-        </ul>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
+    <ul class="nav navbar-nav">
+        <li class="nav-item"><a href="/home">Home</a></li>
+        <li class="nav-item"><a href="/create">Create</a></li>
+        <li class="nav-item active"><a href="/explore">Explore</a></li>
+        <li class="nav-item"><a href="/about">About</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right ml-auto">
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+        </li>
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+        </li>
+        <li th:if="${currentUser} != null">
+            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
+        </li>
+    </ul>
+
+    <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->
+    <!--<li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+    <!--<li th:switch="${currentUser}">-->
+    <!--<a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>-->
+    <!--<a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>-->
+    <!--</li>-->
+    <!--</ul>-->
+
 </nav>
 
 <h1 class="display-4"><span th:utext="${currentUser.username}"></span></h1>
@@ -44,9 +53,9 @@
             <div th:each="comic : ${comics}" class="col-xs-3" >
                 <figure>
                     <figtitle th:text="${comic.comicTitle}"></figtitle>
-                    <a th:href="@{'/comic/' + ${comic.id}}"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.id + '.png'}}" alt="Trulli" style="width:100%"></a>
+                    <a th:href="@{'/comic/' + ${comic.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/comicCover' + comic.id + '.png'}}" alt="Trulli" style="width:100%"></a>
                     <figcaption><div>Category: </div><div th:text="${series.category}"></div>
-                        <button id="edit-btn"><div><span class="glyphicon glyphicon-pencil"></span> Edit</div></button>
+
                         <form th:object="${comic}" th:action = "@{/account/series/comic/delete}" method="POST">
                             <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
                             <input type="submit" value="Delete">
@@ -65,9 +74,26 @@
                                 <input type="submit" value="Make Public" >
                             </form>
                         </div>
-
-                        <!--<button id="subs-btn"><div><span class="glyphicon glyphicon-eye-open"></span> Make Public</div></button>-->
-                        <button id="subs-btn"><div><span class="glyphicon glyphicon-comment"></span> Enable Comment</div></button>
+                        <div th:if="${comic.commentsEnabled} == true" >
+                            <form th:object="${comic}" th:action = "@{/comic/disable/}" method="POST">
+                                <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+                                <input type="submit" value=" Disable Comments">
+                            </form>
+                        </div>
+                        <div th:if="${comic.commentsEnabled} == false">
+                            <form th:object="${comic}" th:action = "@{/comic/disable/}" method="POST">
+                                <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+                                <input type="submit" value=" Enable Comments">
+                            </form>
+                        </div>
+                        <div>
+                            <form th:object="${comic}" th:action = "@{/account/comic/pages/}" method="POST">
+                                <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+                                <input type="hidden" th:value = "${comic.seriesId}" id = "seriesId" name = "seriesId">
+                                <input type="hidden" th:value = "${comic.comicTitle}" id = "comicTitle" name = "comicTitle">
+                                <input type="submit" value=" Manage Pages">
+                            </form>
+                        </div>
                     </figcaption>
                 </figure>
             </div>

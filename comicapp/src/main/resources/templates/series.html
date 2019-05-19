@@ -18,27 +18,26 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
-            <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
-
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/home">Home</a></li>
-            <li><a href="/create">Create</a></li>
-            <li><a href="/explore">Explore</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-
-
-        <ul class="nav navbar-nav navbar-right ml-auto">
-            <li th:switch="${currentUser}">
-                <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-                <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
-            </li>
-            <li th:switch="${currentUser}">
-                <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-                <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
-            </li>
-        </ul>
+    <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
+    <ul class="nav navbar-nav">
+        <li class="nav-item"><a href="/home">Home</a></li>
+        <li class="nav-item"><a href="/create">Create</a></li>
+        <li class="nav-item active"><a href="/explore">Explore</a></li>
+        <li class="nav-item"><a href="/about">About</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right ml-auto">
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+        </li>
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+        </li>
+        <li th:if="${currentUser} != null">
+            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
+        </li>
+    </ul>
 
 
 
@@ -55,65 +54,6 @@
 </div>
 
 
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-xs-8">-->
-<!--            <div class="input-group">-->
-<!--                <div class="input-group-btn search-panel">-->
-<!--                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-<!--                        <span id="search_concept">Category</span> <span class="caret"></span>-->
-<!--                    </button>-->
-
-<!--                    <ul class="dropdown-menu" role="menu">-->
-<!--                        &lt;!&ndash;<li><a href="/explore/Action">Action</a></li>&ndash;&gt;-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>-->
-<!--                        <li class="divider"></li>-->
-<!--                        <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <input type="hidden" name="search_param" value="all" id="search_param">-->
-<!--                <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">-->
-<!--                <span class="input-group-btn">-->
-<!--                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
-<!--                </span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-
-
-<!--<div id ="displaylist">-->
-
-<!--    <h1>Result</h1>-->
-
-<!--    <div class="row" id="display-row">-->
-
-<!--        <div th:each="c,iter : ${comics}">-->
-<!--            <div  id="edge" class="col-xs-4">-->
-<!--                <figure>-->
-<!--                    <center>-->
-<!--                        <h2 ><div th:text="${c.comicTitle}"></div></h2>-->
-<!--                    </center>-->
-
-<!--                    <a th:href="@{${'/comic/' + c.id}}">-->
-<!--                        <img id="ser-img" th:src="@{${'https://s3.amazonaws.com/seriescovers/' + c.id + '.png'}}" />-->
-<!--                    </a>-->
-<!--                </figure>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-
-
 <section>
 
 <div class="row"   id="row-display" >
@@ -128,8 +68,7 @@
 
             <div class= "card-header text-center" >
 
-                <span th:if="${c.comicTitle == null or c.comicTitle == ''}" ><h2>I Need Title</h2></span>
-                <span th:unless="${c.comicTitle == null or c.comicTitle ==''}"><h2 th:text= "${c.comicTitle}" ></h2></span>
+                <h2 th:text= "${c.comicTitle}" ></h2></span>
 
             </div>
 

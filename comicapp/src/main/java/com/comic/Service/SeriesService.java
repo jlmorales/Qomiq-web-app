@@ -31,4 +31,6 @@ public class SeriesService {
     public Series findSeriesById(int id){return seriesRepository.findSeriesById(id);}
 
     public Series saveSeries(Series series){ return seriesRepository.save(series);}
+
+    public void deleteSeries(Series series) {  seriesRepository.delete(series);}
 }
