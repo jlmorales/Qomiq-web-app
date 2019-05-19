@@ -50,6 +50,7 @@ fileInput.addEventListener('change', function(e){
                 height: 200,
                 width: 200
             });
+            imgObject.scaleToWidth(200,false);
             canvas.centerObject(img);
             canvas.add(img);
             canvas.renderAll();
@@ -63,16 +64,126 @@ fileInput.addEventListener('change', function(e){
 
 
 
+
+
+
+
+
+// thought bubble code starts here
+
+
+
+function addBubble(){
+
+
+    var img = new Image();
+    img.src = "https://static.thenounproject.com/png/1545185-200.png";
+    img.onload = function(){
+        // img.width = 200;
+        //img.height= 200;
+        var tb = new fabric.Image(img);
+        tb.set({
+            originX: 'center',
+            originY: 'center',
+            angle: 0,
+            padding: 15,
+            cornersize: 15,
+
+        });
+        tb.scaleToWidth(200, false);
+
+
+
+
+        // addding the text for grouping
+
+        var dial = prompt("Enter your text");
+        if (dial === null || dial === ""){
+            return;
+        }
+
+        var text = new fabric.Text(dial, {
+            fontSize: 20,
+            originX: 'center',
+            originY: 'center'
+        });
+
+
+
+
+        // text grouping ends
+
+        var group = new fabric.Group([ tb, text ], {
+            left: 150,
+            top: 100,
+            angle: 0
+        });
+
+        /// creates ad new group
+
+
+
+
+
+
+        ///ends the group creation
+
+
+
+
+
+
+
+        canvas.centerObject(group);
+        canvas.add(group);
+        canvas.renderAll();
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// thought bubble code ends here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function pencil() {
     if (!canvas.isDrawingMode) {
+
         canvas.isDrawingMode = true;
     }
     else {
         canvas.isDrawingMode = false;
     }
-    canvas.defaultCursor = "/images/a.jpg";
-    canvas.freeDrawingBrush.width = brushSize();
-    canvas.freeDrawingBrush.color = color;
+
+    if (canvas.isDrawingMode){
+
+        canvas.freeDrawingBrush.width = brushSize();
+        canvas.freeDrawingBrush.color = color;
+    }
+    //canvas.defaultCursor = "/images/a.jpg";
+
 }
 
 
@@ -125,6 +236,7 @@ canvas.renderAll();
 
 
 function select() {
+    canvas.isDrawingMode = false;
 
 }
 
