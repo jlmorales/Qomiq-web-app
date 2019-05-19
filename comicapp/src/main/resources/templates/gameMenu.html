@@ -104,7 +104,7 @@
     <div th:if="${currentUser.id == game.userId and game.finished != true}">
         <a th:href="@{'/endRound/' + ${game.id}}"><button>End Round</button></a>
     </div>
-    <div th:if = "${game.finished != true}">
+    <div th:if = "${currentUser.id == game.userId and game.finished != true}">
         <a th:href="@{'/endGame/' + ${game.id}}"><button>End Game</button></a>
     </div>
 </section>
