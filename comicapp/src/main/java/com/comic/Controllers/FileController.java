@@ -137,6 +137,25 @@ public class FileController {
         return modelAndView;
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/uploadOldPage")
+    public ModelAndView upload(@RequestParam("file") MultipartFile file ,
+                               @RequestParam("pngFile") String pngFile,
+                               @RequestParam("comicId") int comicId,
+                               @RequestParam("pageId") int pageId)
+    {
+        Comic comic = comicService.findComicById(comicId);
+        String keyName = "series" + comic.getSeriesId() +"comic"+comic.getId()+ "page" + pageId + ".json";
+        s3Services.uploadFile(keyName, file);
+        keyName = "series"+comic.getSeriesId()+"comic"+comic.getId()+ "page" + pageId + ".png";
+        System.out.println(pngFile);
+        byte[] imagedata = DatatypeConverter.parseBase64Binary(pngFile.substring(pngFile.indexOf(",")+1));
+        BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
+        s3Services.uploadFile(keyName, realFile);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account/"));
+        return modelAndView;
+    }
+
+
     @RequestMapping(method = RequestMethod.POST, value = "/profileImage")
     @ResponseBody
     public String uploadFile(@RequestParam("image") StringBuilder image){

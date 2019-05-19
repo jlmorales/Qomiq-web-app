@@ -1,10 +1,12 @@
 package com.comic.Controllers;
 import com.amazonaws.services.s3.model.S3Object;
 import com.comic.Forms.ExploreForm;
+import com.comic.Service.ComicService;
 import com.comic.Service.S3Services;
 import com.comic.Service.SeriesService;
 import com.comic.Service.UserService;
 import com.comic.model.Comic;
+import com.comic.model.Pages;
 import com.comic.model.Series;
 import com.comic.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,9 @@ public class CreateController {
     SeriesService seriesService;
 
     @Autowired
+    ComicService comicService;
+
+    @Autowired
     S3Services s3Services;
 
     @RequestMapping(value = {"/create"}, method = RequestMethod.GET)
@@ -52,11 +57,19 @@ public class CreateController {
         return modelAndView;
     }
 
-    @RequestMapping(value = {"/edit"}, method = RequestMethod.GET)
-    public ModelAndView edit(){
+    @RequestMapping(value = {"/create/editpage"}, method = RequestMethod.POST)
+    public ModelAndView editpage(@ModelAttribute Pages page){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("thing", "series28comic29");
+        Comic comic = comicService.findComicById(page.getComicId());
+        modelAndView.addObject("comic",comic);
+        modelAndView.addObject("page", page);
         modelAndView.setViewName("editEditor");
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/create/editpage/"}, method = RequestMethod.GET)
+    public ModelAndView editpage(@RequestParam("id") int id) {
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account/"));
         return modelAndView;
     }
 
