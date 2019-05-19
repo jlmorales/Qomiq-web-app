@@ -1,12 +1,8 @@
 package com.comic.Controllers;
 
-import com.comic.Service.ComicService;
-import com.comic.Service.SeriesService;
-import com.comic.Service.UserService;
-import com.comic.model.Comic;
+import com.comic.Service.*;
+import com.comic.model.*;
 import com.comic.Controllers.FileController;
-import com.comic.model.Series;
-import com.comic.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,13 +20,25 @@ import java.util.List;
 public class SeriesController {
 
     @Autowired
-    SeriesService seriesService;
+    private S3Services s3Services;
 
     @Autowired
-    ComicService comicService;
+    private SeriesService seriesService;
+
+    @Autowired
+    private ComicService comicService;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private LikeService likeService;
+
+    @Autowired
+    private DislikeService dislikeService;
 
     @RequestMapping(value = {"/series/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView series(@PathVariable("id") int id){
@@ -48,4 +56,29 @@ public class SeriesController {
         return modelAndView;
     }
 
+    @RequestMapping(value="/series/delete/")
+    public ModelAndView delete(@ModelAttribute Series series) {
+        List<Comic> comics = comicService.findComicsBySeriesId(series.getId());
+        for (Comic comic : comics) {
+            List<Comment> comments = commentService.findCommentsByComicId(comic.getId());
+            for (Comment comment : comments) {
+                commentService.deleteComment(comment);
+            }
+            List<Like> likes = likeService.findByComicId(comic.getId());
+            for (Like like : likes) {
+                likeService.deleteLike(like);
+            }
+            List<Dislike> dislikes = dislikeService.findByComicId(comic.getId());
+            for (Dislike dislike : dislikes) {
+                dislikeService.deleteDislike(dislike);
+            }
+            comicService.deleteComic(comic);
+            s3Services.deleteFileFromS3Bucket("series" + series.getId() + "comic" + comic.getId() + ".png");
+            s3Services.deleteFileFromS3Bucket("series" + series.getId() + "comic" + comic.getId() + ".json");
+        }
+        seriesService.deleteSeries(series);
+        s3Services.deleteFileFromS3Bucket("seriesCover" + series.getId() + ".png");
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/account"));
+        return modelAndView;
+    }
 }

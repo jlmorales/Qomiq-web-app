@@ -33,7 +33,7 @@
     </li>
     <li th:switch="${currentUser}">
       <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-      <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
+      <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
     </li>
     <li th:if="${currentUser} != null">
       <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
@@ -103,8 +103,7 @@
 
       <figure>
         <figtitle th:text="${comic.comicTitle}"></figtitle>
-        <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic'+comic.id+ '.png'}}" alt="Trulli" style="width:100%"/>
-        <!--<img src="c.jpg" alt="Trulli" style="width:100%">-->
+        <div th:each="page : ${pages}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic'+comic.id+ 'page' + page.id + '.png'}}" alt="Trulli" style="width:100%"/></div>
 
         <figcaption>
         <div>by  <a th:href="@{${'/profile/' + profileUser.id}}" th:text="${profileUser.username}"></a></div>
@@ -130,6 +129,7 @@
           <button type="button" class="close" aria-hidden="true">&times;</button>
         </div>
         <div class="actionBox">
+          <div th:if="${comic.commentsEnabled} == true">
           <ul class="commentList" id="comments">
 
             <li th:each="comments, iter : ${comments}">
@@ -155,11 +155,10 @@
               </div>
             </li>
           </ul>
-
-
-          <div th:if = "${currentUser} != null">
+          </div>
+          <div th:if="${comic.commentsEnabled} == false">Comments are disabled for this comic...</div>
+          <div th:if = "${currentUser} != null and ${comic.commentsEnabled} == true">
             <form class="form-inline" th:object="${newComment}" th:action = "@{/comic/comment}" method="POST">
-
 
               <input type="hidden" th:value = "*{comicId}" id = "comicId" name = "comicId">
 
@@ -178,155 +177,7 @@
     </div>
 
   </div>
-
-
-
-
-
-  <!-- the viewport leftgpane ends  -->
-
-
-
-
-
-
-
-
-
-
-
-<!--  <div class="row">-->
-<!--    <div class="col-xs-3">-->
-<!--      &lt;!&ndash; <img src="c.jpg" id="hxh"> &ndash;&gt;</div>-->
-<!--    <div class="col-xs-6">-->
-<!--      -->
-<!--      -->
-<!--      <figure>-->
-<!--        <figtitle th:text="${comic.comicTitle}"></figtitle>-->
-<!--        <img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + comic.id + '.png'}}" alt="Trulli" style="width:100%"/>-->
-<!--        &lt;!&ndash;<img src="c.jpg" alt="Trulli" style="width:100%">&ndash;&gt;-->
-<!--        <div>by </div><a th:href="@{${'/profile/' + profileUser.id}}" th:text="${profileUser.username}"></a>-->
-<!--        <div>Category: <span th:text="${series.category}"></span></div>-->
-<!--        <div th:if="${currentUser} != null"><a th:href="@{${'/comic/like/' + comic.id}}"><span th:text="${comic.likes}" class="glyphicon glyphicon-thumbs-up"></span></a>-->
-<!--          <a th:href="@{${'/comic/dislike/' + comic.id}}"><span th:text="${comic.dislikes}" class="glyphicon glyphicon-thumbs-down"></span></a></div>-->
-<!--        <div th:if="${currentUser} == null"><span th:text="${comic.likes}" class="glyphicon glyphicon-thumbs-up"></span>-->
-<!--          <span th:text="${comic.dislikes}" class="glyphicon glyphicon-thumbs-down"></span></div>-->
-<!--        <div><span th:text="${comic.comicViews}" class="glyphicon glyphicon-eye-open"></span></div>-->
-<!--      </figure>-->
-<!--      -->
-<!--      -->
-<!--      -->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; <div class="col-xs-6" id="viewport"><img src="c.jpg" id="hxh"></div> &ndash;&gt;-->
-
-<!--    <div class="col-xs-3">-->
-<!--      &lt;!&ndash; <img src="c.jpg" id="hxh"> &ndash;&gt;</div>-->
-
-<!--  </div>-->
-
-
-
-
-
-
-
-
-
-<!--  <div class="row">-->
-<!--    <div class="col-xs-3"></div>-->
-<!--    <div class="col-xs-6">-->
-<!--      <div class="detailBox">-->
-<!--        <div class="titleBox">-->
-<!--          <label>Comment Box</label>-->
-<!--          <button type="button" class="close" aria-hidden="true">&times;</button>-->
-<!--        </div>-->
-<!--        <div class="commentBox">-->
-
-<!--          <p class="taskDescription">Dummy Text.</p>-->
-<!--        </div>-->
-<!--        <div class="actionBox">-->
-<!--          <ul class="commentList" id="comments">-->
-
-<!--            <li>-->
-<!--              <div class="commenterImage">-->
-<!--                <img src="http://placekitten.com/50/50" />-->
-<!--              </div>-->
-<!--              <div class="commentText">-->
-<!--                <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>-->
-
-<!--              </div>-->
-<!--            </li>-->
-
-<!--            <li>-->
-<!--              <div class="commenterImage">-->
-<!--                <img src="http://placekitten.com/45/45" />-->
-<!--              </div>-->
-<!--              <div class="commentText">-->
-<!--                <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>-->
-
-<!--              </div>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <div class="commenterImage">-->
-<!--                <img src="http://placekitten.com/40/40" />-->
-<!--              </div>-->
-<!--              <div class="commentText">-->
-<!--                <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>-->
-
-<!--              </div>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--          <form class="form-inline" role="form">-->
-<!--            <div class="form-group">-->
-<!--              <input class="form-control" type="text" placeholder="Your comments" id="newcomment" />-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--              <button class="btn btn-default" onclick="addComment()">Add</button>-->
-<!--            </div>-->
-<!--          </form>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--    </div>-->
-<!--    <div class="col-xs-3"></div>-->
-
-<!--  </div>-->
-<!--  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  <div th:each = "comment,iter : ${comments}">-->
-<!--    <a th:href="@{${'/profile/' + comment.commenterId}}"><div th:text = ${commentators[iter.index].username}></div></a>-->
-<!--    <div th:text = "${comment.commentContent}"></div>-->
-<!--    <div th:if ="${currentUser != null && currentUser.username == commentators[iter.index].username} ">-->
-<!--        <form th:object="${comment}" th:action = "@{/comic/deleteComment}" method="POST">-->
-<!--            <input type="hidden" th:value = "*{commentId}" id = "commentId" name = "commentId">-->
-<!--            &lt;!&ndash;<input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">&ndash;&gt;-->
-<!--            <input type="submit" value="Delete">-->
-<!--        </form>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--    <div th:if = "${currentUser != null}">-->
-<!--        <form th:object="${newComment}" th:action = "@{/comic/comment}" method="POST">-->
-<!--            <input type="hidden" th:value = "*{comicId}" id = "comicId" name = "comicId">-->
-<!--            <input type="text" th:value = "*{commentContent}" id = "commentContent" name = "commentContent">-->
-<!--            <input type="submit" value="comment">-->
-<!--        </form>-->
-<!--    </div>-->
-
+  </div>
 
 </section>
 

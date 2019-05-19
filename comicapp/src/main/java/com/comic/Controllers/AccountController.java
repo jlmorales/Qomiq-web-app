@@ -46,6 +46,7 @@ public class AccountController {
         modelAndView.setViewName("profilepage");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+        System.out.println("User: " + user);
         List<Series> series = seriesService.findAllSeries();
         List<Series> seriesList = new ArrayList<>();
         for (Series s : series) {
@@ -65,6 +66,8 @@ public class AccountController {
         int i = 0;
         for (Comic o: orderedComics) {
             Series s = seriesService.findSeriesById(o.getSeriesId());
+            System.out.println("Series:" + series);
+            System.out.println("service:" + subscriptionService);
             if (subscriptionService.findIfSubscriptionExists(s.getAuthorUsername(), user.getUsername()) != null) {
                 latestComics.add(o);
                 i++;
@@ -153,6 +156,7 @@ public class AccountController {
             dislikeService.deleteDislike(dislike);
         }
         s3Services.deleteFileFromS3Bucket("series" +seriesId+"comic"+comicId+ ".png" );
+        s3Services.deleteFileFromS3Bucket("series" + seriesId + "comic" + comicId + ".json");
         modelAndView = new ModelAndView(new RedirectView("/account/series/" + seriesId));
         return modelAndView;
     }
