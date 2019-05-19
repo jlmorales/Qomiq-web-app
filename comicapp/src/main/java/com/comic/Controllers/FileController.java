@@ -126,7 +126,7 @@ public class FileController {
         User user = userService.findUserByEmail(auth.getName());
         GamePage gamePage = gamePageService.findGamePageById(gamePageId);
         Game game = gameService.findGameById(gamePage.getGameId());
-        GamePlayer gamePlayer = gamePlayerService.findGamePlayerByUserId(user.getId());
+        GamePlayer gamePlayer = gamePlayerService.findGamePlayerByUserIdAndGameId(user.getId(),game.getId());
         Submission submission = submissionService.findSubmissionByGamePageIdAndPlayerId(gamePage.getId(),gamePlayer.getId());
         if(submission == null){
             submission = new Submission();

@@ -14,4 +14,6 @@ public interface GamePlayerRepository extends JpaRepository<GamePlayer, Integer>
     GamePlayer findGamePlayerById(int id);
 
     GamePlayer findGamePlayerByUserId(int id);
+
+    GamePlayer findGamePlayerByUserIdAndGameId(int userId, int gameId);
 }

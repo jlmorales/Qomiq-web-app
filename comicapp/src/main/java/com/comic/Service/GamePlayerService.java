@@ -21,5 +21,7 @@ public class GamePlayerService {
 
     public GamePlayer findGamePlayerByUserId(int id){return gamePlayerRepository.findGamePlayerByUserId(id);}
 
+    public GamePlayer findGamePlayerByUserIdAndGameId(int userId, int gameId){return gamePlayerRepository.findGamePlayerByUserIdAndGameId(userId, gameId);}
+
     public GamePlayer savePlayer(GamePlayer gamePlayer){ return this.gamePlayerRepository.save(gamePlayer);}
 }
