@@ -26,4 +26,7 @@ public class Game {
     @Column(name = "user_id")
     private int userId;
 
+    @Column(name = "current_page")
+    private int currentPage;
+
 }

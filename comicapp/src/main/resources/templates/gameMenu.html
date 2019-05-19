@@ -82,6 +82,10 @@
                 <a th:href="@{'/gameSubmissions/' + ${page.id}}">Game Submissions</a>
             </div>
         </div>
+
+    </div>
+    <div th:if="${currentUser.id == game.userId}">
+        <a th:href="@{'/endRound/' + ${game.id}}"><button>End Round</button></a>
     </div>
 </section>
 

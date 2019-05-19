@@ -122,6 +122,7 @@ public class FileController {
                              @RequestParam("gameTitle") String gameTitle,
                              @RequestParam("gamePageId") int gamePageId)
     {
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         GamePage gamePage = gamePageService.findGamePageById(gamePageId);
