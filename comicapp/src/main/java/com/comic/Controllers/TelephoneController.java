@@ -108,6 +108,7 @@ public class TelephoneController {
         GamePage gamePage = new GamePage();
         gamePage.setGameId(game.getId());
         gamePage.setPageNumber(1);
+        gamePage.setFinished(false);
         gamePage = gamePageService.saveGamePage(gamePage);
         game.setCurrentPage(gamePage.getId());
         gameService.saveGame(game);
@@ -179,11 +180,15 @@ public class TelephoneController {
         keyName2 = "pageWinner"+gamePage.getId()+".png";
         s3Services.uploadFile(keyName1,output1);
         s3Services.uploadFile(keyName2,output2);
-        gamePage.setPageWinner("pageWinner"+gamePage.getId());
+        //pageWinner(id).png
+        gamePage.setPageWinner(gamePage.getId());
+        gamePage.setPageWinnerVotes(popularSubmission.getVotes());
+        gamePage.setFinished(true);
         gamePageService.saveGamePage(gamePage);
         GamePage gamePage2 = new GamePage();
         gamePage2.setPageNumber(gamePage.getPageNumber()+1);
         gamePage2.setGameId(game.getId());
+        gamePage2.setFinished(false);
         gamePage2 = gamePageService.saveGamePage(gamePage2);
         keyName1 = "gamePage"+gamePage2.getId()+".json";
         keyName2 = "gamePage"+gamePage2.getId()+".png";
@@ -193,6 +198,33 @@ public class TelephoneController {
         gameService.saveGame(game);
         ModelAndView modelAndView = new ModelAndView(new RedirectView("/game/"+game.getId()));
         return modelAndView;
+    }
+
+    @RequestMapping(value = {"/endGame/{id:[\\d]+}"}, method = RequestMethod.GET)
+    public ModelAndView endGame(@PathVariable("id") int  id){
+        Game game = gameService.findGameById(id);
+        List<GamePage> gamePages =  gamePageService.findGamePagesByGameId(game.getId());
+        List<GamePage> finishedPages = new ArrayList<>();
+        for(GamePage gamePage : gamePages){
+            if(gamePage.isFinished() == true){
+                finishedPages.add(gamePage);
+            }
+        }
+        GamePage gameWinner = finishedPages.get(0);
+        for(GamePage gamePage : finishedPages){
+            if(gamePage.getPageWinnerVotes() > gameWinner.getPageWinnerVotes()){
+                gameWinner = gamePage;
+            }
+        }
+        String keyName = "pageWinner" + gameWinner.getId() + ".png";
+        S3Object output = s3Services.downloadFile(keyName);
+        keyName = "gameWinner" + game.getId() + ".png";
+        s3Services.uploadFile(keyName,output);
+        game.setFinished(true);
+        game.setWinner(game.getId());
+        gameService.saveGame(game);
+        ModelAndView modelAndView = new ModelAndView(new RedirectView("/game/" + game.getId()));
+        return  modelAndView;
     }
 
     @RequestMapping(value = {"game/vote/{id:[\\d]+}"}, method = RequestMethod.GET)

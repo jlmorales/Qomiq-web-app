@@ -29,4 +29,10 @@ public class Game {
     @Column(name = "current_page")
     private int currentPage;
 
+    @Column(name = "game_finished")
+    private boolean finished;
+
+    @Column(name = "winner")
+    private int winner;
+
 }

@@ -68,6 +68,9 @@
 
 
 <section>
+    <div th:if = "${game.finished == true}">
+        <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/gameWinner' + game.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />
+    </div>
     <div class="row" id="row-display">
         <!-- Start of Card Groups Layout -->
         <div id="display"  class="col-md-3" th:each="page,iter : ${gamePages}">
@@ -84,8 +87,11 @@
         </div>
 
     </div>
-    <div th:if="${currentUser.id == game.userId}">
+    <div th:if="${currentUser.id == game.userId and game.finished != true}">
         <a th:href="@{'/endRound/' + ${game.id}}"><button>End Round</button></a>
+    </div>
+    <div th:if = "${game.finished != true}">
+        <a th:href="@{'/endGame/' + ${game.id}}"><button>End Game</button></a>
     </div>
 </section>
 
