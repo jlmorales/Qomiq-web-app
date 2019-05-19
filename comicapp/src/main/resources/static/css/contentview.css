@@ -1,7 +1,7 @@
 body,html{
 	height: 100%;
 	width:100%;
-	background-color: #f0e7e3;
+	/*background-color: #f0e7e3;*/
 	position: relative;
 
 }
@@ -160,4 +160,9 @@ figcaption{
 	text-align: left;
 	margin-left:3%;
 	margin-top:6%;
+}
+
+#commneting{
+	height: 100%;
+	width:30%;
 }
