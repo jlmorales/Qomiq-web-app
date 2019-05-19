@@ -184,6 +184,7 @@ public class TelephoneController {
         gamePage.setPageWinner(gamePage.getId());
         gamePage.setPageWinnerVotes(popularSubmission.getVotes());
         gamePage.setFinished(true);
+        gamePage.setTitle(popularSubmission.getTitle());
         gamePageService.saveGamePage(gamePage);
         GamePage gamePage2 = new GamePage();
         gamePage2.setPageNumber(gamePage.getPageNumber()+1);
@@ -222,6 +223,7 @@ public class TelephoneController {
         s3Services.uploadFile(keyName,output);
         game.setFinished(true);
         game.setWinner(game.getId());
+        game.setGameName(gameWinner.getTitle());
         gameService.saveGame(game);
         ModelAndView modelAndView = new ModelAndView(new RedirectView("/game/" + game.getId()));
         return  modelAndView;

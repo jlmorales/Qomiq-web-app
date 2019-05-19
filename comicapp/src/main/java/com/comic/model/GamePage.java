@@ -35,4 +35,7 @@ public class GamePage {
     @Column(name = "page_finished")
     private boolean finished;
 
+    @Column(name = "page_title")
+    private String title;
+
 }
