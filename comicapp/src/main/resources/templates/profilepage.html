@@ -75,7 +75,10 @@
                <a th:href="@{'/account/series/' + ${series.id}}">
                    <button id="subs-btn"><div><span class="glyphicon glyphicon-pencil"></span> Manage Comics in Series</div></button>
                </a>
-            <button id="subs-btn"><a th:href="@{${'/series/delete/' + series.id}}"><span class="glyphicon glyphicon-trash"></span> Delete</a></button>
+               <form th:object="${comic}" th:action = "@{/series/delete/}" method="POST">
+                   <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+                   <button id="subs-btn"><span class="glyphicon glyphicon-trash"><input type="submit" value=" Delete"></span></button>
+               </form>
           </figcaption>
         </figure>
       </div>

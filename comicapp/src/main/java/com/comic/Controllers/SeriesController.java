@@ -56,10 +56,9 @@ public class SeriesController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/series/delete/{id:[\\d]+}")
-    public ModelAndView delete(@PathVariable("id") int id) {
-        Series series = seriesService.findSeriesById(id);
-        List<Comic> comics = comicService.findComicsBySeriesId(id);
+    @RequestMapping(value="/series/delete/")
+    public ModelAndView delete(@ModelAttribute Series series) {
+        List<Comic> comics = comicService.findComicsBySeriesId(series.getId());
         for (Comic comic : comics) {
             List<Comment> comments = commentService.findCommentsByComicId(comic.getId());
             for (Comment comment : comments) {

@@ -34,6 +34,9 @@ public class ComicController {
     @Autowired
     private DislikeService dislikeService;
 
+    @Autowired
+    private PagesService pagesService;
+
     @RequestMapping(value = {"/comic/{id:[\\d]+}"}, method = RequestMethod.GET)
     public ModelAndView category(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -88,6 +91,16 @@ public class ComicController {
         System.out.println(newComment);
         commentService.saveComment(newComment);
         modelAndView = new ModelAndView(new RedirectView("/comic/" + newComment.getComicId()));
+        return modelAndView;
+    }
+
+    @RequestMapping(value= {"/comic/pages/"})
+    public ModelAndView managePages(@ModelAttribute Comic comic) {
+        ModelAndView modelAndView = new ModelAndView();
+        List<Pages> pages = pagesService.findByComicId(comic.getId());
+        modelAndView.addObject("comic", comic);
+        modelAndView.addObject("pages", pages);
+        modelAndView.setViewName("managePages");
         return modelAndView;
     }
 
@@ -158,9 +171,8 @@ public class ComicController {
         return modelAndView;
     }
 
-    @RequestMapping(value = {"/comic/disable/{id:[\\d]+}"})
-    public ModelAndView disable(@PathVariable("id") int id) {
-        Comic comic = comicService.findComicById(id);
+    @RequestMapping(value = {"/comic/disable/"})
+    public ModelAndView disable(@ModelAttribute Comic comic) {
         System.out.print("Disabling comments...");
         comic.setCommentsEnabled(!comic.isCommentsEnabled());
         comicService.saveComic(comic);
@@ -168,9 +180,8 @@ public class ComicController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/comic/enable/{id:[\\d]+}")
-    public ModelAndView enable(@PathVariable("id") int id) {
-        Comic comic = comicService.findComicById(id);
+    @RequestMapping(value = "/comic/enable/")
+    public ModelAndView enable(@ModelAttribute Comic comic) {
         System.out.print("Enabling comments...");
         comic.setCommentsEnabled(!comic.isCommentsEnabled());
         comicService.saveComic(comic);

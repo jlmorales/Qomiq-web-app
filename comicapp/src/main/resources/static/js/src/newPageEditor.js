@@ -170,33 +170,15 @@ function setColor(newColor) {
 function publish() {
     holder = JSON.stringify(canvas.toJSON());
     var file = new Blob([holder], {type: "application/json"});
-    // var seriesName = $("#comicSeries option:selected").text();
-    var seriesName = $("#comicSeries option:selected").attr('value');
-    seriesName = $("#currentSeries").val();
-    // var seriesName = document.getElementById("currentSeries").innerText = document.getElementById("comic_series").value;
-    console.log(seriesName);
-    var comicName= $("#comicTitle").val();
-    var makePublic = $("#makePublic").val();
-    var enableComments = $("#commentsBoolean").val();
     var myForm = new FormData();
     var pngholder=null;
-    // $("#myCanvas").get(0).toBlob(function(blob){
-    //     pngholder=blob;
-    // });
+    var comicId= $("#id").val();
     var data = canvas.toDataURL()
-    // var blob = new Blob([data], {type:"octet/stream"});
-
-    console.log(data);
-    // var pngfile = new Blob([pngholder], {type:'image/png'});
-
     myForm.append("file", file);
     myForm.append("pngFile",data);
-    myForm.append("seriesName", seriesName);
-    myForm.append("comicName", comicName);
-    myForm.append("makePublic", makePublic);
-    myForm.append("enableComments", enableComments);
+    myForm.append("comicId", comicId)
     $.ajax({
-        url : '/upload',
+        url : '/uploadPage',
         data : myForm,
         type : "POST",
         processData: false,
@@ -210,7 +192,6 @@ function publish() {
             console.log("error");
             console.log(result);
             window.location.replace('/create');
-
         }
 
     });
@@ -451,13 +432,3 @@ function registerHandler(){
 function updateWorkspace(){
 
 }
-
-
-
-
-/**
- * need to add setup workspace component
- * need to register event listeners
- *
- */
-

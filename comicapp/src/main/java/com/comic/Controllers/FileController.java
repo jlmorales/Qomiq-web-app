@@ -14,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
@@ -50,6 +51,9 @@ public class FileController {
 
     @Autowired
     SubmissionService submissionService;
+
+    @Autowired
+    PagesService pagesService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/upload")
     @ResponseBody
@@ -92,9 +96,12 @@ public class FileController {
         comic.setSeriesId(series.getId());
         comic = comicService.saveComic(comic);
         System.out.println(comic);
-        String keyName = "series"+series.getId()+"comic"+comic.getId()+"."+"json";
+        Pages page = new Pages();
+        page.setComicId(comic.getId());
+        pagesService.savePage(page);
+        String keyName = "series"+series.getId()+"comic"+comic.getId()+ "page" + page.getId() + ".json";
         s3Services.uploadFile(keyName, file);
-        keyName = "series"+series.getId()+"comic"+comic.getId()+"."+"png";
+        keyName = "series"+series.getId()+"comic"+comic.getId()+ "page" + page.getId() + ".png";
         System.out.println(pngFile);
         byte[] imagedata = DatatypeConverter.parseBase64Binary(pngFile.substring(pngFile.indexOf(",")+1));
         BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
@@ -103,6 +110,28 @@ public class FileController {
             keyName = "seriesCover"+series.getId()+"."+"png";
             s3Services.uploadFile(keyName,realFile);
         }
+        keyName = "comicCover" + comic.getId() + ".png";
+        s3Services.uploadFile(keyName,realFile);
+        return "Upload Successfully -> KeyName = " + keyName;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/upload")
+    @ResponseBody
+    public String upload(@RequestParam("file") MultipartFile file ,
+                         @RequestParam("pngFile") String pngFile,
+                         @RequestParam("comicId") int comicId)
+    {
+        Comic comic = comicService.findComicById(comicId);
+        Pages page = new Pages();
+        page.setComicId(comicId);
+        pagesService.savePage(page);
+        String keyName = "series" + comic.getSeriesId() +"comic"+comic.getId()+ "page" + page.getId() + ".json";
+        s3Services.uploadFile(keyName, file);
+        keyName = "series"+comic.getSeriesId()+"comic"+comic.getId()+ "page" + page.getId() + ".png";
+        System.out.println(pngFile);
+        byte[] imagedata = DatatypeConverter.parseBase64Binary(pngFile.substring(pngFile.indexOf(",")+1));
+        BASE64DecodedMultipartFile realFile = new BASE64DecodedMultipartFile(imagedata);
+        s3Services.uploadFile(keyName, realFile);
         return "Upload Successfully -> KeyName = " + keyName;
     }
 

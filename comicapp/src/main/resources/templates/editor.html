@@ -272,7 +272,7 @@
                 </div>
 
 
-                <div class="canva" ><canvas id="myCanvas"></canvas></div>
+                <div class="canvas" ><canvas id="myCanvas"></canvas></div>
 
 
 <!--                <div class="row">-->
@@ -592,7 +592,8 @@
 
 
 
-<script src="/js/src/editor.js"></script>
+<script th:if="${thing} == null" src="/js/src/editor.js"></script>
+<script th:if="${thing} != null" src="/js/src/editEditor.js"></script>
 
 </body>
 </html>

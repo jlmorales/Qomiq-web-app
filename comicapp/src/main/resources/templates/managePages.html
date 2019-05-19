@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Pages</title>
+</head>
+<body>
+    <figure>
+        <figtitle th:text="${comic.comicTitle}"></figtitle>
+        <div th:each="page : ${pages}">
+            <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + comic.seriesId + 'comic' + comic.id + 'page' + page.id + '.png'}}" alt="Trulli" style="width:100%">
+            <form th:object="${comic}" th:action = "@{/comic/editpage/}" method="POST">
+                <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+                <input type="submit" value="Edit Page">
+            </form>
+        </div>
+        <form th:object="${comic}" th:action = "@{/comic/newpage/}" method="POST">
+            <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">
+            <input type="submit" value="New Page">
+        </form>
+    </figure>
+</body>
+</html>
