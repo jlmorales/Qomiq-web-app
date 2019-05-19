@@ -50,6 +50,7 @@ fileInput.addEventListener('change', function(e){
                 height: 200,
                 width: 200
             });
+            //imgObject.scaleToWidth(200,false);
             canvas.centerObject(img);
             canvas.add(img);
             canvas.renderAll();
@@ -63,16 +64,141 @@ fileInput.addEventListener('change', function(e){
 
 
 
+function labeling(){
+
+    var tagging  = document.createElement("lable");
+    tagging.for = "img-inp";
+}
+
+
+
+
+
+
+
+
+// thought bubble code starts here
+
+
+
+function addBubble(){
+
+
+    var img = new Image();
+    img.src = "https://static.thenounproject.com/png/1545185-200.png";
+    img.onload = function(){
+        // img.width = 200;
+        //img.height= 200;
+        var tb = new fabric.Image(img);
+        tb.set({
+            originX: 'center',
+            originY: 'center',
+            angle: 0,
+            padding: 15,
+            cornersize: 15,
+
+        });
+        tb.scaleToWidth(200, false);
+
+
+
+
+        // addding the text for grouping
+
+        var dial = prompt("Enter your text");
+        if (dial === null || dial === ""){
+            return;
+        }
+
+        var text = new fabric.Text(dial, {
+            fontSize: 20,
+            originX: 'center',
+            originY: 'center'
+        });
+
+
+
+
+        // text grouping ends
+
+        var group = new fabric.Group([ tb, text ], {
+            left: 150,
+            top: 100,
+            angle: 0
+        });
+
+        /// creates ad new group
+
+
+
+
+
+
+        ///ends the group creation
+
+
+
+
+
+
+
+        canvas.centerObject(group);
+        canvas.add(group);
+        canvas.renderAll();
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// thought bubble code ends here
+
+
+
+
+
+
+
+
+
+
+
+
+function displayNewSeriesInput(){
+    document.getElementById('newSeriesTextBox').hidden = false;
+    document.getElementById('currentSeries').hidden = true;
+}
+
+function hideNewSeriesInput(){
+    document.getElementById('newSeriesTextBox').hidden = true;
+    document.getElementById('currentSeries').hidden = false;
+}
+
 function pencil() {
     if (!canvas.isDrawingMode) {
+
         canvas.isDrawingMode = true;
     }
     else {
         canvas.isDrawingMode = false;
     }
-    canvas.defaultCursor = "/images/a.jpg";
-    canvas.freeDrawingBrush.width = brushSize();
-    canvas.freeDrawingBrush.color = color;
+
+    if (canvas.isDrawingMode){
+
+        canvas.freeDrawingBrush.width = brushSize();
+        canvas.freeDrawingBrush.color = color;
+    }
+    //canvas.defaultCursor = "/images/a.jpg";
+
 }
 
 
@@ -125,6 +251,7 @@ canvas.renderAll();
 
 
 function select() {
+    canvas.isDrawingMode = false;
 
 }
 
@@ -171,8 +298,15 @@ function publish() {
     holder = JSON.stringify(canvas.toJSON());
     var file = new Blob([holder], {type: "application/json"});
     // var seriesName = $("#comicSeries option:selected").text();
-    var seriesName = $("#comicSeries option:selected").attr('value');
-    seriesName = $("#currentSeries").val();
+    var seriesName;
+    if (willCreateNewSeries() == "No"){
+        seriesName = $("#comicSeries option:selected").attr('value');
+        seriesName = $("#currentSeries").val();
+    }
+    else{
+        seriesName = document.getElementById("newSeriesTitle").value;
+    }
+
     // var seriesName = document.getElementById("currentSeries").innerText = document.getElementById("comic_series").value;
     console.log(seriesName);
     var comicName= $("#comicTitle").val();
@@ -383,6 +517,19 @@ function brushSize(){
     return size;
 }
 
+
+function willCreateNewSeries(){
+    var radios = document.getElementsByName('isNewSeries');
+    for (var i = 0, length = radios.length; i < length; i++)
+    {
+        if (radios[i].checked)
+        {
+            // do whatever you want with the checked radio
+            return radios[i].value;
+        }
+    }
+
+}
 
 
 function boldToggle(){

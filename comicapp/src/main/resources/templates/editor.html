@@ -116,14 +116,19 @@
                             <button class="btn btn-info btn-lg" onclick="window.circle()"><span class='far fa-circle' alt="circle"></span></button>
                             <button class="btn btn-info btn-lg" onclick="window.rectangle()"><span class="fa fa-square" alt="rectangle"></span></button>
                             <button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="glyphicon glyphicon-triangle-top" alt="pencil"></span></button>
-                            <button class = "btn btn-info btn-lg" onclick="window.triangle()"><span class="fa fa-comments" alt="pencil"></span></button>
+                            <button class = "btn btn-info btn-lg" onclick="window.addBubble()"><span class="fa fa-comments" alt="pencil"></span></button>
 
 
-                            <button id="image"  class="btn btn-info btn-lg">
+                            <button id="image"  class="btn btn-info btn-lg" >
                                 <!--                                    <label for="img-inp"  class="custom-file-upload">-->
                                 <!--                                        <i class="fas fa-file-image fa-1g"></i>-->
                                 <!--                                    </label>-->
-                                <span  class= "fas fa-file-image fa-lg" ><input id="img-inp" type="file" /></span>
+                                <label for="img-inp"  class= "fas fa-file-image fa-lg" >
+
+                                    <input id="img-inp" type="file" />
+
+                                </label>
+
 
                             </button>
 
@@ -241,11 +246,11 @@
             <div>
                 <label for="newSeriesOrNot">Make a new Series: </label>
                 <div id="newSeriesOrNot">
-                    <input type="radio" name="isNewSeries" value="Yes"> Yes<br>
-                    <input type="radio" name="isNewSeries" value="No" checked> No<br>
+                    <input type="radio" name="isNewSeries" value="Yes" onclick="displayNewSeriesInput()"> Yes<br>
+                    <input type="radio" name="isNewSeries" value="No" onclick="hideNewSeriesInput()" checked> No<br>
                 </div>
             </div>
-            <div hidden>
+            <div hidden id="newSeriesTextBox">
                 <label for="newSeriesTitle" >New Series Title: </label>
                 <input type="text" id="newSeriesTitle"  />
             </div>
