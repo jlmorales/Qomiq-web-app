@@ -4,8 +4,16 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
     <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/explore.css">
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -58,20 +66,73 @@
 
 <!--<img id="home-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series58comic59.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"/>-->
 
-<section id="projects" >
+<section  >
     <h1>Featured</h1>
-    <div class="row" >
-        <div id="proj-disp" class ="col-xs-3" th:each="series : ${series}">
 
-            <div class ="card">
-                <h1 th:text="${series.title}"></h1>
-                <a th:href="@{${'/series/' + series.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + series.id + '.png'}}" id="hxh"    onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"></a>
+
+<!--    -->
+
+<!--    <div class="row" >-->
+<!--        <div id="proj-disp" class ="col-xs-3" th:each="series : ${series}">-->
+
+<!--            <div class ="card">-->
+<!--                <h1 th:text="${series.title}"></h1>-->
+<!--                <a th:href="@{${'/series/' + series.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + series.id + '.png'}}" id="hxh"    onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"></a>-->
+
+<!--            </div>-->
+
+<!--        </div>-->
+
+<!--    </div>-->
+
+
+
+
+    <div class="row" id="row-display">
+
+
+        <!-- Start of Card Groups Layout -->
+        <div id="display"  class="col-md-3" th:each="series : ${series}">
+            <div  class="card">
+                <div class="card-header text-center">
+                    <h4 class= "card-title" th:text="${series.title}"></h4>
+
+                </div>
+
+
+<!--                <img id="ser-img" class="card-img-top" src="https://www.theterminatorfans.com/wp-content/uploads/2019/05/Gabriel-Luna-Ghost-Rider-Terminator-1024x512.jpg" alt="Flex Card Image 1"><a th:href="@{${'/series/' + series.id}}">-->
+
+<!--                <img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + series.id + '.png'}}" id="hxh"    onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"></a>-->
+
+
+
+                <div class="text-center">
+
+
+
+<!--                    <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + s.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />-->
+
+                    <a th:href="@{${'/series/' + series.id}}"><img  id="ser-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/seriesCover' + series.id + '.png'}}"     onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';"></a>
+
+
+
+                </div>
+
+
+
 
             </div>
-
         </div>
 
-    </div>
+
+
+
+
+
+
+
+
+
 
 </section>
 
@@ -85,6 +146,20 @@
   <div class="col-xs-4 col-md-3"><img src="c.jpg" id="hxh"></div>
 </div>
  -->
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
 
 
 

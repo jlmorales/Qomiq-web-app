@@ -1,8 +1,15 @@
 var canvas = new fabric.Canvas('myCanvas');
+
+//var json_url  = "https://s3.us-east-2.amazonaws.com/comic-bucket/series" + seriesId1 + "comic" + comicId1 + "page"+ pageId1 + ".json";
+//var jsongetter=
+
 $.getJSON("https://s3.us-east-2.amazonaws.com/comic-bucket/series" + seriesId1 + "comic" + comicId1 + "page"+ pageId1 + ".json", function(data) {
     canvas.loadFromJSON(data, window.setTimeout(canvas.renderAll(), 1000));
 });
+//
+//
 
+//canvas.loadFromJSON();
 
 //for the initial canvas setup
 var redoOn = false;
@@ -568,13 +575,12 @@ function publish() {
     var file = new Blob([holder], {type: "application/json"});
     var myForm = new FormData();
     var pngholder=null;
-    var comicId= $("#comicId").val();
-    var pageId = $("#pageId").val();
+
     var data = canvas.toDataURL()
     myForm.append("file", file);
     myForm.append("pngFile",data);
-    myForm.append("comicId", comicId);
-    myForm.append("pageId", pageId);
+    myForm.append("comicId", comicId1);
+    myForm.append("pageId", pageId1);
     $.ajax({
         url : '/uploadOldPage',
         data : myForm,
@@ -806,6 +812,21 @@ function update_layers() {
     }
 
 }
+
+
+
+
+
+
+//
+// $.getJSON(json_url, function(data) {
+//
+//     canvas.loadFromJSON(data);
+//     canvas.renderAll();
+//
+//
+// });
+//
 
 
 
