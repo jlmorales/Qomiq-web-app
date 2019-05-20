@@ -24,5 +24,5 @@ public class Vote {
     private int pageId;
 
     @Column(name = "voterUsername")
-    private int voterUsername;
+    private String voterUsername;
 }
