@@ -64,6 +64,9 @@
 <!--    <div class="col-md-4"></div>-->
     <div class="col-md-8 text-center">
       <div class="input-group">
+
+          <a th:href="@{/explore/searchBy(sortBy=Views )}"><button class="btn btn-info">Sort By Views</button></a>
+
         <div class="input-group-btn search-panel">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <span id="search_concept">Category</span></span>
@@ -80,6 +83,7 @@
             <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>
           </ul>
         </div>
+          <a th:href="@{/explore/searchBy(sortBy=Date )}"><button class="btn btn-info">Sort By Date</button></a>
       </div>
     </div>
   </div>
