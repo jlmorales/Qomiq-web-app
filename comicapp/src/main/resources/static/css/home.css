@@ -136,3 +136,15 @@ body,html{
 
 
 
+#buttonPad{
+    margin-left:-25%;
+    margin-top:2%;
+}
+
+#myCanvas {
+    margin-top:2%;
+}
+
+#buttonPad2{
+    margin-top:2%;
+}
