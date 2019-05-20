@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="rena">
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameSubmissions.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameSubmissions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/comicapp/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1275">
-              <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="300">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -33,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/explore.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+            <state relative-caret-position="844">
+              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -42,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="113" column="22" lean-forward="true" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
+            <state relative-caret-position="1695">
+              <caret line="113" column="22" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -51,11 +52,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/gameSubmissions.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="111" selection-start-line="110" selection-end-line="111" />
+            <state relative-caret-position="575">
+              <caret line="127" column="71" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,7 +148,6 @@
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/profileSettings.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/gamerounds.html" />
-        <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameeditor.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/about.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Comic.java" />
@@ -169,6 +181,7 @@
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameSubmissions.html" />
+        <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" />
       </list>
     </option>
   </component>
@@ -186,7 +199,7 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-15" />
     <option name="y" value="-15" />
     <option name="width" value="1949" />
@@ -469,6 +482,7 @@
       <workItem from="1558304391431" duration="3905000" />
       <workItem from="1558314553824" duration="1173000" />
       <workItem from="1558320792364" duration="4702000" />
+      <workItem from="1558332320597" duration="1620000" />
     </task>
     <task id="LOCAL-00001" summary="added java class on model to create more table">
       <created>1555201355021</created>
@@ -487,13 +501,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15493000" />
+    <option name="totallyTimeSpent" value="17219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8039216" visible="true" weight="0.2739347" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8039216" visible="true" weight="0.08190371" />
       <window_info id="Structure" order="1" sideWeight="0.19607843" side_tool="true" weight="0.19271255" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -503,7 +517,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4993573" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49357328" visible="true" weight="0.13714902" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49357328" visible="true" weight="0.11231101" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -652,17 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="32" column="112" lean-forward="true" selection-start-line="32" selection-start-column="112" selection-end-line="32" selection-end-column="112" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="28" column="122" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
           <folding>
             <element signature="n#style#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1011,17 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1275">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1035,27 +1027,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/explore.css">
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+        <state relative-caret-position="300">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="113" column="22" lean-forward="true" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
+        <state relative-caret-position="1695">
+          <caret line="113" column="22" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/explore.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/gameSubmissions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="111" selection-start-line="110" selection-end-line="111" />
+        <state relative-caret-position="575">
+          <caret line="127" column="71" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Explore</title>
+    <title>Game Menu</title>
+
+
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+
 
     <link rel="stylesheet" type="text/css" href="/css/explore.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,44 +59,97 @@
 </nav>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-4"> Explore Comics</div>
-        <div class="col-xs-6">
-            <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <span id="search_concept">Category</span> <span class="caret"></span>
-                    </button>
 
-                    <ul class="dropdown-menu" role="menu">
-                        <!--<li><a href="/explore/Action">Action</a></li>-->
-                        <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>
-                        <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>
-                        <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>
-                        <li class="divider"></li>
-                        <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>
-                    </ul>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">
-                <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
+<h1>Game Menu</h1>
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-xs-4"> Explore Comics</div>-->
+<!--        <div class="col-xs-6">-->
+<!--            <div class="input-group">-->
+<!--                <div class="input-group-btn search-panel">-->
+<!--                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
+<!--                        <span id="search_concept">Category</span> <span class="caret"></span>-->
+<!--                    </button>-->
+
+<!--                    <ul class="dropdown-menu" role="menu">-->
+<!--                        &lt;!&ndash;<li><a href="/explore/Action">Action</a></li>&ndash;&gt;-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category= 'Science Fiction' )}">Science Fiction</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Anime )}">Anime</a></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=Adventure )}">Adventure</a></li>-->
+<!--                        <li class="divider"></li>-->
+<!--                        <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <input type="hidden" name="search_param" value="all" id="search_param">-->
+<!--                <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author">-->
+<!--                <span class="input-group-btn">-->
+<!--                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
+<!--                </span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
 
 
 <section>
-    <div th:if = "${game.finished == true}">
-        <div th:text = "${game.gameName}"></div>
+
+
+    <div class="row">
+
+<div class="col-md-3" >
+
+    <div  class="card" th:if = "${game.finished == true}" >
+        <div class="card-header text-center"> <h4 class="card-title">Game Winner</h4></div>
+
+        <div class="text-center">
         <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/gameWinner' + game.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />
+
+
+        </div>
+
+        <div class="card-body">
+
+            <p class="card-text">
+
+            </p>
+        </div>
+
+
+
+
     </div>
+
+</div>
+
+        <div class="col-md-9"></div>
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+<section>
+
+<!--    <div th:if = "${game.finished == true}">-->
+<!--        <div th:text = "${game.gameName}"></div>-->
+<!--        <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/gameWinner' + game.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />-->
+<!--    </div>-->
+
+    <h1>All the Submissions</h1>
+
+
     <div class="row" id="row-display">
         <!-- Start of Card Groups Layout -->
         <div id="display"  class="col-md-3" th:each="page,iter : ${gamePages}">
@@ -105,7 +173,10 @@
                             <img id="ser-img" class="img-thumbnail" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/gamePage' + page.id + '.png'}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';" />
                         </div>
                     </a>
-                    <a th:href="@{'/gameSubmissions/' + ${page.id}}">Game Submissions</a>
+
+                    <div class="card-footer text-center">
+                        <h5><a th:href="@{'/gameSubmissions/' + ${page.id}}">Game Submissions</a></h5>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,6 +215,40 @@
     </div>
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
