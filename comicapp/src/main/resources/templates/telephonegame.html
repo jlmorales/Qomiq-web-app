@@ -2,12 +2,18 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-	<link rel="stylesheet" type="text/css" href="/css/profile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
+    <link rel="stylesheet" type="text/css" href="/css/explore.css">
 
 
 
@@ -65,11 +71,11 @@
         <form th:object ="${gameForm}" th:action = "@{/game/new}" method = "POST">
             <div class="form-group">
                 <label for="gameName">Game Name</label>
-                <input name = "gameName" type="GameName" th:field="*{gameName}" class="form-control" id="gameName" placeholder="Game Name">
+                <input name = "gameName" type="GameName" th:field="*{gameName}" class="form-control" id="gameName" placeholder="Game Name" style="height: 1.5%;">
             </div>
             <div class="form-group">
                 <label for="comicName">Comics</label>
-                <select name = "comicName" th:field = "*{comicName}" class="form-control" id="comicName">
+                <select name = "comicName" th:field = "*{comicName}" class="form-control" id="comicName" style="height: 1.5%;">
                     <option  th:each = "comic : ${comics}" th:value = "${comic.id}" th:text = "${comic.comicTitle}" ></option>
                 </select>
             </div>
@@ -80,49 +86,226 @@
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<section>-->
+<!--    -->
+<!--    -->
+<!--  <div id ="displaylist">-->
+
+<!--    <h1>Current Games</h1>-->
+
+
+
+
+<!--    <div class="row" id="display-row">-->
+<!--    <div th:each="game,iter : ${games}">-->
+<!--        <div th:if="${game.finished} == false"class="col-xs-3">-->
+<!--            <figure>-->
+<!--                <figtitle th:text="${game.gameName}"></figtitle>-->
+<!--                <img th:src="${'https://s3.us-east-2.amazonaws.com/comic-bucket/comicCover' + game.comicId + '.png'}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:100%">-->
+
+
+<!--                <figcaption>-->
+<!--                    <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>-->
+<!--                </figcaption>-->
+<!--            </figure>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--    -->
+<!--    -->
+<!--    -->
+<!--    -->
+<!--    -->
+
+<!--</section>-->
+
 <section>
-  <div id ="displaylist">
 
     <h1>Current Games</h1>
 
-    <div class="row" id="display-row">
-    <div th:each="game,iter : ${games}">
-        <div th:if="${game.finished} == false"class="col-xs-3">
-            <figure>
-                <figtitle th:text="${game.gameName}"></figtitle>
-                <img th:src="${'https://s3.us-east-2.amazonaws.com/comic-bucket/comicCover' + game.comicId + '.png'}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:100%">
-                <figcaption>
-                    <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>
-                </figcaption>
-            </figure>
-        </div>
-    </div>
+<div class="row"  id= "row-display" >
 
-    </div>
-  </div>
+
+    <!-- Start of Card Groups Layout -->
+
+
+        <div id="display"  class="col-md-3"   th:each="game,iter : ${games}">
+            <div  class="card" th:if="${game.finished} == false">
+                <div class="card-header text-center"> <h4 class="card-title" th:text="${game.gameName}"></h4></div>
+
+
+
+<!--                <img id="ser-img" class="card-img-top" src="https://www.theterminatorfans.com/wp-content/uploads/2019/05/Gabriel-Luna-Ghost-Rider-Terminator-1024x512.jpg" alt="Flex Card Image 1">-->
+
+
+                <div class="text-center">
+
+                    <img th:src="${'https://s3.us-east-2.amazonaws.com/comic-bucket/comicCover' + game.comicId + '.png'}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" >
+
+
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <p class="card-text">
+
+                        <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+</div>
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<section>-->
+<!--  <h1>Past Games</h1>-->
+<!--    <div th:each="game,iter : ${games}">-->
+<!--        <div th:if="${game.finished} == true"class="col-xs-3">-->
+<!--            <figure>-->
+<!--                <figtitle th:text="${game.gameName}"></figtitle>-->
+<!--                <img th:src="${'https://s3.us-east-2.amazonaws.com/comic-bucket/gameWinner' + game.id + '.png'}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:100%">-->
+<!--                <figcaption>-->
+<!--                    <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>-->
+<!--                </figcaption>-->
+<!--            </figure>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 
 
 
 <section>
-  <h1>Past Games</h1>
-    <div th:each="game,iter : ${games}">
-        <div th:if="${game.finished} == true"class="col-xs-3">
-            <figure>
-                <figtitle th:text="${game.gameName}"></figtitle>
-                <img th:src="${'https://s3.us-east-2.amazonaws.com/comic-bucket/gameWinner' + game.id + '.png'}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:100%">
-                <figcaption>
-                    <a th:href="@{'/game/' + ${game.id}}"><button>VIEW</button></a>
-                </figcaption>
-            </figure>
+    <h1>Past Games</h1>
+<div class="row">
+
+
+
+
+    <!-- Start of Card Groups Layout -->
+    <div id="display"  class="col-md-3"  th:each="game,iter : ${games}">
+        <div  class="card" th:if="${game.finished} == true">
+            <div class="card-header text-center"> <h4 class="card-title" th:text="${game.gameName}"></h4></div>
+
+
+            <div class="text-center">
+
+                <img id="ser-img" th:src="${'https://s3.us-east-2.amazonaws.com/comic-bucket/gameWinner' + game.id + '.png'}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" >
+
+
+            </div>
+
+
+<!--            <img id="ser-img" class="card-img-top" src="https://www.theterminatorfans.com/wp-content/uploads/2019/05/Gabriel-Luna-Ghost-Rider-Terminator-1024x512.jpg" alt="Flex Card Image 1">-->
+            <div class="card-body">
+
+                <p class="card-text text-center">
+
+                    <a th:href="@{'/game/' + ${game.id}}"><button class="btn btn-success btn-lg">VIEW</button></a>
+
+                </p>
+            </div>
+
         </div>
     </div>
+
+
+
+
+
+
+</div>
+
 </section>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+
+
+</footer>
 
 
 
