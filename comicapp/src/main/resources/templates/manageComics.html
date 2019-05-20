@@ -35,7 +35,7 @@
         </li>
         <li th:switch="${currentUser}">
             <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:50px; height:40px"></a>
+            <a th:case="*" href="/account"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:50px; height:40px"></a>
         </li>
         <li th:if="${currentUser} != null">
             <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span></a>
@@ -114,79 +114,6 @@
         <h2 th:text = ${series.title}></h2>
         <h1>Manage Comics</h1>
 
-
-
-<!--        <div class="row" id="display-row">-->
-<!--            <div th:each="comic : ${comics}" class="col-xs-3" >-->
-<!--                <figure>-->
-<!--                    <figtitle th:text="${comic.comicTitle}"></figtitle>-->
-<!--                    <a th:href="@{'/comic/' + ${comic.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/comicCover' + comic.id + '.png'}}" alt="Trulli" style="width:100%"></a>-->
-<!--                    <figcaption>-->
-
-
-<!--                        <div>Category: </div><div th:text="${series.category}"></div>-->
-
-<!--                        <form th:object="${comic}" th:action = "@{/account/series/comic/delete}" method="POST">-->
-<!--                            <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">-->
-<!--                            <input type="submit" value="Delete">-->
-<!--                        </form>-->
-<!--                        <div th:if ="${comic.publicComic} == true" >-->
-<!--                            <form th:object="${comic}" th:action = "@{/account/series/makeprivate}" method="POST">-->
-<!--                                <input type="hidden" th:value = "*{id}" id = "id" name = "id">-->
-<!--                                &lt;!&ndash;<input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>&ndash;&gt;-->
-<!--                                <input type="submit" value="Make Private" >-->
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                        <div th:if ="${comic.publicComic} == false" >-->
-<!--                            <form th:object="${comic}" th:action = "@{/account/series/makepublic}" method="POST">-->
-<!--                                <input type="hidden" th:value = "*{id}" id = "id" name = "id">-->
-<!--                                &lt;!&ndash;<input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>&ndash;&gt;-->
-<!--                                <input type="submit" value="Make Public" >-->
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                        <div th:if="${comic.commentsEnabled} == true" >-->
-<!--                            <form th:object="${comic}" th:action = "@{/comic/disable/}" method="POST">-->
-<!--                                <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">-->
-<!--                                <input type="submit" value=" Disable Comments">-->
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                        <div th:if="${comic.commentsEnabled} == false">-->
-<!--                            <form th:object="${comic}" th:action = "@{/comic/disable/}" method="POST">-->
-<!--                                <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">-->
-<!--                                <input type="submit" value=" Enable Comments">-->
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                        <div>-->
-<!--                            <form th:object="${comic}" th:action = "@{/account/comic/pages/}" method="POST">-->
-<!--                                <input type="hidden" th:value = "${comic.id}" id = "id" name = "id">-->
-<!--                                <input type="hidden" th:value = "${comic.seriesId}" id = "seriesId" name = "seriesId">-->
-<!--                                <input type="hidden" th:value = "${comic.comicTitle}" id = "comicTitle" name = "comicTitle">-->
-<!--                                <input type="submit" value=" Manage Pages">-->
-<!--                            </form>-->
-<!--                        </div>-->
-
-
-
-
-<!--                    </figcaption>-->
-<!--                </figure>-->
-<!--            </div>-->
-<!--        </div>-->
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--new ocde-->
-
-
         <div class="row"   id = "row-display" >
 
 
@@ -222,7 +149,7 @@
 
                         <p class="card-text">
 
-                        <div>Category: </div><div th:text="${series.category}"></div>
+                        <div th:text="${'Category: ' + series.category}"></div>
 
 
 
@@ -275,15 +202,6 @@
 
                     </div>
 
-
-
-                    <div class="card-footer">
-
-
-                        <small class="text-muted">Here is a footer</small>
-
-
-                    </div>
 
 
 

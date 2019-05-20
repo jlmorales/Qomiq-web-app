@@ -33,14 +33,6 @@
         </li>
     </ul>
 
-    <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->
-    <!--<li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-    <!--<li th:switch="${currentUser}">-->
-    <!--<a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>-->
-    <!--<a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>-->
-    <!--</li>-->
-    <!--</ul>-->
-
 </nav>
 
 <h1 class="display-4"><span th:utext="${user.username}"></span></h1>
@@ -76,7 +68,7 @@
                </a>
                <form th:object="${series}" th:action = "@{/series/delete/}" method="POST">
                    <input type="hidden" th:value = "${series.id}" id = "id" name = "id">
-                   <button id="subs-btn"><span class="glyphicon glyphicon-trash"><input type="submit" value=" Delete"></span></button>
+                   <input type="submit" value=" Delete">
                </form>
           </figcaption>
         </figure>
@@ -115,7 +107,7 @@
       <div th:each="subscriptions : ${subscriptions}" class="col-xs-3">
        <figure>
           <figtitle th:text="${subscriptions.username}"></figtitle>
-          <img th:src="@{${'https://s3.us-east-2.amazonaws.com/qomiq-profile-images/profile' + subscriptions.id + '.png'}}" alt="Trulli" style="width:100%">
+           <br>
            <a th:if="${subscriptions} == null" th:href="@{${'/account/subscribe/' + subsriptions.username}}"><button id="cover-btn"><div><span class="glyphicon glyphicon-plus"></span> Subscribe</div></button></a>
            <a th:if="${subscriptions} != null" th:href="@{${'/account/unsubscribe/' + subscriptions.username}}"><button id="cover-btn"><div><span class="glyphicon glyphicon-minus"></span> Unsubscribe</div></button></a>
 

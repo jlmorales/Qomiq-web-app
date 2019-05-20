@@ -67,13 +67,14 @@ public class FileController {
                              @RequestParam("seriesName") String seriesName,
                              @RequestParam("comicName") String comicName,
                              @RequestParam("makePublic") boolean makePublic,
-                             @RequestParam("enableComments") boolean enableComments)
+                             @RequestParam("enableComments") boolean enableComments,
+                             @RequestParam("category") String category)
                              {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         Series series = new Series();
         series.setAuthorUsername(user.getUsername());
-        series.setCategory("Action");
+        series.setCategory(category);
         Date date = new Date();
         series.setCreationDate(date);
         series.setLastModDate(date);
