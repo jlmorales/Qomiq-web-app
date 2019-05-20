@@ -21,4 +21,6 @@ public class GameService {
 
     public List<Game> findAllGamesByUserId(int id){return this.gameRepository.findAllByUserId(id);}
 
+    public List<Game> findAllGames(){return this.gameRepository.findAll();}
+
 }

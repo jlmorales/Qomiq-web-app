@@ -26,4 +26,16 @@ public class Game {
     @Column(name = "user_id")
     private int userId;
 
+    @Column(name = "current_page")
+    private int currentPage;
+
+    @Column(name = "game_finished")
+    private boolean finished;
+
+    @Column(name = "winner")
+    private int winner;
+
+    @Column(name= "comicId")
+    private int comicId;
+
 }

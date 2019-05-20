@@ -17,11 +17,14 @@ import javax.persistence.*;
 public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "voteId")
+    @Column(name = "VoteId")
     private int voteId;
 
-    @Column(name = "pageId")
-    private int pageId;
+    @Column(name= "gamePageId")
+    private int gamePageId;
+
+    @Column(name = "submissionId")
+    private int submissionId;
 
     @Column(name = "voterUsername")
     private String voterUsername;

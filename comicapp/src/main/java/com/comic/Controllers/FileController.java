@@ -57,6 +57,9 @@ public class FileController {
     @Autowired
     PagesService pagesService;
 
+    @Autowired
+    VoteService voteService;
+
     @RequestMapping(method = RequestMethod.POST, value = "/upload")
     @ResponseBody
     public String uploadFile(@RequestParam("file") MultipartFile file ,
@@ -113,7 +116,10 @@ public class FileController {
             s3Services.uploadFile(keyName,realFile);
         }
         keyName = "comicCover" + comic.getId() + ".png";
+
         s3Services.uploadFile(keyName,realFile);
+        keyName = "comicCover" + comic.getId() + ".json";
+        s3Services.uploadFile(keyName,file);
         return "Upload Successfully -> KeyName = " + keyName;
     }
 
@@ -174,20 +180,21 @@ public class FileController {
                              @RequestParam("gameTitle") String gameTitle,
                              @RequestParam("gamePageId") int gamePageId)
     {
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         GamePage gamePage = gamePageService.findGamePageById(gamePageId);
         Game game = gameService.findGameById(gamePage.getGameId());
-        GamePlayer gamePlayer = gamePlayerService.findGamePlayerByUserId(user.getId());
-        Submission submission = new Submission();
+        GamePlayer gamePlayer = gamePlayerService.findGamePlayerByUserIdAndGameId(user.getId(),game.getId());
+        Submission submission = submissionService.findSubmissionByGamePageIdAndPlayerId(gamePage.getId(),gamePlayer.getId());
+        if(submission == null){
+            submission = new Submission();
+        }
         submission.setPlayerId(gamePlayer.getId());
         submission.setGamePageId(gamePage.getId());
         submission.setVotes(0);
+        submission.setTitle(gameTitle);
         submission = submissionService.saveSubmission(submission);
-//        String keyName1 = "gamePage"+gamePage.getId()+".json";
-//        String keyName2 = "gamePage"+gamePage.getId()+".png";
-//        S3Object output1 = s3Services.downloadFile(keyName1);
-//        S3Object output2 = s3Services.downloadFile(keyName2);
         String keyName1 = "submission"+submission.getId()+".json";
         String keyName2 = "submission"+submission.getId()+".png";
         s3Services.uploadFile(keyName1,file);

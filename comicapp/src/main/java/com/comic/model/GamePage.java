@@ -26,8 +26,16 @@ public class GamePage {
     @Column(name = "page_number")
     private int pageNumber;
 
-    @Column(name = "page_key")
-    private String pageKey;
+    @Column(name = "page_winner")
+    private int pageWinner;
 
+    @Column(name = "page_winner_votes")
+    private int pageWinnerVotes;
+
+    @Column(name = "page_finished")
+    private boolean finished;
+
+    @Column(name = "page_title")
+    private String title;
 
 }

@@ -22,27 +22,26 @@
 
 
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-      <a class="navbar-brand" href="#" style="color:#9b9e19;">Qomiq</a>
+    <div class="navbar-brand" style="color:#9b9e19;">Qomiq</div>
     <ul class="nav navbar-nav">
-      <li class="nav-item"><a href="/home">Home</a></li>
-      <li class="nav-item"><a href="/create">Create</a></li>
-      <li class="nav-item active"><a href="/explore">Explore</a></li>
-      <li class="nav-item"><a href="/about">About</a></li>
+        <li class="nav-item"><a href="/home">Home</a></li>
+        <li class="nav-item"><a href="/create">Create</a></li>
+        <li class="nav-item active"><a href="/explore">Explore</a></li>
+        <li class="nav-item"><a href="/about">About</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right ml-auto">
-      <li th:switch="${currentUser}">
-        <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-        <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
-      </li>
-      <li th:switch="${currentUser}">
-        <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-        <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>
-      </li>
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <a th:case="*" href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a>
+        </li>
+        <li th:switch="${currentUser}">
+            <a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+            <a th:case="*" href="/account"><img th:src="@{${' https://s3.us-east-2.amazonaws.com/comic-bucket/profileImage' + currentUser.id + '.png'}}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:50px; height:40px"></a>
+        </li>
         <li th:if="${currentUser} != null">
-            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span>(1)</a>
+            <a href="/play"><span class="glyphicon glyphicon-phone-alt"></span></a>
         </li>
     </ul>
 
@@ -55,6 +54,7 @@
     <!--</ul>-->
 
 </nav>
+
 
 <h1>Explore</h1>
 
@@ -170,7 +170,7 @@
                       <form th:object="${s}" th:action = "@{/explore/unsubscribe}" method="POST">
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="unsub" class="btn btn-info">
+                          <input type="submit" value="Unsubscribe" class="btn btn-info">
                       </form>
                   </span>
                   <span th:if = "${isSubscribed[iter.index] == false}">
@@ -180,7 +180,7 @@
                       <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="sub" class="btn btn-info">
+                          <input type="submit" value="Subscribe" class="btn btn-info">
                       </form>
                     </span>
 
@@ -189,7 +189,7 @@
                       <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST" disabled>
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id" disabled>
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername disabled>
-                          <input type="submit" value="sub" class="btn btn-info" disabled>
+                          <input type="submit" value="Subscribe" class="btn btn-info" disabled>
                       </form>
                     </span>
 
