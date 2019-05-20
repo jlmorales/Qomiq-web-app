@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dba3740d-6029-41ad-a0fa-b02bd9941276" name="Default Changelist" comment="rena">
-      <change afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/VoteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/VoteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameSubmissions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/TelephoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Controllers/TelephoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/GamePlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/GamePlayerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/GameRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/SubmissionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/SubmissionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/GamePlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/GamePlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/SubmissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/SubmissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Submission.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Submission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Vote.java" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/java/com/comic/model/Vote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/contentview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editEditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/editor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameMenu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gameeditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gamerounds.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/gamerounds.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/manageComics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/newPageEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/newPageEditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profileSettings.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profileSettings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/profilepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/series.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/series.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html" beforeDir="false" afterPath="$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/comicapp/target/" />
@@ -70,13 +38,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="98" />
+            <state relative-caret-position="98">
+              <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="83" column="10" lean-forward="true" selection-start-line="82" selection-start-column="15" selection-end-line="83" selection-end-column="10" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -155,7 +138,6 @@
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Repository/DislikeRepository.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/DislikeService.java" />
         <option value="$PROJECT_DIR$/comicapp/src/main/java/com/comic/Service/LikeService.java" />
-        <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/profileSettings.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/otherprofile.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/gamerounds.html" />
@@ -191,6 +173,7 @@
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/static/css/home.css" />
         <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html" />
+        <option value="$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html" />
       </list>
     </option>
   </component>
@@ -509,7 +492,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12534000" />
+    <option name="totallyTimeSpent" value="14606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -662,17 +645,6 @@
           <folding>
             <element signature="e#684#685#0" expanded="true" />
             <element signature="e#710#711#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="37" column="101" lean-forward="true" selection-start-line="37" selection-start-column="101" selection-end-line="37" selection-end-column="101" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1051,11 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/explore.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1170" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/explore.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1275">
@@ -1069,10 +1036,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/managePages.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="98" />
+        <state relative-caret-position="98">
+          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/static/css/explore.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1170" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comicapp/src/main/resources/templates/telephonegame.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="83" column="10" lean-forward="true" selection-start-line="82" selection-start-column="15" selection-end-line="83" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#1;n#li#1;n#ul#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
