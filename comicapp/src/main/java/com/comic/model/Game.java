@@ -35,4 +35,7 @@ public class Game {
     @Column(name = "winner")
     private int winner;
 
+    @Column(name= "comicId")
+    private int comicId;
+
 }

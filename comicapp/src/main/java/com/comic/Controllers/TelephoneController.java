@@ -99,6 +99,7 @@ public class TelephoneController {
         Game game = new Game();
         game.setGameName(gameForm.getGameName());
         game.setUserId(user.getId());
+        game.setComicId(comic.getId());
         game = gameService.saveGame(game);
         List<Subscription> subscriptions = subscriptionService.findBySubscribeeUsername(user.getUsername());
         for(Subscription s : subscriptions){
