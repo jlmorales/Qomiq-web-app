@@ -103,10 +103,16 @@ function addText() {
 
 
 function eraser() {
-
+if (!canvas.isDrawingMode) canvas.isDrawingMode = true;
+else { canvas.isDrawingMode = false; }
+if (canvas.isDrawingMode) {
+    canvas.freeDrawingBrush.width = brushSize();
+        canvas.freeDrawingBrush.color = "white";
+}
 }
 
 function bucket() {
+  if (canvas.isDrawingMode) canvas.isDrawingMode = false;
   var bucket = document.getElementById("col-pk").value;
   console.log(bucket == null);
   var selection = canvas.getActiveObject();
@@ -117,7 +123,7 @@ function bucket() {
       console.log("slection color has been changed to " + bucket);
   }
 canvas.renderAll();
-  update_layers();
+
 
 
 }
@@ -129,16 +135,16 @@ function select() {
 }
 
 function circle() {
+    if (canvas.isDrawingMode) canvas.isDrawingMode = false;
     var circle = new fabric.Circle({
         radius: 20, fill: color, left: 100, top: 100
     });
     canvas.add(circle);
     canvas.renderAll();
-    update_layers();
-
 }
 
 function rectangle() {
+    if (canvas.isDrawingMode) canvas.isDrawingMode = false;
     var rect = new fabric.Rect({
         width: 10, height: 20,
         left: 100, top: 100,
@@ -151,6 +157,7 @@ function rectangle() {
 }
 
 function triangle() {
+    if (canvas.isDrawingMode) canvas.isDrawingMode = false;
     var triangle = new fabric.Triangle({
         width: 20, height: 30, fill: color, left: 50, top: 50
     });
@@ -353,7 +360,6 @@ function text() {
     var text = new fabric.Text('Type here...', {fontFamily: 'times new roman', left: 100, top:1000});
     canvas.add(text);
     canvas.renderAll();
-    update_layers();
 }
 
 
@@ -368,7 +374,7 @@ function brushSize(){
 
 
 function boldToggle(){
-
+    if (canvas.isDrawingMode) canvas.isDrawingMode = false;
     var selected = canvas.getActiveObject();
     console.log(selected);
     if(selected.get('type')==='text' && selected.get('fontWeight')!== 'bold'){
@@ -381,7 +387,7 @@ function boldToggle(){
 
 
 function italicToggle(){
-
+    if (canvas.isDrawingMode) canvas.isDrawingMode = false;
     var selected = canvas.getActiveObject();
     console.log(selected);
     if(selected.get('type')==='text' && selected.get('fontStyle')!== 'italic'){
@@ -392,44 +398,5 @@ function italicToggle(){
 
     canvas.renderAll();
 
-
-}
-
-
-
-
-function update_layers() {
-
-    obj = canvas.getObjects();
-
-    for( var i=0; i<obj.length; i++){
-        var layer = "<li>" + obj[i]+"</li>";
-        document.getElementById("layers").append(layer);
-    }
-
-}
-
-
-
-
-
-
-
-
-function loadWorkspace(){
-
-}
-
-
-function initWorkspace(){
-
-}
-
-
-function registerHandler(){
-
-}
-
-function updateWorkspace(){
 
 }

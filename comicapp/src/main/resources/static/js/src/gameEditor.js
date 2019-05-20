@@ -150,7 +150,12 @@ function addText() {
 
 
 function eraser() {
-
+if (!canvas.isDrawingMode) canvas.isDrawingMode = true;
+else { canvas.isDrawingMode = false; }
+if (canvas.isDrawingMode) {
+    canvas.freeDrawingBrush.width = brushSize();
+        canvas.freeDrawingBrush.color = "white";
+}
 }
 
 function bucket() {
