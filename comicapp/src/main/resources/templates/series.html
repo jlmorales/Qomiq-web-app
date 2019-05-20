@@ -39,13 +39,6 @@
         </li>
     </ul>
 
-    <!--<ul sec:authorize= "isAnonymous()" class="nav navbar-nav navbar-right">-->
-    <!--<li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-    <!--<li th:switch="${currentUser}">-->
-    <!--<a th:case="null" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>-->
-    <!--<a th:case="*" href="/account"><img th:src="@{${'https://s3.amazonaws.com/seriescovers/' + currentUser.id + '.png'}}" alt="Trulli" style="width:50px; height:40px"></a>-->
-    <!--</li>-->
-    <!--</ul>-->
 
 </nav>
 
@@ -78,7 +71,7 @@
 
 
             <div class="text-center">
-                <img id="ser-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + series.id +'comic' +c.id +'.png'}}" />
+                <img id="ser-img" th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/comicCover' + c.id + '.png'}}" />
             </div>
 
             <div class="card-body">
