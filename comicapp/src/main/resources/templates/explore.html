@@ -169,7 +169,7 @@
                       <form th:object="${s}" th:action = "@{/explore/unsubscribe}" method="POST">
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="unsub" class="btn btn-info">
+                          <input type="submit" value="Unsubscribe" class="btn btn-info">
                       </form>
                   </span>
                   <span th:if = "${isSubscribed[iter.index] == false}">
@@ -179,7 +179,7 @@
                       <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST">
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id">
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername>
-                          <input type="submit" value="sub" class="btn btn-info">
+                          <input type="submit" value="Subscribe" class="btn btn-info">
                       </form>
                     </span>
 
@@ -188,7 +188,7 @@
                       <form th:object="${s}" th:action = "@{/explore/subscribe}" method="POST" disabled>
                           <input type="hidden" th:value = "*{id}" id = "id" name = "id" disabled>
                           <input type="hidden" th:value = "*{authorUsername}" id = "authorUsername" name = authorUsername disabled>
-                          <input type="submit" value="sub" class="btn btn-info" disabled>
+                          <input type="submit" value="Subscribe" class="btn btn-info" disabled>
                       </form>
                     </span>
 

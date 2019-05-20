@@ -99,7 +99,7 @@
             <div th:each="latestComic : ${latestComics}" class="col-xs-3">
                 <figure>
                     <figtitle th:text="${latestComic.comicTitle}"></figtitle>
-                    <a th:href="@{${'/comic/' + latestComic.id}}"><img th:src="@{${'https://s3.us-east-2.amazonaws.com/comic-bucket/series' + latestComic.seriesId +'comic'+ latestComic.id+ '.png'}}" alt="Trulli" style="width:100%"></a>
+                    <a th:href="@{${'/comic/' + latestComic.id}}"><img th:src="${'https://s3.us-east-2.amazonaws.com/comic-bucket/comicCover' + latestComic.id + '.png'}" onerror="this.onerror=null;this.src='https://s3.us-east-2.amazonaws.com/comic-bucket/defaultprofileimage.png';" style="width:100%"></a>
                 </figure>
             </div>
         </div>
