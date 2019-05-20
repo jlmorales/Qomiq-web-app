@@ -52,6 +52,7 @@ public class SeriesController {
         User currentUser = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("comics", comics);
         modelAndView.addObject("series", seriesName);
+        modelAndView.addObject("currentUser", currentUser);
         modelAndView.setViewName("series");
         return modelAndView;
     }

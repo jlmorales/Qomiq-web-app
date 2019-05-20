@@ -66,11 +66,10 @@
       <div class="input-group">
         <div class="input-group-btn search-panel">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span id="search_concept">Category</span> <span class="caret"></span>
+            <span id="search_concept">Category</span></span>
           </button>
 
           <ul class="dropdown-menu" role="menu">
-            <!--<li><a href="/explore/Action">Action</a></li>-->
             <li><a th:href="@{/explore/searchBy(category=Action )}">Action</a></li>
             <li><a th:href="@{/explore/searchBy(category=Comedy )}">Comedy</a></li>
             <li><a th:href="@{/explore/searchBy(category=Political )}">Political</a></li>
@@ -81,19 +80,6 @@
             <li><a th:href="@{/explore/searchBy(category=All )}">Anything</a></li>
           </ul>
         </div>
-
-
-
-
-        <input type="hidden" name="search_param" value="all" id="search_param">
-        <input type="text" class="form-control" name="x" placeholder="Search by comic strip, series, author" >
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
-
-
-
-
-
       </div>
     </div>
   </div>

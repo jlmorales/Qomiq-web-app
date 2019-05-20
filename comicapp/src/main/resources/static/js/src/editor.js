@@ -316,6 +316,7 @@ function publish() {
     var comicName= $("#comicTitle").val();
     var makePublic = $("#makePublic").val();
     var enableComments = $("#commentsBoolean").val();
+    var category = $("#categories").val();
     var myForm = new FormData();
     var pngholder=null;
     // $("#myCanvas").get(0).toBlob(function(blob){
@@ -333,6 +334,7 @@ function publish() {
     myForm.append("comicName", comicName);
     myForm.append("makePublic", makePublic);
     myForm.append("enableComments", enableComments);
+    myForm.append("category", category)
     $.ajax({
         url : '/upload',
         data : myForm,
